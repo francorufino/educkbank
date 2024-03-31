@@ -1,0 +1,14 @@
+.myBold {
+  font-weight: 900;
+}
+
+.myContainer {
+  max-width: 1500px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.myImage {
+  object-fit: cover;
+}

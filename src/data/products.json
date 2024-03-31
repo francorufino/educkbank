@@ -1,0 +1,351 @@
+{
+  "mockData": [
+    {
+      "title": "Ceramic Travel Mug Yellow Band",
+      "description": "Ceramic mug, yellow band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 150,
+      "price": 8.99,
+      "slug": "cmyb-001",
+      "image": "/cmyb-001.png",
+      "type": "mug"
+    },
+    {
+      "title": "Ceramic Travel Mug Orange Band",
+      "description": "Ceramic mug, orange band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 120,
+      "price": 9.99,
+      "slug": "cmob-002",
+      "image": "/cmob-002.png",
+      "type": "mug"
+    },
+    {
+      "title": "Ceramic Travel Mug White Band",
+      "description": "Ceramic mug, white band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 100,
+      "price": 10.99,
+      "slug": "cmwb-003",
+      "image": "/cmwb-003.png",
+      "type": "mug"
+    },
+    {
+      "title": "Ceramic Travel Mug Black Band",
+      "description": "Ceramic mug, black band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 101,
+      "price": 12.99,
+      "slug": "cmbb-004",
+      "image": "/cmbb-004.png",
+      "type": "mug"
+    },
+    {
+      "title": "Ceramic Travel Mug Gray Band",
+      "description": "Ceramic mug, gray band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 88,
+      "price": 9.99,
+      "slug": "cmgb-005",
+      "image": "/cmgb-005.png",
+      "type": "mug"
+    },
+    {
+      "title": "Ceramic Travel Mug Lilas Band",
+      "description": "Ceramic mug, lilas band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "inStock": 10,
+      "price": 11.99,
+      "slug": "cmlb-006",
+      "image": "/cmlb-006.png",
+      "type": "mug"
+    },
+    {
+      "title": "Thermal Travel Mug non-leak",
+      "description": "Thermal travel mug, non-leak. Made of non toxic material, dishwasher safe,for hot and cold bevages, holds up to 6 hours for hot drinks and 8 hours for cold drinks.",
+      "inStock": 88,
+      "price": 16.99,
+      "slug": "tmnl-007",
+      "image": "/tmnl-007.png",
+      "type": "mug"
+    },
+
+    {
+      "title": "Keychain and bottle opener White",
+      "description": "Keychain and bottle opener White made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kbow-008",
+      "image": "/kbow-008.png",
+      "type": "keychain"
+    },
+    {
+      "title": "Keychain and bottle opener Black",
+      "description": "Keychain and bottle opener black made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kbob-009",
+      "image": "/kbob-009.png",
+      "type": "keychain"
+    },
+    {
+      "title": "Keychain and bottle opener Lilas",
+      "description": "Keychain and bottle opener lilas made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kbol-010",
+      "image": "/kbol-010.png",
+      "type": "keychain"
+    },
+    {
+      "title": "Keychain and bottle opener Yellow",
+      "description": "Keychain and bottle opener yellow made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kboy-011",
+      "image": "/kboy-011.png",
+      "type": "keychain"
+    },
+
+    {
+      "title": "Keychain and bottle opener Gray",
+      "description": "Keychain and bottle opener gray made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kbog-012",
+      "image": "/kbog-012.png",
+      "type": "keychain"
+    },
+    {
+      "title": "Keychain and bottle opener Orange",
+      "description": "Keychain and bottle opener orange made of metal, non-toxic, anti-fading.",
+      "inStock": 200,
+      "price": 7.99,
+      "slug": "kboo-013",
+      "image": "/kboo-013.png",
+      "type": "keychain"
+    },
+
+    {
+      "title": "Mug Lilas and Yellow",
+      "description": "Ceramic mug, lilas on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 20,
+      "price": 4.99,
+      "slug": "myl-014",
+      "image": "/myl-014.png",
+      "type": "mug"
+    },
+    {
+      "title": "Mug White and Yellow",
+      "description": "Ceramic mug, white on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 8,
+      "price": 4.99,
+      "slug": "myw-015",
+      "image": "/myw-015.png",
+      "type": "mug"
+    },
+    {
+      "title": "Mug Orange and Yellow",
+      "description": "Ceramic mug, orange on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 5,
+      "price": 4.99,
+      "slug": "myo-015",
+      "image": "/myo-015.png",
+      "type": "mug"
+    },
+    {
+      "title": "Mug Gray and Yellow",
+      "description": "Ceramic mug, gray on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 10,
+      "price": 4.99,
+      "slug": "myg-016",
+      "image": "/myg-016.png",
+      "type": "mug"
+    },
+    {
+      "title": "Mug Yellow and Yellow",
+      "description": "Ceramic mug, yellow on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 10,
+      "price": 4.99,
+      "slug": "myy-017",
+      "image": "/myy-017.png",
+      "type": "mug"
+    },
+    {
+      "title": "Mug Black and Yellow",
+      "description": "Ceramic mug, black on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
+      "inStock": 15,
+      "price": 4.99,
+      "slug": "mby-018",
+      "image": "/mby-018.png",
+      "type": "mug"
+    },
+
+    {
+      "title": "Dog hoodie for small dogs - Lilas",
+      "description": "Lilas warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dhl-019",
+      "image": "/dhl-019.png",
+      "type": "petsoutfit"
+    },
+    {
+      "title": "Dog hoodie for small dogs - White",
+      "description": "White warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dhw-020",
+      "image": "/dhw-020.png",
+      "type": "petsoutfit"
+    },
+    {
+      "title": "Dog hoodie for small dogs - Gray",
+      "description": "Gray warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dhg-021",
+      "image": "/dhg-021.png",
+      "type": "petsoutfit"
+    },
+    {
+      "title": "Dog hoodie for small dogs - Black",
+      "description": "Black warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dhb-022",
+      "image": "/dhb-022.png",
+      "type": "petsoutfit"
+    },
+    {
+      "title": "Dog hoodie for small dogs - Yellow",
+      "description": "Yellow warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dhy-023",
+      "image": "/dhy-023.png",
+      "type": "petsoutfit"
+    },
+    {
+      "title": "Dog hoodie for small dogs - Orange",
+      "description": "Orange warm dog hoddie for small dogs up to 7lbs, one size, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 18.99,
+      "slug": "dho-024",
+      "image": "/dho-024.png",
+      "type": "petsoutfit"
+    },
+
+    {
+      "title": "T-Shirt Unisex - White",
+      "description": "T-Shirt Unisex - White, wash and dry machine safe.",
+      "inStock": 5,
+      "price": 22.99,
+      "slug": "tsw-025",
+      "image": "/tsw-025.png",
+      "type": "apparel"
+    },
+    {
+      "title": "Sweat shirt - White",
+      "description": "Sweat shirt - Unisex - fleece - White, wash and dry machine safe.",
+      "inStock": 15,
+      "price": 39.99,
+      "slug": "ssw-026",
+      "image": "/ssw-026.png",
+      "type": "apparel"
+    },
+    {
+      "title": "Pen - Blue, Black and Red ink",
+      "description": "Pen - Blue, Black and Red ink, metallic, pack of 3 pens: red, black and blue",
+      "inStock": 50,
+      "price": 6.99,
+      "slug": "pbbr-027",
+      "image": "/pbbr-027.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Journal - Blank Pages - Hard Cover",
+      "description": "Journal with 130 pages, blank pages",
+      "inStock": 80,
+      "price": 3.99,
+      "slug": "jbp-028",
+      "image": "/jbp-028.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Notebook - Lined - Hard Cover",
+      "description": "Notebook with 130 pages, lined pages",
+      "inStock": 80,
+      "price": 3.99,
+      "slug": "nlhc-029",
+      "image": "/nlhc-029.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Notebook - Dotted - Hard Cover",
+      "description": "Notebook with 130 pages, dotted pages",
+      "inStock": 80,
+      "price": 3.99,
+      "slug": "ndhc-030",
+      "image": "/ndhc-030.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Notebook - Grid - Hard Cover",
+      "description": "Notebook with 130 pages, Grid pages",
+      "inStock": 80,
+      "price": 3.99,
+      "slug": "nghc-031",
+      "image": "/nghc-031.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - Lilas",
+      "description": "Lilas tote bag made of cotton and canvas ",
+      "inStock": 80,
+      "price": 4.99,
+      "slug": "tbl-032",
+      "image": "/tbl-032.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - Orange",
+      "description": "Orange tote bag made of cotton and canvas ",
+      "inStock": 80,
+      "price": 4.99,
+      "slug": "tbo-033",
+      "image": "/tbo-033.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - Black",
+      "description": "Black tote bag made of cotton and canvas ",
+      "inStock": 80,
+      "price": 4.99,
+      "slug": "tbb-034",
+      "image": "/tbb-034.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - Yellow",
+      "description": "Yellow tote bag made of cotton and canvas ",
+      "inStock": 80,
+      "price": 4.99,
+      "slug": "tby-035",
+      "image": "/tby-035.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - White",
+      "description": "White tote bag made of cotton and canvas ",
+      "inStock": 25,
+      "price": 4.99,
+      "slug": "tbw-036",
+      "image": "/tbw-036.png",
+      "type": "stationary"
+    },
+    {
+      "title": "Tote Bag with handles - Gray",
+      "description": "Gray tote bag made of organic cotton and canvas.  ",
+      "inStock": 40,
+      "price": 4.99,
+      "slug": "tbg-037",
+      "image": "/tbg-037.png",
+      "type": "stationary"
+    }
+  ]
+}
