@@ -1,8 +1,40 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import Statement from "./Statement";
+import PayBills from "./PayBills";
+import PayCard from "./PayCard";
+import Transfer from "./Transfer";
+import Deposit from "./Deposit";
+import { useState } from "react";
 
 const dashboard = () => {
+  const [action, setAction] = useState("");
+
+  function conditionalRendering(id) {
+    if (id === "statetment") {
+      setAction("statetment");
+    }
+    if (id === "paybill") {
+      setAction("paybill");
+    }
+    if (id === "transfer") {
+      setAction("transfer");
+    }
+    if (id === "paycard") {
+      setAction("paycard");
+    }
+    if (id === "deposit") {
+      setAction("deposit");
+    }
+  }
+
+  function handleClick(id) {
+    return () => {
+      conditionalRendering(id);
+    };
+  }
+
   return (
     <>
       <div className="flex mt-[50px] container">
@@ -24,6 +56,8 @@ const dashboard = () => {
                   width={50}
                   height={50}
                   className="text-center ml-5 mr-5"
+                  id="transfer"
+                  onClick={handleClick("transfer")}
                 />
               </p>
               <p className="text-center mt-2">Transfer</p>
@@ -35,6 +69,8 @@ const dashboard = () => {
                   width={50}
                   height={50}
                   className="text-center ml-5 mr-5"
+                  id="paybill"
+                  onClick={handleClick("paybill")}
                 />
               </p>
               <p className="text-center mt-2">Pay Bills</p>
@@ -45,6 +81,8 @@ const dashboard = () => {
                 width={50}
                 height={50}
                 className="text-center ml-5 mr-5"
+                id="statetment"
+                onClick={handleClick("statetment")}
               />
               <p className="text-center mt-2">Statetment</p>
             </div>
@@ -55,13 +93,25 @@ const dashboard = () => {
                   width={50}
                   height={50}
                   className="text-center ml-5 mr-5"
+                  id="paycardicon"
+                  onClick={handleClick("paycard")}
                 />
               </p>
               <p className="text-center mt-2">Pay Card</p>
             </div>
           </div>
           <div className="mr-24">
-            <Statement />
+            {action === "statetment" ? (
+              <Statement />
+            ) : action === "paybill" ? (
+              <PayBills />
+            ) : action === "paycard" ? (
+              <PayCard />
+            ) : action === "transfer" ? (
+              <Transfer />
+            ) : (
+              <Deposit />
+            )}
           </div>
         </section>
         <section className="flex-1/3 ml-6">
