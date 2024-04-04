@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-// import { useState } from "react";
 import BtnSmall from "../button/BtnSmall";
 
 const Counter = ({ counter, setCounter, max }) => {

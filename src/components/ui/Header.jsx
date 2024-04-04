@@ -13,7 +13,7 @@ const links = [
   { label: "Logout", href: "/logout" },
   {
     label: <Image src={"/cart.png"} width={50} height={50} />,
-    href: "/cartpage"
+    href: "/cart/cartpage"
   }
 ];
 

@@ -1,9 +1,14 @@
+"use client";
 import React from "react";
 import Button from "@/components/button/Button";
-import CartPageProductList from "./CartPageProductList";
-import Hr from "@/components/ui/Hr";
+import CartPageProductList from "../CartPageProductList";
+import Link from "next/link";
 
 const page = () => {
+  // const goToCheckout = () => {
+  //   alert("going to checkout");
+  // };
+
   return (
     <>
       <div className="flex justify-center font-semibold text-2xl mb-12 mt-8">
@@ -20,7 +25,9 @@ const page = () => {
       {/* fazer um map aqui com os  dados do carrinho e passar  para o componente de lista de produtos. */}
       <CartPageProductList />
       <div className="flex justify-center mt-8 mb-4">
-        <Button>Checkout</Button>
+        <Link href="/cart/checkoutpage">
+          <Button>Checkout</Button>
+        </Link>
       </div>
     </>
   );
