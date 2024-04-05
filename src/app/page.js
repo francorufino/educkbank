@@ -1,6 +1,8 @@
 import styles from "./main.module.css";
 import Image from "next/image";
 import Button from "@/components/button/Button";
+import Link from "next/link";
+
 export const metadata = {
   title: "eDuck Bank",
   description:
@@ -67,7 +69,9 @@ export default function Home() {
         </div>
 
         <div className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
-          <Button>Get Started</Button>
+          <Link href="/auth/register">
+            <Button>Get Started</Button>
+          </Link>
         </div>
       </main>
     </>
