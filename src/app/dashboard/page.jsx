@@ -6,10 +6,14 @@ import PayBills from "./PayBills";
 import PayCard from "./PayCard";
 import Transfer from "./Transfer";
 import Deposit from "./Deposit";
+import Withdraw from "./Withdraw";
 import { useState } from "react";
 
 const dashboard = () => {
   const [action, setAction] = useState("");
+  const [userName, setUserName] = useState("Rebecca");
+  const [deposit, setDeposit] = useState(0);
+  const [withdraw, setWithdraw] = useState(0);
 
   function conditionalRendering(id) {
     if (id === "statetment") {
@@ -27,6 +31,9 @@ const dashboard = () => {
     if (id === "deposit") {
       setAction("deposit");
     }
+    if (id === "withdraw") {
+      setAction("withdraw");
+    }
   }
 
   function handleClick(id) {
@@ -37,18 +44,54 @@ const dashboard = () => {
 
   return (
     <>
+      {/* <Link
+          key={link.label}
+          href={link.href}
+          className={`${
+            pathname === link.href ? "font-bold border-b text-[#f82a35]" : ""
+          } py-2 hover:text-[#f82a35] text-lg mt-2 mb-6`}
+        >
+          {link.label}
+        </Link> */}
+
       <div className="flex mt-[50px] container">
         <section className="flex-2/3 ">
           <div>
             <p className="text-[#6b7280]">March, 27th 2024 | Partly Cloudy</p>
           </div>
           <div className="mb-12 font-bold text-3xl">
-            <p className="tracking-widest ">Hello, Rebecca</p>
+            <p className="tracking-widest ">Hello, {userName}</p>
           </div>
           <p className="font-bold mb-4 text-[#6b7280]">
             What do you want to do today?
           </p>
           <div className="flex border-2 border-[#6b7280] justify-center mr-24 gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
+            <div>
+              <p>
+                <Image
+                  src="/deposit.png"
+                  width={50}
+                  height={50}
+                  className="text-center ml-5 mr-5"
+                  id="transfer"
+                  onClick={handleClick("deposit")}
+                />
+              </p>
+              <p className="text-center mt-2">Deposit</p>
+            </div>
+            <div>
+              <p>
+                <Image
+                  src="/withdraw.png"
+                  width={50}
+                  height={50}
+                  className="text-center ml-5 mr-5"
+                  id="transfer"
+                  onClick={handleClick("withdraw")}
+                />
+              </p>
+              <p className="text-center mt-2">Withdraw</p>
+            </div>
             <div>
               <p>
                 <Image
@@ -76,17 +119,6 @@ const dashboard = () => {
               <p className="text-center mt-2">Pay Bills</p>
             </div>
             <div>
-              <Image
-                src="/statement2.png"
-                width={50}
-                height={50}
-                className="text-center ml-5 mr-5"
-                id="statetment"
-                onClick={handleClick("statetment")}
-              />
-              <p className="text-center mt-2">Statetment</p>
-            </div>
-            <div>
               <p>
                 <Image
                   src="/card.png"
@@ -99,6 +131,17 @@ const dashboard = () => {
               </p>
               <p className="text-center mt-2">Pay Card</p>
             </div>
+            <div>
+              <Image
+                src="/statement2.png"
+                width={50}
+                height={50}
+                className="text-center ml-5 mr-5"
+                id="statetment"
+                onClick={handleClick("statetment")}
+              />
+              <p className="text-center mt-2">Statetment</p>
+            </div>
           </div>
           <div className="mr-24">
             {action === "statetment" ? (
@@ -109,9 +152,11 @@ const dashboard = () => {
               <PayCard />
             ) : action === "transfer" ? (
               <Transfer />
-            ) : (
+            ) : action === "deposit" ? (
               <Deposit />
-            )}
+            ) : action === "withdraw" ? (
+              <Withdraw />
+            ) : null}
           </div>
         </section>
         <section className="flex-1/3 ml-6">
@@ -120,7 +165,7 @@ const dashboard = () => {
           </p>
           <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
             <p className="font-bold text-xl mb-3">Checking Account</p>
-            <p className="text-2xl ">$ 2,859.84</p>
+            <p className="text-2xl ">$ {deposit}</p>
           </div>
           <div className="bg-[#ec552a] text-white mb-8 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
             <p className="font-bold text-xl mb-3">Savings Account</p>
