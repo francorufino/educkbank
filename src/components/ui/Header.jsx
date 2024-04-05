@@ -11,6 +11,7 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "Login", href: "/auth/login" },
+  { label: "Register", href: "/auth/register" },
   { label: "Logout", href: "/logout" },
   {
     label: <Image src={"/cart.png"} width={50} height={50} />,
