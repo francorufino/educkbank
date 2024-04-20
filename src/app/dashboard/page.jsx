@@ -8,6 +8,7 @@ import Transfer from "./Transfer";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
 import { useState } from "react";
+import Weather from "../api/weather/Weather";
 
 const dashboard = () => {
   const [action, setAction] = useState("");
@@ -59,6 +60,10 @@ const dashboard = () => {
           <div>
             <p className="text-[#6b7280]">March, 27th 2024 | Partly Cloudy</p>
           </div>
+          <div>
+            <Weather />
+          </div>
+
           <div className="mb-12 font-bold text-3xl">
             <p className="tracking-widest ">Hello, {userName}</p>
           </div>
@@ -67,7 +72,7 @@ const dashboard = () => {
           </p>
           <div className="flex border-2 border-[#6b7280] justify-center mr-24 gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
             <div>
-              <p>
+              <p className="flex justify-center">
                 <Image
                   src="/deposit.png"
                   width={50}
@@ -80,7 +85,7 @@ const dashboard = () => {
               <p className="text-center mt-2">Deposit</p>
             </div>
             <div>
-              <p>
+              <p className="flex justify-center">
                 <Image
                   src="/withdraw.png"
                   width={50}
@@ -93,7 +98,7 @@ const dashboard = () => {
               <p className="text-center mt-2">Withdraw</p>
             </div>
             <div>
-              <p>
+              <p className="flex justify-center">
                 <Image
                   src="/transfer2.png"
                   width={50}
@@ -106,7 +111,7 @@ const dashboard = () => {
               <p className="text-center mt-2">Transfer</p>
             </div>
             <div>
-              <p>
+              <p className="flex justify-center">
                 <Image
                   src="/bill3.png"
                   width={50}
@@ -119,7 +124,7 @@ const dashboard = () => {
               <p className="text-center mt-2">Pay Bills</p>
             </div>
             <div>
-              <p>
+              <p className="flex justify-center">
                 <Image
                   src="/card.png"
                   width={50}
@@ -132,14 +137,17 @@ const dashboard = () => {
               <p className="text-center mt-2">Pay Card</p>
             </div>
             <div>
-              <Image
-                src="/statement2.png"
-                width={50}
-                height={50}
-                className="text-center ml-5 mr-5"
-                id="statetment"
-                onClick={handleClick("statetment")}
-              />
+              <p className="flex justify-center">
+                <Image
+                  src="/statement2.png"
+                  width={50}
+                  height={50}
+                  className="text-center ml-5 mr-5"
+                  id="statetment"
+                  onClick={handleClick("statetment")}
+                />
+              </p>
+
               <p className="text-center mt-2">Statetment</p>
             </div>
           </div>

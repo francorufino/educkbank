@@ -2,13 +2,16 @@
 import { useState } from "react";
 import Counter from "../ui/Counter";
 import Button from "../button/Button";
+import { useCartContext } from "../context/CartContext";
 // talvez problema aqui com o botao
 
 const QtySelector = ({ item }) => {
+  const { addToCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
   const handleAdd = () => {
+    addToCart({ ...item, quantity });
     console.log({ ...item, quantity });
-    alert("clicked");
+    alert(item);
   };
 
   return (

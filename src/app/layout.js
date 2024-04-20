@@ -2,6 +2,7 @@ import "./globals.css";
 import Header from "../components/ui/Header";
 import Footer from "../components/ui/Footer";
 import { Montserrat_Alternates, Kumbh_Sans } from "next/font/google";
+import { CartProvider } from "../components/context/CartContext";
 
 const gfkum = Kumbh_Sans({
   subsets: ["latin"],
@@ -25,16 +26,18 @@ export default function RootLayout({ children }) {
     <>
       <html lang="en">
         <body className={`flex flex-col h-screen justify-between`}>
-          <div className={`h-500 ${gfkum.className} `}>
-            <Header />
-          </div>
-          <div
-            className={`container mx-auto px-9 h-500 max-w-screen-xl ${gfmon.className}`}
-          >
-            {children}
-          </div>
+          <CartProvider>
+            <div className={`h-500 ${gfkum.className} `}>
+              <Header />
+            </div>
+            <div
+              className={`container mx-auto px-9 h-500 max-w-screen-xl ${gfmon.className}`}
+            >
+              {children}
+            </div>
 
-          <Footer className={`h-500 ${gfkum.className}`} />
+            <Footer className={`h-500 ${gfkum.className}`} />
+          </CartProvider>
         </body>
       </html>
     </>

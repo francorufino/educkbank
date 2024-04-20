@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = () => {
-  return <div>brand center</div>;
+  return <div>BRAND CENTER PAGE</div>;
 };
 
 export default page;
