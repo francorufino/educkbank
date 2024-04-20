@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 const CarritoIcon = () => {
   const { cart } = useCartContext();
- console.log(cart);
   return (
     <Link href={"/cart/cartpage"}>
       <Image src={"/cart.png"} width={50} height={50} />
