@@ -11,7 +11,6 @@ const QtySelector = ({ item }) => {
   const handleAdd = () => {
     addToCart({ ...item, quantity });
     console.log({ ...item, quantity });
-    alert(item);
   };
 
   return (

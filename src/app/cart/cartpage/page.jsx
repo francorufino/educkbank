@@ -3,12 +3,10 @@ import React from "react";
 import Button from "@/components/button/Button";
 import CartPageProductList from "../CartPageProductList";
 import Link from "next/link";
+import { useCartContext } from "@/components/context/CartContext";
 
 const page = () => {
-  // const goToCheckout = () => {
-  //   alert("going to checkout");
-  // };
-
+  const { cart } = useCartContext();
   return (
     <>
       <div className="flex justify-center font-semibold text-2xl mb-12 mt-8">
@@ -23,7 +21,7 @@ const page = () => {
         </div>
       </div>
       {/* fazer um map aqui com os  dados do carrinho e passar  para o componente de lista de produtos. */}
-      <CartPageProductList />
+      <CartPageProductList cartItems={cart}/>
       <div className="flex justify-center mt-8 mb-4">
         <Link href="/cart/checkoutpage">
           <Button>Checkout</Button>

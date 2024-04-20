@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../button/Button";
+import QtySelector from "./QtySelector";
 
 const ProductCard = ({ item }) => {
   return (
@@ -14,8 +15,8 @@ const ProductCard = ({ item }) => {
           {" "}
           <div>
             <Image
-              alt={item.title}
-              src={item.image}
+              alt={"ImageProduct"}
+              src={""}
               width={300}
               height={300}
               className="rounded-t-lg "
@@ -28,7 +29,7 @@ const ProductCard = ({ item }) => {
         </Link>
       </div>
       <div className="flex justify-end mb-8 mr-4">
-        <Button>Add to cart</Button>
+        <QtySelector item={item}/>
       </div>
     </article>
   );

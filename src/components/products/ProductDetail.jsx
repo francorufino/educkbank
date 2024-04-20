@@ -8,10 +8,10 @@ const ProductDetail = ({ item }) => {
       <section className="flex items-center mb-4 gap-4">
         <div className="relative basis-1/2">
           <Image
-            alt={item.title}
-            src={item.image}
-            width={860}
-            height={860}
+            alt={"Imagen Product"}
+            src={""}
+            width={320}
+            height={320}
             className="rounded-lg flex "
           />
         </div>

@@ -1,9 +1,10 @@
+"use client"
 import React from "react";
 
 const Loading = () => {
   return (
     <div>
-      <h2 className="text-2xl text-[#ec552a]">testando o Loading...</h2>
+      <h2 className="text-2xl text-[#ec552a]">Loading Data...</h2>
     </div>
   );
 };
