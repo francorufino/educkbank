@@ -1,14 +1,25 @@
-import React from "react";
-import data from "@/data/products.json";
+import React, { Suspense } from "react";
 import ProductDetail from "@/components/products/ProductDetail";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "@/app/firebase/config";
 
-const page = ({ params }) => {
-  const { slug } = params;
-  const productSlug = data.mockData.filter((item) => item.slug === slug);
+export const getOnlyProduct = async (slug) => {
+  const productsRef = collection(db, "productsFirebase");
+  const q = query(productsRef, where("slug", "==", slug));
+  const querySnapshot = await getDocs(q);
+  const docs = querySnapshot.docs.map((e) => e.data());
+  return docs;
+};
+
+const page = async ({ params }) => {
+  const productBySlug = await getOnlyProduct(params.slug);
+  console.log(productBySlug);
   return (
-    <div>
-      <ProductDetail item={productSlug[0]} />
-    </div>
+    <main>
+      <Suspense fallback={"Getting Data Only Product"}>
+        <ProductDetail item={productBySlug[0]} />
+      </Suspense>
+    </main>
   );
 };
 

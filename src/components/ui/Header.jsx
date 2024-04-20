@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import CarritoIcon from "./CartIcon";
 
 const links = [
   { label: "Home", href: "/" },
@@ -14,10 +15,6 @@ const links = [
   { label: "Register", href: "/auth/register" },
   { label: "Logout", href: "/logout" },
   { label: "Posts", href: "/posts" },
-  {
-    label: <Image src={"/cart.png"} width={50} height={50} />,
-    href: "/cart/cartpage"
-  }
 ];
 
 const Header = () => {
@@ -40,24 +37,25 @@ const Header = () => {
         {/* fazer um ternario aqui para mudar as opcoes da navegacao se user logado 
 if logado: home, dashboard, about, contact, Logout
 else somente home, about, contact, login */}
-
-        <nav className="px-8 flex justify-between align-baseline gap-2">
-          {links.map((link) => {
-            return (
-              <>
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={`${
-                    pathname === link.href ? "text-orange-600" : ""
-                  }text-base  text-orange-200 hover:underline hover:text-indigo-50`}
-                >
-                  {link.label}
-                </Link>
-              </>
-            );
-          })}{" "}
-        </nav>
+        <div className="flex space-x-4 justify-center items-center">
+          <nav className="px-8 flex justify-between align-baseline gap-2">
+            {links.map((link) => {
+              return (
+                <React.Fragment key={link.label}>
+                  <Link
+                    href={link.href}
+                    className={`${
+                      pathname === link.href ? "text-orange-600" : ""
+                    }text-base  text-orange-200 hover:underline hover:text-indigo-50`}
+                  >
+                    {link.label}
+                  </Link>
+                </React.Fragment>
+              );
+            })}{" "}
+          </nav>
+          <CarritoIcon />
+        </div>
       </div>
     </header>
   );

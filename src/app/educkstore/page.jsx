@@ -1,26 +1,33 @@
-import data from "../../data/products.json";
 import ProductCard from "@/components/products/ProductCard";
 import { Suspense } from "react";
 import Loading from "@/components/ui/Loading";
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  return { title: `educk Bank - ${params.categoria}` };
+export async function getAllProducts() {
+  const productsRef = collection(db, "productsFirebase");
+  const querySnapshot = await getDocs(productsRef);
+  const docs = querySnapshot.docs.map((e) => e.data());
+  return docs;
 }
 
-const EduckStore = () => {
-  console.log("chegou aqui no page da educkstore");
+const EduckStore = async () => {
+  const products = await getAllProducts();
+  console.log(products);
   return (
-    <main className="container m-auto ">
-      <div>
-        <div className="flex flex-wrap justify-center gap-8">
-          <Suspense fallback={<Loading />}>
-            {data.mockData.map((item) => (
-              <ProductCard key={item.slug} item={item} />
-            ))}{" "}
-          </Suspense>
-        </div>
+    <main className="container m-auto flex justify-center items-center gap-12 flex-wrap">
+    {products.length === 0 ? (
+      <div className="w-full h-screen flex justify-center items-flex-start">
+        <span className="italic text-2xl">We did Not Find Any Products</span>
       </div>
-    </main>
+    ) : (
+      products.map((item) => (
+        <Suspense key={item.slug} fallback={<Loading />}>
+          <ProductCard item={item} />
+        </Suspense>
+      ))
+    )}
+  </main>
   );
 };
 
