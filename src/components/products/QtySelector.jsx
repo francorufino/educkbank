@@ -1,23 +1,29 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Counter from "../ui/Counter";
 import Button from "../button/Button";
 import { useCartContext } from "../context/CartContext";
-// talvez problema aqui com o botao
+import { usePathname } from "next/navigation";
 
 const QtySelector = ({ item }) => {
+  const pathname = usePathname();
+
   const { addToCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    setQuantity(item?.quantity ?? 1);
+  }, [item.quantity]);
+
   const handleAdd = () => {
     addToCart({ ...item, quantity });
-    console.log({ ...item, quantity });
   };
 
   return (
-    <div className="flex flex-col justify-center gap-5 mt-6">
+    <div className="flex flex-col justify-end gap-5 mt-6">
       <Counter max={item.inStock} counter={quantity} setCounter={setQuantity} />
       <Button className="w-full hover:bg-blue-600" onClick={handleAdd}>
-        Add to cart
+        {pathname === "/cart/cartpage" ? "Update cart" : "Add to cart"}
       </Button>
     </div>
   );

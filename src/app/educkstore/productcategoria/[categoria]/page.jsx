@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import data from "@/data/products.json";
 import ProductCard from "@/components/products/ProductCard";
 import Loading from "../../../../components/ui/Loading";
-import { db } from "@/app/firebase/config";
+import { db } from "@/lib/firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const getCategoryProducts = async (category) => {

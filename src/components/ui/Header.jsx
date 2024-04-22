@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import CarritoIcon from "./CartIcon";
+import CartIcon from "./CartIcon";
 
 const links = [
   { label: "Home", href: "/" },
@@ -39,7 +39,7 @@ if logado: home, dashboard, about, contact, Logout
 else somente home, about, contact, login */}
         <div className="flex space-x-4 justify-center items-center">
           <nav className="px-8 flex justify-between align-baseline gap-2">
-            {links.map((link) => {
+            {links.map(link => {
               return (
                 <React.Fragment key={link.label}>
                   <Link
@@ -54,7 +54,7 @@ else somente home, about, contact, login */}
               );
             })}{" "}
           </nav>
-          <CarritoIcon />
+          <CartIcon />
         </div>
       </div>
     </header>
