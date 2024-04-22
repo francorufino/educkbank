@@ -7,7 +7,14 @@ const AnualDuckDash = () => {
     <div>
       <h1 className="text-4xl mt-8">Annual Duck Dash</h1>
       <div className="flex">
-        <div className=" text-lg flex-1/2 mt-8 pr-12">
+        <div className=" text-lg mt-8">
+          <Image
+            src={"/educkracedash.jpg"}
+            width={600}
+            height={500}
+            className=" rounded-lg float-right ml-2"
+            alt="yellow eco-friendly toy ducks racing in a river"
+          />
           <p>
             Get ready for the most quack-tastic event of the year – the Annual
             Duck Dash! Join us for a fun-filled day of eco-friendly duck racing,
@@ -30,15 +37,6 @@ const AnualDuckDash = () => {
             Get ready to make a splash and experience banking like never before
             at the Annual Duck Dash!
           </p>
-        </div>
-        <div className=" flex-2/3">
-          <Image
-            src={"/educkracedash.jpg"}
-            width={900}
-            height={500}
-            className=" flex-1/2 rounded-lg"
-            alt="yellow eco-friendly toy ducks racing in a river"
-          />
         </div>
       </div>
       <h2 className="text-4xl mt-8">What to Expect</h2>

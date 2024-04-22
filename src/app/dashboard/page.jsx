@@ -60,7 +60,7 @@ const dashboard = () => {
           <div>
             <p className="text-[#6b7280]">March, 27th 2024 | Partly Cloudy</p>
           </div>
-          <div className="bg-red-200">
+          <div>
             <Weather />
           </div>
 

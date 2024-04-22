@@ -33,10 +33,10 @@ const CartPageProductList = () => {
             <div key={cartItem.id}>
               <div className="flex justify-between mb-4 border-b-2 border-white ">
                 <div className="flex gap-4 ml-12">
-                  <div className="relative w-48 h-300 bg-red-200">
+                  <div className="relative w-48 h-300">
                     <Image
                       src={cartItem.image}
-                      alt=""
+                      alt={cartItem.name}
                       layout="fill"
                       className="object-cover"
                     />
@@ -48,13 +48,15 @@ const CartPageProductList = () => {
                     </p>
                     <p>{cartItem.description}</p>
                     <div className="w-full flex flex-col items-end">
-                      <QtySelector item={cartItem} />
-                      <BtnSmall
-                        onClick={() => deleteItemInCart(cartItem)}
-                        className="bg-red-200 underline text-[#6b7280] my-4"
-                      >
-                        Delete
-                      </BtnSmall>
+                      <div className="flex flex-col justify-center">
+                        <QtySelector item={cartItem} />
+                        <BtnSmall
+                          onClick={() => deleteItemInCart(cartItem)}
+                          className="bg-[#e6e6fa] underline text-[#6b7280] my-4"
+                        >
+                          Delete
+                        </BtnSmall>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -68,7 +70,9 @@ const CartPageProductList = () => {
           ))}
           <div className="flex justify-end mr-12">
             <p className="mr-2">Total:</p>
-            <p className="bg-red-200">$ {cartTotalValue}</p>
+            <p className="">
+              $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}
+            </p>
           </div>
           <div className="flex justify-center mt-8 mb-4 bg-red-200">
             <Link href="/cart/checkoutpage">
