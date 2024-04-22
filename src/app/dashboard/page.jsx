@@ -179,7 +179,7 @@ const dashboard = () => {
             <p className="font-bold text-xl mb-3">Savings Account</p>
             <p className="text-2xl ">$ 48,988.20</p>
           </div>
-          <hr class="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+          <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
           <div>
             <section className="text-center font-bold text-2xl my-4">
               <p className="mb-2 font-bold">Your Tokens</p>
@@ -189,7 +189,7 @@ const dashboard = () => {
               </div>
             </section>
 
-            <hr class="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+            <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
             <p className="mb-4 text-center font-bold text-2xl">Your Cards</p>
 
             {/* // usar grid aqui por causa do overlapping dos numeros ??*/}
@@ -220,7 +220,7 @@ const dashboard = () => {
               </div>
             </div>
           </div>
-          <hr class="h-px  bg-white border-0 "></hr>
+          <hr className="h-px  bg-white border-0 "></hr>
           <p className="mb-4 text-center font-bold text-2xl mt-4">
             Your Linked Cards
           </p>

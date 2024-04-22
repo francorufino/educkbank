@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import ProductDetail from "@/components/products/ProductDetail";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "@/app/firebase/config";
+import { db } from "@/lib/firebase/config";
 
 export const getOnlyProduct = async (slug) => {
   const productsRef = collection(db, "productsFirebase");

@@ -1,7 +1,7 @@
 import ProductCard from "@/components/products/ProductCard";
 import { Suspense } from "react";
 import Loading from "@/components/ui/Loading";
-import { db } from "../firebase/config";
+import { db } from "../../lib/firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 
 export async function getAllProducts() {
@@ -14,6 +14,7 @@ export async function getAllProducts() {
 const EduckStore = async () => {
   const products = await getAllProducts();
   console.log(products);
+  
   return (
     <main className="container m-auto flex justify-center items-center gap-12 flex-wrap">
     {products.length === 0 ? (

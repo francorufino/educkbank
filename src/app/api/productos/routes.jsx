@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import { db } from "../../../lib/firebase/config";
 import {getStorage, ref, getDownloadURL} from "firebase/storage";
 
 // This function can be marked `async` if using `await` inside

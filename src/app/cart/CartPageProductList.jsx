@@ -6,7 +6,7 @@ import Link from "next/link";
 import Button from "@/components/button/Button";
 
 const CartPageProductList = ({ cartItems }) => {
-  console.log(cartItems);
+  
   return (
     <div>
       {cartItems.length === 0 ? (
@@ -27,7 +27,7 @@ const CartPageProductList = ({ cartItems }) => {
             </div>
           </div>
           {cartItems.map((e) => (
-            <div>
+            <div key={e.id}>
               <div className="flex justify-between mb-4 border-b-2 border-white ">
                 <div className="flex gap-4 ml-12">
                   <div className="w-48 h-300 bg-red-200">
