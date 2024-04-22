@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -9,7 +8,7 @@ const firebaseConfig = {
   storageBucket: "educkbank.appspot.com",
   messagingSenderId: "501792573299",
   appId: "1:501792573299:web:dfbda1e847db4e505d2706",
-  measurementId: "G-GQR3VC17D2"
+  measurementId: "G-GQR3VC17D2",
 };
 
 const app = initializeApp(firebaseConfig);

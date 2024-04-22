@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
   );
 
   const addToCart = item => {
-    const itemIsInclude = cart.find(cartItem => cartItem.title === item.title);
+    const itemIsInclude = cart.find(cartItem => cartItem.id === item.id);
 
     if (itemIsInclude) {
       updateItemInCart(item);
@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
 
   const updateItemInCart = item => {
     const modifiedCartValue = cart.map(cartItem =>
-      cartItem.title === item.title
+      cartItem.id === item.id
         ? { ...cartItem, quantity: item.quantity }
         : cartItem
     );
@@ -33,7 +33,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const deleteItemInCart = item => {
-    const newCartItems = cart.filter(cartItem => cartItem.title !== item.title);
+    const newCartItems = cart.filter(cartItem => cartItem.id !== item.id);
 
     setCart(newCartItems);
   };
