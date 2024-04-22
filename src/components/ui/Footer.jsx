@@ -67,6 +67,10 @@ const linksInitiativesPrograms = [
   {
     label: "Duckling Clubhouse",
     href: "/theduckhouse/ducklingclubhouse"
+  },
+  {
+    label: "Photo Gallery",
+    href: "/photogallery"
   }
 ];
 

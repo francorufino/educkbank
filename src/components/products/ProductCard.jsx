@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
         </Link>
       </div>
       <div className="flex justify-end mb-8 mr-4">
-        <QtySelector item={item}/>
+        <QtySelector item={item} />
       </div>
     </article>
   );
