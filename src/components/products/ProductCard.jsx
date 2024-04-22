@@ -5,29 +5,28 @@ import QtySelector from "./QtySelector";
 
 const ProductCard = ({ item }) => {
   return (
-    <article className="basis-72 shadow-lg rounded-lg flex flex-col">
-      <div>
-        <div>
-          <Link
-            href={`/educkstore/productosSlug/${item.slug}`}
-            className="flex flex-col"
-          >
-            <Image
-              alt={"ImageProduct"}
-              src={item.image}
-              width={300}
-              height={300}
-              className="rounded-t-lg "
-            />
-            <div className="px-4 border-t border-gray-200">
-              <h4 className="my-4 font-semibold">{item.title}</h4>
-            </div>
-          </Link>
-          <p className="pl-4 text-2xl font -semibold mb-6">${item.price}</p>
+    <article className="shadow-md basis-72 rounded-lg flex flex-col h-[570px] transition-all hover:shadow-lg">
+      <Link
+        href={`/educkstore/productosSlug/${item.slug}`}
+        className="flex flex-col"
+      >
+        <div className="relative w-full h-[300px]">
+          <Image
+            alt={"ImageProduct"}
+            src={item.image}
+            layout="fill"
+            className="rounded-t-lg object-cover"
+          />
         </div>
-      </div>
-      <div className="flex justify-end mb-8 mr-4">
-        <QtySelector item={item} />
+      </Link>
+      <div className="flex flex-col p-4 h-full">
+        <div className="border-t border-gray-200">
+          <h4 className="mb-4 font-semibold">{item.title}</h4>
+          <p className="text-2xl font -semibold mb-6">${item.price}</p>
+        </div>
+        <div className="flex flex-1 justify-end">
+          <QtySelector item={item} />
+        </div>
       </div>
     </article>
   );

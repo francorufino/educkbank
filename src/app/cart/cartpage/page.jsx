@@ -1,10 +1,7 @@
-"use client";
 import React from "react";
 import CartPageProductList from "../CartPageProductList";
-import { useCartContext } from "@/components/context/CartContext";
 
-const page = () => {
-  const { cart } = useCartContext();
+const CartPage = () => {
   return (
     <>
       <div className="flex justify-center font-semibold text-2xl mb-12 mt-8">
@@ -13,9 +10,9 @@ const page = () => {
 
       {/* fazer um map aqui com os  dados do carrinho e passar  para o componente de lista de produtos. */}
 
-      <CartPageProductList cartItems={cart} />
+      <CartPageProductList />
     </>
   );
 };
 
-export default page;
+export default CartPage;
