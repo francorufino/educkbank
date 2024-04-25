@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { authFirebase } from "@/lib/firebase/config";
 
 export const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
@@ -16,10 +17,20 @@ export const AuthProvider = ({ children }) => {
     isLogg: false,
     name: "",
     // email: "",
-    // password: "",
+    password: "",
   });
 
+  const createUser = async () => {
+    await createUserWithEmailAndPassword(
+      authFirebase,
+      "teste2@gmail.com",
+      "123456"
+    );
+  };
+
   return (
-    <AuthContext.Provider value={{ auth }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ auth, createUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
