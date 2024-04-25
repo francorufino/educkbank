@@ -28,8 +28,21 @@ export const AuthProvider = ({ children }) => {
     );
   };
 
+  const login = async () => {
+    const logged = await signInWithEmailAndPassword(
+      authFirebase,
+      "teste2@gmail.com",
+      "123456"
+    );
+    console.log(logged);
+    setAuth({
+      isLogg: true,
+      name: "Daniel",
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ auth, createUser }}>
+    <AuthContext.Provider value={{ auth, createUser, login }}>
       {children}
     </AuthContext.Provider>
   );
