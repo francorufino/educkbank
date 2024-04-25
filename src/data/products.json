@@ -14,7 +14,7 @@
       "description": "Ceramic mug, orange band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
       "inStock": 120,
       "price": 9.99,
-      "slug": "cmob-002",
+      "slug": "slug",
       "image": "/cmob-002.png",
       "type": "mug"
     },
@@ -29,7 +29,7 @@
     },
     {
       "title": "Ceramic Travel Mug Black Band",
-      "description": "Ceramic mug, black band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "description": "Ceramic mug, black band and lid. Made of ceramic material, band and lid non toxic, both dishwasher safe.",
       "inStock": 101,
       "price": 12.99,
       "slug": "cmbb-004",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Ceramic Travel Mug Gray Band",
-      "description": "Ceramic mug, gray band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "description": "Ceramic mug, gray band and lid. Made of ceramic material, band and lid non toxic, both dishwasher safe.",
       "inStock": 88,
       "price": 9.99,
       "slug": "cmgb-005",
@@ -47,7 +47,7 @@
     },
     {
       "title": "Ceramic Travel Mug Lilas Band",
-      "description": "Ceramic mug, lilas band and lid. Made of ceramic material, and band and lid non toxic, both dishwasher safe.",
+      "description": "Ceramic mug, lilas band and lid. Made of ceramic material, band and lid non toxic, both dishwasher safe.",
       "inStock": 10,
       "price": 11.99,
       "slug": "cmlb-006",
@@ -136,15 +136,6 @@
       "price": 4.99,
       "slug": "myw-015",
       "image": "/myw-015.png",
-      "type": "mug"
-    },
-    {
-      "title": "Mug Orange and Yellow",
-      "description": "Ceramic mug, orange on the outside and yellow in the inside. Made of ceramic and non toxic material, dishwasher safe.",
-      "inStock": 5,
-      "price": 4.99,
-      "slug": "myo-015",
-      "image": "/myo-015.png",
       "type": "mug"
     },
     {
@@ -286,7 +277,7 @@
     },
     {
       "title": "Notebook - Grid - Hard Cover",
-      "description": "Notebook with 130 pages, Grid pages",
+      "description": "Notebook with 130 pages, grid pages",
       "inStock": 80,
       "price": 3.99,
       "slug": "nghc-031",

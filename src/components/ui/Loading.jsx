@@ -3,8 +3,8 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div>
-      <h2 className="text-2xl text-[#ec552a]">Loading Data...</h2>
+    <div className="flex justify-center">
+      <h2 className="text-2xl font-extrabold text-[#ec552a]">Loading...</h2>
     </div>
   );
 };

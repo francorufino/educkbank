@@ -89,18 +89,18 @@ const clubhouse = [
   { label: "Crafting for Shelters", href: "/winter5.jpg" },
   { label: "Book Club", href: "/book1.jpg" },
   { label: "Book Club", href: "/book2.jpg" },
-  { label: "Book Club", href: "/book3.jpg" }
+  { label: "Book Club", href: "/book3.jpg" },
 ];
 
 const uniqueClubhouse = clubhouse.reduce((unique, current) => {
   // Check if the current href already exists in unique
-  if (!unique.find((item) => item.href === current.href)) {
+  if (!unique.find(item => item.href === current.href)) {
     unique.push(current);
   }
   return unique;
 }, []);
 
-const shuffleArray = (array) => {
+const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -117,18 +117,18 @@ const PhotoGallery = () => {
 
   return (
     <div className="p-5 md:p-10 ">
-      <div className="columns-1 gap-5 lg:gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl-columns:5 mb-5">
+      <div className="columns-1 gap-5lg:gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl-columns:5 mb-5 ">
         {shuffledClubhouse.map((club, index) => (
           <div
             key={index}
-            className="mb-4 border-2 border-[#6b7280] rounded-md flex flex-nowrap flex-col justify-center text-center"
+            className="mb-4 border-2  border-[#6b7280] rounded-md flex flex-nowrap flex-col justify-center text-center"
           >
             <Image
               src={club.href}
               alt={club.label}
               width={300}
               height={300}
-              className="rounded-tr-sm rounded-tl-sm"
+              className="rounded-tr-sm rounded-tl-sm "
             />
             <p className="mb-2 pt-2 border-t-2 border-[#6b7280]">
               {club.label}

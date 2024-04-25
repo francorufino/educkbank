@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../../app/context/CartContext";
 import Link from "next/link";
 
 const CartIcon = () => {

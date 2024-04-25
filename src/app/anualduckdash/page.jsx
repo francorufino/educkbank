@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../components/button/Button";
 import Image from "next/image";
+import PhotoGalleryPastEvents from "@/components/ui/PhotoGalleryPastEvents";
 
 const AnualDuckDash = () => {
   return (
@@ -41,6 +42,13 @@ const AnualDuckDash = () => {
       </div>
       <h2 className="text-4xl mt-8">What to Expect</h2>
       <div className="text-lg">
+        <Image
+          src={"/livemusic.jpg"}
+          width={600}
+          height={500}
+          className="rounded-lg float-left mr-4"
+          alt="live music"
+        />
         <p className="mt-8">
           Get ready for an unforgettable experience at the Galena Riverfront
           Park! Witness the exhilarating Duck Race, where thousands of
@@ -60,13 +68,19 @@ const AnualDuckDash = () => {
           enjoying the quack-tastic atmosphere of the Annual Duck Dash!
         </p>
         <p>
-          If you want to go even further and make a big duck-fference in the
-          world you can adopt ducks and ducklings in the event and race for a
-          chance to win fabulous prizes! Proceeds from duck adoptions will
-          benefit "Feathered Friends Foundation", helping to make a positive
-          impact in our community. "Feathered Friend Foundation" focuses on
-          supporting local wildlife conservation efforts, particularly for birds
-          and their habitats.{" "}
+          If you want to go even further and make a huge duck-fference in the
+          world, for a very low fee (you decide how much!), you can adopt ducks,
+          ducklings, cats, dogs and rabbits in the event and give these animals
+          a place to finally call home! All animals available for adoption are
+          rescued animlas and all proceeds from animals adoptions will benefit
+          "Feathered Friends Foundation" - that is focused on supporting local
+          wildlife conservation efforts, particularly for birds and their
+          habitats and others local animal shelters.{" "}
+        </p>
+        <p>
+          Last but not least, by adopting any of the animals, you'll be
+          receiving tokens to reedem in our online store or any affiliate
+          participants spread all over the country.
         </p>
       </div>
       <h2 className="text-4xl mt-8">How to Participate</h2>
@@ -84,7 +98,7 @@ const AnualDuckDash = () => {
       <h2 className="text-4xl mt-8">Event Details</h2>
       <ul>
         <li>
-          <strong>Date:</strong> 07/06/2024
+          <strong>Date:</strong> Every 1st Sunday of July
         </li>
         <li>
           <strong>Time:</strong> 9 am to 7 pm (local time)
@@ -103,12 +117,7 @@ const AnualDuckDash = () => {
           </ul>{" "}
         </li>
       </ul>
-      <h1>Annual Duck Dash Agenda</h1>
-      <p>
-        Welcome to the Annual Duck Dash! Get ready for a quack-tastic day filled
-        with fun activities for the whole family.
-      </p>
-      <h2 className="text-4xl mt-8">Event Schedule:</h2>
+      <h1 className="text-4xl mt-8">Annual Duck Dash Agenda</h1>
       <div className="w-full flex justify-center">
         <table className="mt-[50px] mb-[50px] shadow-2xl font-[Poppins] border-2 border-orange-500 w-10/12 overflow-hidden">
           <thead className="text-white">
@@ -124,7 +133,7 @@ const AnualDuckDash = () => {
                 <p>9:00 am - 10:30 am</p>{" "}
               </td>
               <td className="py-3 px-6">
-                <p> Piggy Bank Decorating</p>
+                <p> Piggy Bank Decorating and Planning</p>
               </td>
               <td className="text-left py-3 flex-grow px-6">
                 <p>
@@ -135,8 +144,10 @@ const AnualDuckDash = () => {
                   personalizing your savings experience and preparing for
                   success! Showcase your artistic skills and transform your
                   piggy bank into a reflection of your unique personality and
-                  savings goals. Get ready to make a splash and set the stage
-                  for a day filled with quack-tastic adventures! Plus, by
+                  savings goals. This is also the moment for planning how much
+                  of ingredients you are buying and calculate the price you will
+                  sell your lemonade. Get ready to make a splash and set the
+                  stage for a day filled with quack-tastic adventures! Plus, by
                   starting your day with this activity, you'll ensure that your
                   piggy bank is dry and ready to collect your profits from the
                   Entrepreneurial Lemonade Stand at the end of the day. Let's
@@ -156,12 +167,13 @@ const AnualDuckDash = () => {
                 <p>
                   Test your budgeting skills in the Grocery Shopping Challenge!
                   Participants will embark on a journey through the market
-                  stalls armed with a list of grocery items and a budget to
-                  stick to. Put your financial savvy to the test as you navigate
-                  through the aisles, making smart purchasing decisions and
-                  seeking out the best deals. The goal here is to prepare for
-                  the Entrepreneurial Lemonade Stand activity later in the day.
-                  Get ready to shop smart and save big!
+                  stalls, from the local vendors, armed with a list of grocery
+                  items and a budget to stick to. Put your financial savvy to
+                  the test as you navigate through the aisles, making smart
+                  purchasing decisions and seeking out the best deals. The goal
+                  here is to prepare for the Entrepreneurial Lemonade Stand
+                  activity later in the day. Get ready to shop smart and save
+                  big!
                 </p>
               </td>
             </tr>
@@ -245,17 +257,23 @@ const AnualDuckDash = () => {
           </tbody>
         </table>
       </div>
+      <div></div>
+      <h3 className="text-4xl mt-8">Photo Gallery</h3>
+      <h3 className="text-3xl mt-8">Past Events</h3>
+      <PhotoGalleryPastEvents />
       <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
-        <Button>Go back</Button>
         <Button>Buy tickets</Button>
       </div>{" "}
-      <p className="flex justify-center mb-8 gap-2 items-baseline">
+      <p className="flex underline justify-center mb-4 gap-2 items-baseline">
         {" "}
         Add to your calendar
       </p>
-      <p className="flex justify-center  mt-2 mb-8 gap-2 items-baseline">
+      <p className="flex underline justify-center  mt-2 mb-8 gap-2 items-baseline">
         Share event
       </p>
+      <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
+        <Button>Go back</Button>
+      </div>
     </div>
   );
 };

@@ -33,10 +33,10 @@ const EduckStore = () => {
   }
 
   return (
-    <main className="container m-auto flex justify-center items-center gap-12 flex-wrap">
+    <main className="container m-auto flex justify-center items-center gap-12 flex-wrap mb-4">
       {products.length === 0 ? (
         <div className="w-full h-screen flex justify-center items-flex-start">
-          <span className="italic text-2xl">We did Not Find Any Products</span>
+          <span className="text-2xl">We did not find any products</span>
         </div>
       ) : (
         products.map(item => (

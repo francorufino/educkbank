@@ -21,9 +21,9 @@ const ProductCard = ({ item }) => {
       <div className="flex flex-col p-4 h-full">
         <div className="border-t border-gray-200">
           <h4 className="mb-4 font-semibold">{item.title}</h4>
-          <p className="text-2xl font -semibold mb-6">${item.price}</p>
+          <p className="text-2xl font-semibold mb-6">${item.price}</p>
         </div>
-        <div className="flex flex-1 justify-end">
+        <div className="flex flex-1 justify-end border-t border-[#fec53b] ">
           <QtySelector item={item} />
         </div>
       </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import BtnSmall from "@/components/button/BtnSmall";
 import Link from "next/link";
 import Button from "@/components/button/Button";
-import { CartContext } from "@/components/context/CartContext";
+import { CartContext } from "@/app/context/CartContext";
 import QtySelector from "@/components/products/QtySelector";
 
 const CartPageProductList = () => {

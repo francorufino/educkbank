@@ -4,102 +4,102 @@ import Link from "next/link";
 const linksCompany = [
   {
     label: "About",
-    href: "/about"
+    href: "/about",
   },
   {
     label: "Contact",
-    href: "/contact"
+    href: "/contact",
   },
   {
     label: "Live Chat",
-    href: "/livechat"
+    href: "/livechat",
   },
   {
     label: "Educk Store",
-    href: "/educkstore"
+    href: "/educkstore",
   },
   {
     label: "Brand Center",
-    href: "/brandcenter"
-  }
+    href: "/brandcenter",
+  },
 ];
 
 const linksServicesMembership = [
   {
     label: "Investments and Financing",
-    href: "/investment"
+    href: "/investment",
   },
   {
     label: "Accounts",
-    href: "/accounts"
+    href: "/accounts",
   },
   {
     label: "Cards",
-    href: "/cards"
+    href: "/cards",
   },
   {
     label: "eDuck Membership",
-    href: "/membership/educkmembership"
+    href: "/membership/educkmembership",
   },
   {
     label: "eDuck Family Membership",
-    href: "/membership/educkfamilymembership"
-  }
+    href: "/membership/educkfamilymembership",
+  },
 ];
 
 const linksInitiativesPrograms = [
   {
     label: "Anual Duck Dash",
-    href: "/anualduckdash"
+    href: "/anualduckdash",
   },
   {
     label: "The Duck House",
-    href: "/theduckhouse"
+    href: "/theduckhouse",
   },
   {
     label: "Quack Clubhouse",
-    href: "/theduckhouse/quackclubhouse"
+    href: "/theduckhouse/quackclubhouse",
   },
   {
     label: "Nest Clubhouse",
-    href: "/theduckhouse/nestclubhouse"
+    href: "/theduckhouse/nestclubhouse",
   },
   {
     label: "Duckling Clubhouse",
-    href: "/theduckhouse/ducklingclubhouse"
+    href: "/theduckhouse/ducklingclubhouse",
   },
   {
     label: "Photo Gallery",
-    href: "/photogallery"
-  }
+    href: "/photogallery",
+  },
 ];
 
 const linksLegal = [
   {
     label: "Licensing",
-    href: "/legal/licensing"
+    href: "/legal/licensing",
   },
   {
     label: "Privacy Policy",
-    href: "/legal/privacypolicy"
+    href: "/legal/privacypolicy",
   },
   {
     label: "Tems &  Conditions",
-    href: "/legal/termsandconditions"
-  }
+    href: "/legal/termsandconditions",
+  },
 ];
 
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-gray-500 mt-2">
+      <footer className="bg-gray-500 mt-12">
         <div className="mx-auto w-full max-w-screen-xl">
           <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
                 Company
               </h2>
-              {linksCompany.map((link) => {
+              {linksCompany.map(link => {
                 return (
                   <ul className="text-orange-200 font-medium">
                     <li className="mb-4">
@@ -119,7 +119,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
                 Services and Membership
               </h2>
-              {linksServicesMembership.map((link) => {
+              {linksServicesMembership.map(link => {
                 return (
                   <ul className="text-orange-200 font-medium">
                     <li className="mb-4">
@@ -139,7 +139,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Initiatives and programs
               </h2>
-              {linksInitiativesPrograms.map((link) => {
+              {linksInitiativesPrograms.map(link => {
                 return (
                   <ul className="text-orange-200 font-medium">
                     <li className="mb-4">
@@ -159,7 +159,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Legal
               </h2>
-              {linksLegal.map((link) => {
+              {linksLegal.map(link => {
                 return (
                   <ul className="text-orange-200 font-medium">
                     <li className="mb-4">

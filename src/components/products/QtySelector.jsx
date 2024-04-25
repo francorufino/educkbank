@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Counter from "../ui/Counter";
 import Button from "../button/Button";
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../../app/context/CartContext";
 import { usePathname } from "next/navigation";
 
 const QtySelector = ({ item }) => {
@@ -22,7 +22,7 @@ const QtySelector = ({ item }) => {
   return (
     <div className="flex flex-col justify-end gap-5 mt-6">
       <Counter max={item.inStock} counter={quantity} setCounter={setQuantity} />
-      <Button className="w-full hover:bg-blue-600" onClick={handleAdd}>
+      <Button className="w-full" onClick={handleAdd}>
         {pathname === "/cart/cartpage" ? "Update cart" : "Add to cart"}
       </Button>
     </div>
