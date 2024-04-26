@@ -1,18 +1,29 @@
 import React, { Suspense } from "react";
-import data from "@/data/products.json";
+// import data from "@/data/products.json";
 import ProductCard from "@/components/products/ProductCard";
 import Loading from "../../../../components/ui/Loading";
 import { db } from "@/lib/firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-export const getCategoryProducts = async (category) => {
+export async function generateStaticParams() {
+  return [
+    { categoria: "all" },
+    { categoria: "mug" },
+    { categoria: "keychain" },
+    { categoria: "petsoutfit" },
+    { categoria: "apparel" },
+    { categoria: "stationary" },
+  ];
+}
+
+export const getCategoryProducts = async category => {
   const productsRef = collection(db, "productsFirebase");
   const q =
     category === "all"
       ? productsRef
       : query(productsRef, where("type", "==", category));
   const querySnapshot = await getDocs(q);
-  const docs = querySnapshot.docs.map((e) => e.data());
+  const docs = querySnapshot.docs.map(e => e.data());
   return docs;
 };
 
@@ -26,7 +37,7 @@ const productCategoria = async ({ params }) => {
           <span className="italic text-2xl">We did Not Find Any Products</span>
         </div>
       ) : (
-        productsFilterCategory.map((item) => (
+        productsFilterCategory.map(item => (
           <Suspense key={item.slug} fallback={<Loading />}>
             <ProductCard item={item} />
           </Suspense>
