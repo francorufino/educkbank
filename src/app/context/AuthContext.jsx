@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -29,20 +29,29 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async () => {
-    const logged = await signInWithEmailAndPassword(
+    await signInWithEmailAndPassword(
       authFirebase,
       "teste2@gmail.com",
       "123456"
     );
-    console.log(logged);
-    setAuth({
-      isLogg: true,
-      name: "Daniel",
-    });
   };
 
+  const logout = async () => {
+    await signOut(authFirebase);
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(authFirebase, user => {
+      // console.log(user);
+      setAuth({
+        isLogg: !!user,
+        name: !!user ? user.email : "",
+      });
+    });
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ auth, createUser, login }}>
+    <AuthContext.Provider value={{ auth, createUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
