@@ -16,7 +16,7 @@ const Counter = ({ counter, setCounter, max }) => {
       <BtnSmall onClick={decrease} className="active:bg-[#6b7280]">
         -
       </BtnSmall>
-      <p className="text-sm">{counter}</p>
+      <p className="text-sm font-semibold">{counter}</p>
       <BtnSmall onClick={increase} className="active:bg-[#6b7280]">
         +
       </BtnSmall>

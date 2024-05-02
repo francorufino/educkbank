@@ -6,22 +6,21 @@ const ProductDetail = ({ item }) => {
   return (
     <div className="max-w-4xl m-auto">
       <section className="flex items-center mb-4 gap-4">
-        <div className="relative basis-1/2">
+        <div className="flex relative w-full h-[350px] basis-1/2">
           <Image
             alt={"Imagen Product"}
-            src={""}
-            width={320}
-            height={320}
-            className="rounded-lg flex "
+            src={item.image}
+            layout="fill"
+            className="rounded-lg object-cover"
           />
         </div>
-        <div className="basis-1/2 flex flex-col justify-center text-[#6b7280] ">
+        <div className="basis-1/2 flex flex-col justify-center text-black ">
           <div className="justify-center text-center border-2 border-[#6b7280] p-8">
             {" "}
             <h2 className="text-2xl font-semibold border-b border-gray-200 pb-4 mb-4">
               {item.title}
             </h2>
-            <p className="text-4xl">$ {item.price}</p>
+            <p className="text-4xl font-semibold">$ {item.price}</p>
             <div className="flex flex-col">
               <QtySelector item={item} />
             </div>
@@ -42,4 +41,5 @@ const ProductDetail = ({ item }) => {
     </div>
   );
 };
+
 export default ProductDetail;
