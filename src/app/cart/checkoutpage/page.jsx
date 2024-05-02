@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Head from "next/head";
+import CartPageProductListCheckout from "../CartPageProductListCheckout";
 
 const CheckoutPage = () => {
   const [total, setTotal] = useState(100); // Set default total
@@ -8,11 +9,11 @@ const CheckoutPage = () => {
   const [shippingOption, setShippingOption] = useState("");
   const [shippingCost, setShippingCost] = useState(0); // Default shipping cost
 
-  const handlePaymentMethodChange = (e) => {
+  const handlePaymentMethodChange = e => {
     setPaymentMethod(e.target.value);
   };
 
-  const handleShippingOptionChange = (e) => {
+  const handleShippingOptionChange = e => {
     const option = e.target.value;
     setShippingOption(option);
 
@@ -43,6 +44,10 @@ const CheckoutPage = () => {
       </Head>
 
       <h1>Review Your Order</h1>
+
+      <section>
+        <CartPageProductListCheckout />
+      </section>
 
       <div>
         <h2>Total: ${total + shippingCost}</h2>

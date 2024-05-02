@@ -9,12 +9,14 @@ import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
 import { useState } from "react";
 import Weather from "../api/weather/Weather";
+import ProfileImage from "./ProfileImage";
 
 const dashboard = () => {
   const [action, setAction] = useState("");
   const [userName, setUserName] = useState("Rebecca");
   const [deposit, setDeposit] = useState(0);
   const [withdraw, setWithdraw] = useState(0);
+  const [photo, setPhoto] = useState("");
 
   function conditionalRendering(id) {
     if (id === "statetment") {
@@ -57,16 +59,25 @@ const dashboard = () => {
 
       <div className="flex mt-[50px] container">
         <section className="flex-2/3 ">
-          <div>
-            <p className="text-[#6b7280]">March, 27th 2024 | Partly Cloudy</p>
-          </div>
-          <div>
-            <Weather />
-          </div>
+          <section className="flex ">
+            <ProfileImage />
 
-          <div className="mb-12 font-bold text-3xl">
-            <p className="tracking-widest ">Hello, {userName}</p>
-          </div>
+            <section>
+              <div>
+                <p className="text-[#6b7280] bg-red-200">
+                  March, 27th 2024 | Partly Cloudy
+                </p>
+              </div>
+              <div>
+                <Weather />
+              </div>
+              <div className="mb-12 font-bold text-3xl">
+                <p className="tracking-widest ">
+                  Hello, <span className="bg-red-200">{userName}</span>
+                </p>
+              </div>{" "}
+            </section>
+          </section>
           <p className="font-bold mb-4 text-[#6b7280]">
             What do you want to do today?
           </p>
