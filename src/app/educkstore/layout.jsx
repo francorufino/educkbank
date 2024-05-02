@@ -1,11 +1,17 @@
+"use client";
+
 import CategoriesMenu from "@/components/products/CategoriesMenu";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const EduckStoreLayout = ({ children }) => {
+  const pathname = usePathname();
+  const isADetailPage = pathname?.includes("/productosSlug");
+
   return (
     <div>
       <h2 className="text-3xl mt-8 pb-4 ">Educk Store</h2>
-      <CategoriesMenu />
+      {!isADetailPage && <CategoriesMenu />}
       {children}
     </div>
   );

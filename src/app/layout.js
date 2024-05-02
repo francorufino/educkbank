@@ -4,6 +4,7 @@ import Footer from "../components/ui/Footer";
 import { Montserrat_Alternates, Kumbh_Sans } from "next/font/google";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 const gfkum = Kumbh_Sans({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
                 {children}
               </div>
               <Footer className={`h-500 ${gfkum.className}`} />
+              <Toaster position="top-center" reverseOrder={false} />
             </CartProvider>
           </AuthProvider>
         </body>

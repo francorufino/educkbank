@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const page = () => {
+const LoginPage = () => {
   return (
     <div>
       {" "}
@@ -55,31 +55,12 @@ const page = () => {
                   >
                     Password
                   </label>
-                  <a
-                    href="#"
-                    class="text-sm text-[#ec552a] hover:underline focus:text-blue-800"
-                  >
-                    Forgot Password?
-                  </a>
                 </div>
                 <input
                   type="password"
                   id="password"
                   class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 />
-              </div>
-              <div class="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  class="w-4 h-4 transition duration-300 rounded focus:ring-2 focus:ring-offset-0 focus:outline-none focus:ring-blue-200"
-                />
-                <label
-                  for="remember"
-                  class="text-sm font-semibold text-gray-500"
-                >
-                  Remember me
-                </label>
               </div>
               <div>
                 <button
@@ -89,7 +70,7 @@ const page = () => {
                   Log in
                 </button>
               </div>
-              <div class="flex flex-col space-y-5">
+              {/* <div class="flex flex-col space-y-5">
                 <span class="flex items-center justify-center space-x-2">
                   <span class="h-px bg-gray-400 w-14"></span>
                   <span class="font-normal text-gray-500">or login with</span>
@@ -136,7 +117,7 @@ const page = () => {
                     </span>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
@@ -145,4 +126,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
