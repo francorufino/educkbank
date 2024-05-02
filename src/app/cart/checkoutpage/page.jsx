@@ -1,9 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Head from "next/head";
 import CartPageProductListCheckout from "../CartPageProductListCheckout";
+import { CartContext } from "@/app/context/CartContext";
 
 const CheckoutPage = () => {
+  const { cart } = useContext(CartContext);
   const [total, setTotal] = useState(100); // Set default total
   const [paymentMethod, setPaymentMethod] = useState("");
   const [shippingOption, setShippingOption] = useState("");
@@ -33,7 +35,7 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div>
+    <main>
       <Head>
         <title>Review Your Order</title>
         <meta
@@ -43,90 +45,84 @@ const CheckoutPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Review Your Order</h1>
-
-      <section>
-        <CartPageProductListCheckout />
-      </section>
-
-      <div>
-        <h2>Total: ${total + shippingCost}</h2>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="tokens"
-              checked={paymentMethod === "tokens"}
-              onChange={handlePaymentMethodChange}
-            />
-            Pay with Tokens
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="credit-card"
-              checked={paymentMethod === "credit-card"}
-              onChange={handlePaymentMethodChange}
-            />
-            Credit Card
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="debit-card"
-              checked={paymentMethod === "debit-card"}
-              onChange={handlePaymentMethodChange}
-            />
-            Debit Card
-          </label>
+      <section className="flex flex-col">
+        <h1 className="text-xl font-bold">Review Your Order</h1>
+        <div className="flex gap-10 bg-white p-6 rounded-xl mt-4">
+          {cart.length > 0 && (
+            <article className="flex flex-1 flex-col gap-4">
+              <div>
+                <label
+                  htmlFor="full_name"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Full name
+                </label>
+                <div className="mt-2">
+                  <input
+                    name="full_name"
+                    id="full_name"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="John Doe"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Email
+                </label>
+                <div className="mt-2">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Address
+                </label>
+                <div className="mt-2">
+                  <input
+                    name="address"
+                    id="address"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Enter your address"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Country
+                </label>
+                <div className="mt-2">
+                  <input
+                    name="country"
+                    id="country"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Enter your address"
+                  />
+                </div>
+              </div>
+            </article>
+          )}
+          <article className="flex flex-col flex-1">
+            <CartPageProductListCheckout />
+          </article>
         </div>
-      </div>
-
-      <div>
-        <h2>Shipping Address</h2>
-        <p>User Name: John Doe</p>
-        {/* Display address here */}
-      </div>
-
-      <div>
-        <h2>Shipping Options</h2>
-        <label>
-          <input
-            type="radio"
-            name="shippingOption"
-            value="express"
-            checked={shippingOption === "express"}
-            onChange={handleShippingOptionChange}
-          />
-          Express Shipping (+$5)
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="shippingOption"
-            value="standard"
-            checked={shippingOption === "standard"}
-            onChange={handleShippingOptionChange}
-          />
-          Standard Shipping (3 to 5 business days)
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="shippingOption"
-            value="members"
-            checked={shippingOption === "members"}
-            onChange={handleShippingOptionChange}
-          />
-          Members Shipping (Free)
-        </label>
-      </div>
-
-      <button onClick={handlePlaceOrder}>Place Your Order</button>
-    </div>
+      </section>
+    </main>
   );
 };
 
