@@ -50,7 +50,8 @@ export const AuthProvider = ({ children }) => {
         name: user ? user.email : "",
         user: user || null,
       });
-      alert(user.name);
+
+      // alert(user?.name);
     });
 
     return () => unsubscribe();
