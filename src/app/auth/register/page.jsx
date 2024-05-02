@@ -1,9 +1,13 @@
 "use client";
 import LoginComp from "@/components/forms/LoginComp";
 import Register from "@/components/forms/Register";
-import React from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect } from "react";
 
-const page = () => {
+const RegisterPage = () => {
+  const pathname = usePathname();
+  useEffect(() => {}, []);
+
   return (
     <>
       <h1 className="text-2xl mt-8">
@@ -28,4 +32,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default RegisterPage;

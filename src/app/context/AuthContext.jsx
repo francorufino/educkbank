@@ -6,7 +6,9 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { authFirebase } from "@/lib/firebase/config";
+import { doc, setDoc } from "firebase/firestore";
+import { authFirebase, db } from "@/lib/firebase/config";
+import toast from "react-hot-toast";
 
 export const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
@@ -17,13 +19,24 @@ export const AuthProvider = ({ children }) => {
     user: null,
   });
 
-  const createUser = async (email, password, userData) => {
+  const createUser = async userData => {
     try {
-      await createUserWithEmailAndPassword(authFirebase, email, password);
-      // Additional logic to store user data
-      console.log("User created successfully:", userData);
+      const newUserResponse = await createUserWithEmailAndPassword(
+        authFirebase,
+        userData.email,
+        userData.password
+      );
+
+      if (newUserResponse.user) {
+        const userRef = doc(db, "users", newUserResponse.user.uid);
+        await setDoc(userRef, userData);
+        return;
+      }
+
+      toast.error("Something went wrong saving the user");
     } catch (error) {
       console.error("Error creating user:", error);
+      toast.error(error.message);
     }
   };
 
@@ -31,7 +44,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await signInWithEmailAndPassword(authFirebase, email, password);
     } catch (error) {
-      console.error("Error signing in:", error);
+      toast.error(error.message);
     }
   };
 
@@ -39,6 +52,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await signOut(authFirebase);
     } catch (error) {
+      toast.error("Something went wrong trying to sign out");
       console.error("Error signing out:", error);
     }
   };
@@ -47,7 +61,6 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(authFirebase, user => {
       setAuth({
         isLoggedIn: !!user,
-        name: user ? user.email : "",
         user: user || null,
       });
 
