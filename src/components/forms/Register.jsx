@@ -1,429 +1,185 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import { useAuthContext } from "../../app/context/AuthContext";
+import { useForm } from "react-hook-form";
+import { cities, countries } from "@/data/countriesAndCities";
+import { InputText } from "@/components/forms/Input";
+import { InputSelect } from "@/components/forms/Select";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+  const [loading, setLoading] = useState(false);
   const { createUser } = useAuthContext();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [buildingNumber, setBuildingNumber] = useState("");
-  const [street, setStreet] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
-  const [email, setEmail] = useState("");
-  const [confirmEmail, setConfirmEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const { push } = useRouter();
 
-  const countries = [
-    "Argentina",
-    "Brazil",
-    "Finland",
-    "Denmark",
-    "Norway",
-    "Portugal",
-    "United Kingdom",
-    "United States",
-  ];
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    reset,
+  } = useForm();
 
-  const cities = {
-    Argentina: [
-      "Buenos Aires",
-      "Córdoba",
-      "Rosario",
-      "Mendoza",
-      "San Miguel de Tucumán",
-      "La Plata",
-      "Mar del Plata",
-      "Salta",
-      "Santa Fe",
-      "San Juan",
-      "Resistencia",
-      "Santiago del Estero",
-      "Corrientes",
-      "Posadas",
-      "San Salvador de Jujuy",
-      "Neuquén",
-      "Formosa",
-      "San Fernando del Valle de Catamarca",
-      "San Luis",
-      "La Rioja",
-      "Rio Gallegos",
-      "Santa Rosa",
-      "Ushuaia",
-    ],
-    Brazil: [
-      "São Paulo",
-      "Rio de Janeiro",
-      "Brasília",
-      "Salvador",
-      "Fortaleza",
-      "Belo Horizonte",
-      "Manaus",
-      "Curitiba",
-      "Recife",
-      "Porto Alegre",
-      "Belém",
-      "Goiânia",
-      "Guarulhos",
-      "Campinas",
-      "São Luís",
-      "São Gonçalo",
-      "Maceió",
-      "Duque de Caxias",
-      "Teresina",
-      "Natal",
-      "Nova Iguaçu",
-      "Campo Grande",
-      "Santo André",
-      "João Pessoa",
-    ],
-    Finland: [
-      "Helsinki",
-      "Espoo",
-      "Tampere",
-      "Vantaa",
-      "Oulu",
-      "Turku",
-      "Jyväskylä",
-      "Lahti",
-      "Kuopio",
-      "Pori",
-      "Kouvola",
-      "Joensuu",
-      "Lappeenranta",
-      "Hämeenlinna",
-      "Vaasa",
-      "Seinäjoki",
-      "Rovaniemi",
-      "Mikkeli",
-      "Kokkola",
-      "Porvoo",
-    ],
-    Denmark: [
-      "Copenhagen",
-      "Aarhus",
-      "Odense",
-      "Aalborg",
-      "Esbjerg",
-      "Randers",
-      "Kolding",
-      "Horsens",
-      "Vejle",
-      "Roskilde",
-      "Herning",
-      "Silkeborg",
-      "Næstved",
-      "Greve",
-      "Tårnby",
-      "Frederiksberg",
-      "Ballerup",
-      "Rødovre",
-      "Viborg",
-      "Køge",
-    ],
-    Norway: [
-      "Oslo",
-      "Bergen",
-      "Trondheim",
-      "Stavanger",
-      "Drammen",
-      "Fredrikstad",
-      "Kristiansand",
-      "Sandnes",
-      "Tromsø",
-      "Sarpsborg",
-      "Skien",
-      "Ålesund",
-      "Sandefjord",
-      "Haugesund",
-      "Tønsberg",
-      "Moss",
-      "Porsgrunn",
-      "Bodø",
-      "Arendal",
-      "Hamar",
-    ],
-    Portugal: [
-      "Lisbon",
-      "Porto",
-      "Vila Nova de Gaia",
-      "Amadora",
-      "Braga",
-      "Setúbal",
-      "Coimbra",
-      "Funchal",
-      "Almada",
-      "Aveiro",
-      "Viseu",
-      "Rio Tinto",
-      "Leiria",
-      "Odivelas",
-      "Evora",
-      "Queluz",
-      "Aveiro",
-      "Faro",
-      "Barreiro",
-      "Viana do Castelo",
-    ],
-    "United Kingdom": [
-      "London",
-      "Manchester",
-      "Birmingham",
-      "Glasgow",
-      "Liverpool",
-      "Edinburgh",
-      "Bristol",
-      "Sheffield",
-      "Leeds",
-      "Newcastle upon Tyne",
-      "Leicester",
-      "Nottingham",
-      "Southampton",
-      "Cardiff",
-      "Belfast",
-      "Brighton",
-      "Stoke-on-Trent",
-      "Coventry",
-      "Derby",
-      "Reading",
-    ],
-    "United States": [
-      "New York",
-      "Los Angeles",
-      "Chicago",
-      "Houston",
-      "Phoenix",
-      "Philadelphia",
-      "San Antonio",
-      "San Diego",
-      "Dallas",
-      "San Jose",
-      "Austin",
-      "Jacksonville",
-      "San Francisco",
-      "Indianapolis",
-      "Columbus",
-      "Fort Worth",
-      "Charlotte",
-      "Seattle",
-      "Denver",
-      "El Paso",
-    ],
-  };
+  const country = watch("country");
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    // Here you can handle form submission, validation, etc.
-
-    const userData = {
-      firstName,
-      lastName,
-      dateOfBirth,
-      country,
-      city,
-      email,
-      password,
-    };
-
-    await createUser(email, password, userData);
+  const onSubmit = async values => {
+    setLoading(true);
+    try {
+      await createUser(values);
+      reset();
+      push("/auth/login");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div>
       <div className="flex justify-center rounded-xl p-8 bg-[#6b7280] mt-4">
-        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
+        <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-wrap mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-first-name"
-              >
-                First Name
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-first-name"
-                type="text"
-                placeholder="John"
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"first_name"}
+                placeholder={"John"}
+                label={"First name"}
+                errorMessage={"First name is required"}
               />
             </div>
             <div className="w-full md:w-1/2 px-3">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-last-name"
-              >
-                Last Name
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
-                type="text"
-                placeholder="Doe"
-                value={lastName}
-                onChange={e => setLastName(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"last_name"}
+                placeholder={"Doe"}
+                label={"Last name"}
+                errorMessage={"Last name is required"}
               />
             </div>
           </div>
           {/* Date of Birth */}
           <div className="flex flex-wrap mb-6">
             <div className="w-full px-3">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-date-of-birth"
-              >
-                Date of Birth
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-date-of-birth"
-                type="date"
-                placeholder="YYYY-MM-DD"
-                value={dateOfBirth}
-                onChange={e => setDateOfBirth(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"date_of_birth"}
+                type={"date"}
+                placeholder={"YYYY-MM-DD"}
+                label={"Date of Birth"}
+                errorMessage={"Date of Birth is required"}
               />
             </div>
           </div>
           {/* Email and Confirm Email */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full px-3">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-email"
-              >
-                Email
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-email"
-                type="email"
-                placeholder="john@email.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"email"}
+                type={"email"}
+                placeholder={"john@email.com"}
+                label={"Email"}
+                errorMessage={"Email is required"}
               />
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-confirm-email"
-              >
-                Confirm Email
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-confirm-email"
-                type="email"
-                placeholder="john@email.com"
-                value={confirmEmail}
-                onChange={e => setConfirmEmail(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"confirm_email"}
+                type={"email"}
+                placeholder={"john@email.com"}
+                label={"Confirm Email"}
+                errorMessage={"Confirm Email is required"}
+                validateMessage={"Email do not match"}
+                validateField="email"
+                watch={watch}
+                needValidate
               />
             </div>
           </div>
           {/* Password and Confirm Password */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full px-3">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Password
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-password"
-                type="password"
-                placeholder="Type your password (minimum of 6 characters)"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"password"}
+                type={"password"}
+                placeholder={"Type your password"}
+                label={"Password"}
+                errorMessage={"Password is required"}
               />
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-confirm-password"
-              >
-                Confirm Password
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-confirm-password"
-                type="password"
-                placeholder="Retype your password"
-                value={confirmPassword}
-                onChange={e => setConfirmPassword(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"confirm_password"}
+                type={"password"}
+                placeholder={"Confirm your password"}
+                label={"Confirm Password"}
+                errorMessage={"Confirm Password is required"}
+                validateMessage={"Password do not match"}
+                validateField="password"
+                watch={watch}
+                needValidate
               />
             </div>
           </div>
           <div className="flex flex-wrap  mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-building-number"
-              >
-                Building Number
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-building-number"
-                type="password"
-                placeholder="25B"
-                value={buildingNumber}
-                onChange={e => setBuildingNumber(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                inputKey={"address"}
+                placeholder={"Type your address"}
+                label={"Address"}
+                errorMessage={"Address is required"}
               />
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-building-number"
-              >
-                Zip Code
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-zip-code"
-                type="password"
-                placeholder="123123-23"
-                value={zipCode}
-                onChange={e => setZipCode(e.target.value)}
+              <InputText
+                register={register}
+                errors={errors}
+                type="number"
+                inputKey={"zip_code"}
+                placeholder={"Type your Zip code"}
+                label={"Zip code"}
+                errorMessage={"Zip code is required"}
               />
             </div>
           </div>
           {/* Country and City */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-country"
-              >
-                Country
-              </label>
-              <select
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-country"
-                value={country}
-                onChange={e => setCountry(e.target.value)}
-              >
-                <option value="">Select Country</option>
-                {countries.map(countryName => (
-                  <option key={countryName} value={countryName}>
-                    {countryName}
-                  </option>
-                ))}
-              </select>
+              <InputSelect
+                register={register}
+                errors={errors}
+                inputKey={"country"}
+                placeholder={"Select your country"}
+                label={"Country"}
+                errorMessage={"Country is required"}
+                options={countries}
+              />
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label
                 className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
-                htmlFor="grid-city"
+                htmlFor="city"
               >
                 City
               </label>
               <select
+                id="city"
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
-                value={city}
-                onChange={e => setCity(e.target.value)}
+                {...register("city", {
+                  required: "City is required",
+                })}
               >
                 <option value="">Select City</option>
                 {cities[country] &&
@@ -433,12 +189,19 @@ const Register = () => {
                     </option>
                   ))}
               </select>
+              {errors.city && (
+                <span className="text-red-500 mt-1">{errors.city.message}</span>
+              )}
             </div>
           </div>
           {/* Submit button */}
           <div className="flex flex-wrap mt-8 mb-6 justify-center">
-            {" "}
-            <Button type="submit">Sign up</Button>
+            <Button
+              type="submit"
+              disabled={loading || Object.keys(errors).length > 0}
+            >
+              Sign up
+            </Button>
           </div>
         </form>
       </div>
