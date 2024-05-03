@@ -14,11 +14,29 @@ export const AuthContext = createContext();
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [auth, setAuth] = useState({
     isLoggedIn: false,
     user: null,
     metadata: null,
   });
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(authFirebase, user => {
+      if (user) {
+        getUserFromDb(user);
+      } else {
+        setLoading(false);
+        setAuth({
+          isLoggedIn: false,
+          user: null,
+          metadata: null,
+        });
+      }
+    });
+
+    return () => unsubscribe();
+  }, [authFirebase]);
 
   const createUser = async userData => {
     try {
@@ -79,27 +97,12 @@ export const AuthProvider = ({ children }) => {
 
     if (userFromDb.exists()) {
       setAuth({ user, isLoggedIn: !!user, metadata: userFromDb.data() });
+      setLoading(false);
       return;
     }
 
     toast.error("Something went wrong getting user information from db");
   }
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(authFirebase, user => {
-      if (user) {
-        getUserFromDb(user);
-      } else {
-        setAuth({
-          isLoggedIn: false,
-          user: null,
-          metadata: null,
-        });
-      }
-    });
-
-    return () => unsubscribe();
-  }, [authFirebase]);
 
   return (
     <AuthContext.Provider
@@ -108,6 +111,7 @@ export const AuthProvider = ({ children }) => {
         createUser,
         login,
         logout,
+        loading,
       }}
     >
       {children}
