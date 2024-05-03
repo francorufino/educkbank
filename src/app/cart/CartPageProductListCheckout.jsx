@@ -4,25 +4,43 @@ import Image from "next/image";
 import Button from "@/components/button/Button";
 import { CartContext } from "@/app/context/CartContext";
 import { db } from "@/lib/firebase/config";
-import { updateDoc, doc } from "firebase/firestore";
-import { toast } from "react-hot-toast";
+import {
+  updateDoc,
+  doc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useRouter } from "next/navigation";
+import { AuthContext } from "../context/AuthContext";
 
 const CartPageProductListCheckout = () => {
   const { push } = useRouter();
+  const { auth } = useContext(AuthContext);
   const { cart, cartTotalValue, clearCart } = useContext(CartContext);
 
   async function placeOrder() {
-    cart.forEach(async cartItem => {
-      const itemRef = doc(db, "productsFirebase", cartItem.slug);
+    try {
+      cart.forEach(async cartItem => {
+        const itemRef = doc(db, "productsFirebase", cartItem.slug);
 
-      await updateDoc(itemRef, {
-        inStock: cartItem.inStock - cartItem.quantity,
+        await updateDoc(itemRef, {
+          inStock: cartItem.inStock - cartItem.quantity,
+        });
       });
-    });
 
-    clearCart();
-    push("/cart/thanks");
+      const collectionRef = collection(db, "orders");
+      await addDoc(collectionRef, {
+        user: { id: auth.user.uid, ...auth.metadata },
+        products: cart,
+        created_at: serverTimestamp(),
+      });
+
+      clearCart();
+      push("/cart/thanks");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
