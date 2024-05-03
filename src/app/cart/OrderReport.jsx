@@ -48,15 +48,8 @@ const CartPageProductListCheckout = () => {
           </p>
         </div>
       </div>
-      {/* ) */}
-      {/* } */}
     </div>
   );
 };
 
 export default CartPageProductListCheckout;
-
-/* 
- 
-
-*/

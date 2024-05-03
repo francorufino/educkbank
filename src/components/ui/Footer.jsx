@@ -101,7 +101,7 @@ const Footer = () => {
               </h2>
               {linksCompany.map(link => {
                 return (
-                  <ul className="text-orange-200 font-medium">
+                  <ul key={link.href} className="text-orange-200 font-medium">
                     <li className="mb-4">
                       <Link
                         key={link.label}
@@ -121,7 +121,7 @@ const Footer = () => {
               </h2>
               {linksServicesMembership.map(link => {
                 return (
-                  <ul className="text-orange-200 font-medium">
+                  <ul key={link.href} className="text-orange-200 font-medium">
                     <li className="mb-4">
                       <Link
                         key={link.label}
@@ -141,7 +141,7 @@ const Footer = () => {
               </h2>
               {linksInitiativesPrograms.map(link => {
                 return (
-                  <ul className="text-orange-200 font-medium">
+                  <ul key={link.href} className="text-orange-200 font-medium">
                     <li className="mb-4">
                       <Link
                         key={link.label}
@@ -161,7 +161,7 @@ const Footer = () => {
               </h2>
               {linksLegal.map(link => {
                 return (
-                  <ul className="text-orange-200 font-medium">
+                  <ul key={link.href} className="text-orange-200 font-medium">
                     <li className="mb-4">
                       <Link
                         key={link.label}

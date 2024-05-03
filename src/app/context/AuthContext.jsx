@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { authFirebase, db } from "@/lib/firebase/config";
 import toast from "react-hot-toast";
 
@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isLoggedIn: false,
     user: null,
+    metadata: null,
   });
 
   const createUser = async userData => {
@@ -42,7 +43,17 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      await signInWithEmailAndPassword(authFirebase, email, password);
+      const loginResponse = await signInWithEmailAndPassword(
+        authFirebase,
+        email,
+        password
+      );
+
+      if (loginResponse.user) {
+        getUserFromDb(loginResponse.user);
+
+        return;
+      }
     } catch (error) {
       toast.error(error.message);
     }
@@ -51,24 +62,44 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(authFirebase);
+      setAuth({
+        isLoggedIn: false,
+        user: null,
+        metadata: null,
+      });
     } catch (error) {
       toast.error("Something went wrong trying to sign out");
       console.error("Error signing out:", error);
     }
   };
 
+  async function getUserFromDb(user) {
+    const userRef = doc(db, "users", user?.uid);
+    const userFromDb = await getDoc(userRef);
+
+    if (userFromDb.exists()) {
+      setAuth({ user, isLoggedIn: !!user, metadata: userFromDb.data() });
+      return;
+    }
+
+    toast.error("Something went wrong getting user information from db");
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(authFirebase, user => {
-      setAuth({
-        isLoggedIn: !!user,
-        user: user || null,
-      });
-
-      // alert(user?.name);
+      if (user) {
+        getUserFromDb(user);
+      } else {
+        setAuth({
+          isLoggedIn: false,
+          user: null,
+          metadata: null,
+        });
+      }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [authFirebase]);
 
   return (
     <AuthContext.Provider
