@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import { AuthContext } from "@/app/context/AuthContext";
 import LoginComp from "@/components/forms/LoginComp";
