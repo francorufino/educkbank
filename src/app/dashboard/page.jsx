@@ -403,7 +403,7 @@ function OrderDetailModal({ order, onClose }) {
 
   return (
     <section className="flex items-center justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
-      <div className="relative bg-white rounded-lg p-6 w-1/2 h-1/2">
+      <div className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-bold">Order ID: {order.id}</h2>
           <span>Created on: {new Date(date).toLocaleString()}</span>
