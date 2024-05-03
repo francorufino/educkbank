@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styles from "./main.module.css";
 import Image from "next/image";
 import Button from "@/components/button/Button";
@@ -29,7 +30,7 @@ export const metadata = {
     "giving back",
     "me time",
     "socialization",
-    "SSR"
+    "SSR",
   ],
   openGraph: {
     title: "eDuck Bank",
@@ -37,8 +38,8 @@ export const metadata = {
       "Discover eDuck Bank, where financial innovation meets community engagement. Explore our range of banking services and join us in making a positive impact",
     type: "website",
     publishedTime: new Date().toISOString(),
-    authors: ["https://www.educkbank.com"]
-  }
+    authors: ["https://www.educkbank.com"],
+  },
 };
 
 export default function Home() {
