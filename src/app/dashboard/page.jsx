@@ -17,15 +17,21 @@ import { getDocs, query, where, collection } from "firebase/firestore";
 import Button from "@/components/button/Button";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 const DashboardPage = () => {
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [openModal, setOpenModal] = useState(false);
-  const { auth } = useContext(AuthContext);
+  const { auth, loading } = useContext(AuthContext);
   const { push } = useRouter();
 
-  console.log({ orders });
+  useEffect(() => {
+    if (!auth.user && !loading) {
+      toast.error("You need an account to see the dashboard");
+      push("/auth");
+    }
+  }, [auth, loading]);
 
   useEffect(() => {
     if (auth.user) {
@@ -38,13 +44,6 @@ const DashboardPage = () => {
   // const [deposit, setDeposit] = useState(0);
   // const [withdraw, setWithdraw] = useState(0);
   // const [photo, setPhoto] = useState("");
-
-  // useEffect(() => {
-  //   if (!auth.user) {
-  //     toast.error("You need an account to see the dashboard");
-  //     push("/auth");
-  //   }
-  // }, [auth]);
 
   // function conditionalRendering(id) {
   //   if (id === "statetment") {
