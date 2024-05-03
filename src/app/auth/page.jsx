@@ -1,12 +1,19 @@
 "use client";
+import { AuthContext } from "@/app/context/AuthContext";
 import LoginComp from "@/components/forms/LoginComp";
 import Register from "@/components/forms/Register";
-import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect } from "react";
 
 const RegisterPage = () => {
-  const pathname = usePathname();
-  useEffect(() => {}, []);
+  const { auth } = useContext(AuthContext);
+  const { push } = useRouter();
+
+  useEffect(() => {
+    if (auth.user) {
+      push("/educkstore");
+    }
+  }, [auth]);
 
   return (
     <>

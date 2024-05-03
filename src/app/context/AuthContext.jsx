@@ -42,7 +42,15 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      await signInWithEmailAndPassword(authFirebase, email, password);
+      const loginResponse = await signInWithEmailAndPassword(
+        authFirebase,
+        email,
+        password
+      );
+
+      if (loginResponse.user) {
+        setAuth({ user, isLoggedIn: true });
+      }
     } catch (error) {
       toast.error(error.message);
     }
@@ -51,6 +59,10 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(authFirebase);
+      setAuth({
+        isLoggedIn: false,
+        user: null,
+      });
     } catch (error) {
       toast.error("Something went wrong trying to sign out");
       console.error("Error signing out:", error);
@@ -59,16 +71,15 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(authFirebase, user => {
+      console.log({ user });
       setAuth({
         isLoggedIn: !!user,
         user: user || null,
       });
-
-      // alert(user?.name);
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [authFirebase]);
 
   return (
     <AuthContext.Provider

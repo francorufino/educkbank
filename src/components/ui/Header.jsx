@@ -1,24 +1,24 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import CartIcon from "./CartIcon";
-
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Dashboard", href: "/dashboard" },
-  { label: "Shop", href: "/educkstore" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Login", href: "/auth/login" },
-  { label: "Register", href: "/auth/register" },
-  { label: "Logout", href: "/logout" },
-  { label: "Posts", href: "/posts" },
-];
+import { AuthContext } from "@/app/context/AuthContext";
 
 const Header = () => {
+  const { auth, logout } = useContext(AuthContext);
   const pathname = usePathname();
+
+  const links = [
+    { label: "Home", href: "/" },
+    { label: "Dashboard", href: "/dashboard", isHidden: false },
+    { label: "Shop", href: "/educkstore", isHidden: false },
+    { label: "About", href: "/about", isHidden: false },
+    { label: "Login", href: "/auth", isHidden: auth.isLoggedIn },
+    { label: "Register", href: "/auth", isHidden: auth.isLoggedIn },
+  ];
+
   return (
     <header className={`w-full bg-gray-500 `}>
       <div className="container max-w-screen-xl m-auto py-600 flex justify-between items-center">
@@ -34,25 +34,33 @@ const Header = () => {
             className="ml-[18px]"
           />
         </Link>
-        {/* fazer um ternario aqui para mudar as opcoes da navegacao se user logado 
-if logado: home, dashboard, about, contact, Logout
-else somente home, about, contact, login */}
+
         <div className="flex space-x-4 justify-center items-center">
           <nav className="px-8 flex justify-between align-baseline gap-2">
             {links.map(link => {
               return (
-                <React.Fragment key={link.label}>
-                  <Link
-                    href={link.href}
-                    className={`${
-                      pathname === link.href ? "text-orange-600" : ""
-                    }text-base  text-orange-200 hover:underline hover:text-indigo-50`}
-                  >
-                    {link.label}
-                  </Link>
-                </React.Fragment>
+                !link.isHidden && (
+                  <React.Fragment key={link.label}>
+                    <Link
+                      href={link.href}
+                      className={`${
+                        pathname === link.href ? "text-orange-600" : ""
+                      }text-base  text-orange-200 hover:underline hover:text-indigo-50`}
+                    >
+                      {link.label}
+                    </Link>
+                  </React.Fragment>
+                )
               );
             })}{" "}
+            {auth.isLoggedIn && (
+              <button
+                onClick={logout}
+                className="text-base  text-orange-200 hover:underline hover:text-indigo-50"
+              >
+                Log out
+              </button>
+            )}
           </nav>
           <CartIcon />
         </div>

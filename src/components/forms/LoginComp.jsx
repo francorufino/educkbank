@@ -22,61 +22,67 @@
 //   );
 // }
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../button/Button";
+import { InputText } from "./Input";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "@/app/context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    // Here you can handle form submission, validation, etc.
-    console.log({ email, password });
-    alert("Logging in...");
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  async function onSubmit(values) {
+    try {
+      await login(values.email, values.password);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <div className="bg-[#fec53b] rounded-2xl mt-4 p-8">
       <div className="flex justify-center mt-8">
-        <form className="w-full max-w-md" onSubmit={handleSubmit}>
+        <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
           <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="email"
-              type="email"
-              placeholder="john@example.com"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+            <InputText
+              label={"Email"}
+              placeholder={"john@example.com"}
+              register={register}
+              errors={errors}
+              errorMessage={"Email is required"}
+              inputKey="email"
             />
           </div>
           {/* Password */}
           <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="password"
+            <InputText
+              label={"Password"}
+              placeholder={"Type your password"}
+              register={register}
+              errors={errors}
+              errorMessage={"Password is required"}
+              inputKey="password"
               type="password"
-              placeholder="********"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
             />
           </div>
-          {/* Submit button */}
+
           <div className="flex justify-center">
-            <Button>Login</Button>
+            <Button disabled={loading || Object.keys(errors).length > 0}>
+              Login
+            </Button>
           </div>
         </form>
       </div>

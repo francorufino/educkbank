@@ -1,22 +1,33 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Statement from "./Statement";
 import PayBills from "./PayBills";
 import PayCard from "./PayCard";
 import Transfer from "./Transfer";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
-import { useState } from "react";
 import Weather from "../api/weather/Weather";
 import ProfileImage from "./ProfileImage";
+import { AuthContext } from "../context/AuthContext";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
-const dashboard = () => {
+const DashboardPage = () => {
+  const { auth } = useContext(AuthContext);
+  const { push } = useRouter();
   const [action, setAction] = useState("");
   const [userName, setUserName] = useState("Rebecca");
   const [deposit, setDeposit] = useState(0);
   const [withdraw, setWithdraw] = useState(0);
   const [photo, setPhoto] = useState("");
+
+  useEffect(() => {
+    if (!auth.user) {
+      toast.error("You need an account to see the dashboard");
+      push("/auth");
+    }
+  }, [auth]);
 
   function conditionalRendering(id) {
     if (id === "statetment") {
@@ -267,4 +278,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default DashboardPage;

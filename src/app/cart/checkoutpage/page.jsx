@@ -1,15 +1,25 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import CartPageProductListCheckout from "../CartPageProductListCheckout";
-import { CartContext } from "@/app/context/CartContext";
+import { useRouter } from "next/navigation";
+import { AuthContext } from "@/app/context/AuthContext";
+import toast from "react-hot-toast";
 
 const CheckoutPage = () => {
-  const { cart } = useContext(CartContext);
+  const { push } = useRouter();
+  const { cart, auth } = useContext(AuthContext);
   const [total, setTotal] = useState(100); // Set default total
   const [paymentMethod, setPaymentMethod] = useState("");
   const [shippingOption, setShippingOption] = useState("");
   const [shippingCost, setShippingCost] = useState(0); // Default shipping cost
+
+  useEffect(() => {
+    if (!auth.user) {
+      push("/auth");
+      toast.error("You need a session to checkout your order");
+    }
+  }, [auth]);
 
   const handlePaymentMethodChange = e => {
     setPaymentMethod(e.target.value);
@@ -48,7 +58,7 @@ const CheckoutPage = () => {
       <section className="flex flex-col">
         <h1 className="text-xl font-bold">Review Your Order</h1>
         <div className="flex gap-10 bg-white p-6 rounded-xl mt-4">
-          {cart.length > 0 && (
+          {cart?.length > 0 && (
             <article className="flex flex-1 flex-col gap-4">
               <div>
                 <label

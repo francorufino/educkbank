@@ -28,7 +28,7 @@ const Register = () => {
     try {
       await createUser(values);
       reset();
-      push("/auth/login");
+      push("/auth");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
