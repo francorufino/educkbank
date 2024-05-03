@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { authFirebase, db } from "@/lib/firebase/config";
 import toast from "react-hot-toast";
 
@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isLoggedIn: false,
     user: null,
+    metadata: null,
   });
 
   const createUser = async userData => {
@@ -49,7 +50,9 @@ export const AuthProvider = ({ children }) => {
       );
 
       if (loginResponse.user) {
-        setAuth({ user, isLoggedIn: true });
+        getUserFromDb(loginResponse.user);
+
+        return;
       }
     } catch (error) {
       toast.error(error.message);
@@ -62,6 +65,7 @@ export const AuthProvider = ({ children }) => {
       setAuth({
         isLoggedIn: false,
         user: null,
+        metadata: null,
       });
     } catch (error) {
       toast.error("Something went wrong trying to sign out");
@@ -69,13 +73,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  async function getUserFromDb(user) {
+    const userRef = doc(db, "users", user?.uid);
+    const userFromDb = await getDoc(userRef);
+
+    if (userFromDb.exists()) {
+      setAuth({ user, isLoggedIn: !!user, metadata: userFromDb.data() });
+      return;
+    }
+
+    toast.error("Something went wrong getting user information from db");
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(authFirebase, user => {
-      console.log({ user });
-      setAuth({
-        isLoggedIn: !!user,
-        user: user || null,
-      });
+      if (user) {
+        getUserFromDb(user);
+      } else {
+        setAuth({
+          isLoggedIn: false,
+          user: null,
+          metadata: null,
+        });
+      }
     });
 
     return () => unsubscribe();

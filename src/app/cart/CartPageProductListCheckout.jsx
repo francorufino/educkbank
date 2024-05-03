@@ -1,19 +1,29 @@
 "use client";
 import React, { useContext } from "react";
 import Image from "next/image";
-import BtnSmall from "@/components/button/BtnSmall";
-import Link from "next/link";
 import Button from "@/components/button/Button";
 import { CartContext } from "@/app/context/CartContext";
-import QtySelector from "@/components/products/QtySelector";
-import OrderReport from "../cart/OrderReport";
-
-function callModalOrderReport() {
-  <OrderReport />;
-}
+import { db } from "@/lib/firebase/config";
+import { updateDoc, doc } from "firebase/firestore";
+import { toast } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const CartPageProductListCheckout = () => {
-  const { cart, cartTotalValue, deleteItemInCart } = useContext(CartContext);
+  const { push } = useRouter();
+  const { cart, cartTotalValue, clearCart } = useContext(CartContext);
+
+  async function placeOrder() {
+    cart.forEach(async cartItem => {
+      const itemRef = doc(db, "productsFirebase", cartItem.slug);
+
+      await updateDoc(itemRef, {
+        inStock: cartItem.inStock - cartItem.quantity,
+      });
+    });
+
+    clearCart();
+    push("/cart/thanks");
+  }
 
   return (
     <div>
@@ -49,21 +59,6 @@ const CartPageProductListCheckout = () => {
                   </div>
                   <div>
                     <p className="font-semibold">{cartItem.title}</p>
-                    {/* <p className="text-[10px] text-[#6b7280]">
-                      {cartItem.slug}
-                    </p> */}
-
-                    {/* <div className="w-full flex flex-col items-end">
-                      <div className="flex flex-col justify-center">
-                        <QtySelector item={cartItem} />
-                        <BtnSmall
-                          onClick={() => deleteItemInCart(cartItem)}
-                          className="bg-[#e6e6fa] underline text-[#6b7280] my-4"
-                        >
-                          Delete
-                        </BtnSmall>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
                 <div className="flex justify-center mx-10">
@@ -75,15 +70,15 @@ const CartPageProductListCheckout = () => {
             </div>
           ))}
           <div className="flex justify-end mr-12">
-            <p className="mr-2">Total:</p>
-            <p className="">
+            <p className="mr-2 font-semibold">Total:</p>
+            <p className="font-semibold">
               $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}
             </p>
           </div>
-          <div className="flex justify-center mt-8 mb-4 bg-red-200">
-            <Link href="/cart/cartReport">
-              <Button onClick={callModalOrderReport}>Place your order</Button>
-            </Link>
+          <div className="flex justify-center mt-8 mb-4">
+            {/* <Link href="/cart/cartReport"> */}
+            <Button onClick={placeOrder}>Place your order</Button>
+            {/* </Link> */}
           </div>
         </div>
       )}
