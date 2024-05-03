@@ -161,7 +161,7 @@ const Footer = () => {
               </h2>
               {linksLegal.map(link => {
                 return (
-                  <ul className="text-orange-200 font-medium">
+                  <ul key={link.href} className="text-orange-200 font-medium">
                     <li className="mb-4">
                       <Link
                         key={link.label}
