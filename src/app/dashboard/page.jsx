@@ -16,11 +16,11 @@ import PayCard from "./PayCard";
 import Transfer from "./Transfer";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
+import Weather from "./Weather";
 
 const DashboardPage = () => {
   const [action, setAction] = useState("");
-  const [userName, setUserName] = useState("Rebecca");
-  const [deposit, setDeposit] = useState(0);
+  const [deposit, setDeposit] = useState("0.00");
   const [withdraw, setWithdraw] = useState(0);
   const [photo, setPhoto] = useState("");
   const [orders, setOrders] = useState([]);
@@ -120,10 +120,8 @@ const DashboardPage = () => {
   return (
     <>
       <div className="flex mt-[50px] container">
-        <section className="flex-2/3 ">
-          <p className="text-[#6b7280] text-md mb-4">
-            March, 27th 2024 | Partly Cloudy
-          </p>
+        <section className="flex-2/3 justify-center">
+          <Weather />
           <section className="flex items-center">
             <ProfileImage />
             <div className="font-bold text-3xl">
@@ -136,7 +134,7 @@ const DashboardPage = () => {
             <p className="font-bold my-4 text-[#6b7280]">
               What do you want to do today?
             </p>
-            <div className="flex border-2 border-[#6b7280] justify-center mr-24 gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
+            <div className="flex border-2 border-[#6b7280] justify-center gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
               <div>
                 <p className="flex justify-center">
                   <Image
@@ -237,9 +235,9 @@ const DashboardPage = () => {
             <h2 className="text-2xl font-bold">Orders</h2>
             <div className="flex flex-col bg-white rounded-xl p-4 mt-2">
               <div className="flex items-center justify-between gap-4">
-                <div className="text-sm font-bold">ID</div>
+                <div className="text-sm font-bold">Order #</div>
                 <div className="text-sm font-bold">PRODUCTS</div>
-                <div className="text-sm font-bold">DATE</div>
+                <div className="text-sm font-bold">Order Placed</div>
               </div>
               <div className="flex flex-col gap-8 mt-4">
                 {orders.length === 0 ? (
@@ -248,7 +246,7 @@ const DashboardPage = () => {
                       You don't have any order
                     </h2>
                     <Link href={"/educkstore"}>
-                      <Button>Go to order</Button>
+                      <Button>Start shopping now</Button>
                     </Link>
                   </div>
                 ) : (
@@ -284,12 +282,104 @@ const DashboardPage = () => {
           <p className="mb-2 text-2xl text-center text-9 font-bold">
             Your Metrics{" "}
           </p>
+          <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+
           <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+            <p className="font-bold text-2xl mb-3">Educkstore</p>
             <p className="font-bold text-xl mb-3">Total Spent</p>
             <p className="text-2xl ">
               $ {calculateTotalSpentFromMultipleOrders(orders).toFixed(2)}
             </p>
           </div>
+          <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+          <section className="text-center font-bold text-2xl my-4">
+            <p className="mb-2 font-bold">Your Tokens</p>
+            <div className="flex justify-center items-center">
+              <Image src="/educklogo2.png" width={30} height={30} />
+              <p className="ml-2">
+                {" "}
+                {(calculateTotalSpentFromMultipleOrders(orders) * 0.1).toFixed(
+                  0
+                )}
+              </p>
+            </div>
+            <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+          </section>
+          <section>
+            <p className="mb-2 text-2xl text-center text-9 font-bold">
+              Your Accounts{" "}
+            </p>
+            <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+              <p className="font-bold text-xl mb-3">Checking Account</p>
+              <p className="text-2xl ">$ {deposit}</p>
+            </div>
+            <div className="bg-[#ec552a] text-white mb-8 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+              <p className="font-bold text-xl mb-3">Savings Account</p>
+              <p className="text-2xl ">$ 0.00</p>
+            </div>
+            <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+            <div>
+              <p className="mb-4 text-center font-bold text-2xl">Your Cards</p>
+
+              {/* // usar grid aqui por causa do overlapping dos numeros ??*/}
+              <div className="flex justify-center">
+                <div className="mb-[20px] flex flex-col justify-center">
+                  <Image
+                    src="/quackprodebitblank.png"
+                    width={300}
+                    height={200}
+                    className="rounded-xl "
+                  />
+                  <div className="text-left -mt-[110px] ">
+                    <p className=" text-2xl mt-16 ml-[160px]">$0.00</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-[40px] flex justify-center">
+                <div>
+                  <Image
+                    src="/quackprocreditblank.png"
+                    width={300}
+                    height={200}
+                    className="rounded-xl"
+                  />
+                  <div className="text-left -mt-[110px] flex flex-col">
+                    <p className=" text-2xl mt-16 ml-[180px]">$0.00</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <hr className="h-px  bg-white border-0 "></hr> */}
+            {/* <p className="mb-4 text-center font-bold text-2xl mt-4">
+              Your Linked Cards
+            </p>
+            <div className="mb-[20px] flex justify-center">
+              <div>
+                <Image
+                  src="/quackprocreditblank.png"
+                  width={300}
+                  height={200}
+                  className="rounded-xl"
+                />
+                <div className="text-left -mt-[110px] flex flex-col">
+                  <p className=" text-2xl mt-16 ml-[180px]">$587.01</p>
+                </div>
+              </div> */}
+            {/* </div> */}
+            {/* <div className="mb-[40px] flex justify-center">
+              <div>
+                <Image
+                  src="/quackprocreditblank.png"
+                  width={300}
+                  height={200}
+                  className="rounded-xl"
+                />
+                <div className="text-left -mt-[110px] flex flex-col">
+                  <p className=" text-2xl mt-16 ml-[180px]">$587.01</p>
+                </div>
+              </div>
+            </div> */}
+          </section>
         </aside>
       </div>
       {openModal && (
@@ -312,9 +402,9 @@ function OrderDetailModal({ order, onClose }) {
   }
 
   return (
-    <section className="flex items-center justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
+    <section className="flex  justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
       <div className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col ">
           <h2 className="text-2xl font-bold">Order ID: {order.id}</h2>
           <span>Created on: {new Date(date).toLocaleString()}</span>
         </div>

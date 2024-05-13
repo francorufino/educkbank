@@ -33,7 +33,6 @@ const clubhouse = [
   { label: "Food Truck", href: "/foodtruck2.jpg" },
   { label: "Food Truck", href: "/foodtruck3.jpg" },
   { label: "Food Truck", href: "/foodtruck4.jpg" },
-  { label: "Food Truck", href: "/foodtruck5.jpg" },
   { label: "Live Music", href: "/livemusic5.jpg" },
   { label: "Live Music", href: "/livemusic5.jpg" },
   { label: "Live Music", href: "/livemusic5.jpg" },
