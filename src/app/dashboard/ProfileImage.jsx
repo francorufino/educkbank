@@ -7,7 +7,7 @@ const ProfileImage = () => {
     <section className="mr-4">
       <div className="flex space-x-2">
         {/* <div class="relative w-16 h-16">
-          <img
+          <Image
             className="rounded-full border border-gray-100 shadow-sm"
             src="https://randomuser.me/api/portraits/women/81.jpg"
             alt="user image"
