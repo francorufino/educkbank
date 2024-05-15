@@ -70,7 +70,7 @@ const PhotoGalleryPastEvents = () => {
         {shuffledClubhouse.map((club, index) => (
           <div
             key={index}
-            className="mb-4 border-2 border-[#6b7280] rounded-md flex flex-nowrap flex-col justify-center text-center"
+            className="mb-4 border-2 border-dgray rounded-md flex flex-nowrap flex-col justify-center text-center"
           >
             <Image
               src={club.href}
@@ -79,9 +79,7 @@ const PhotoGalleryPastEvents = () => {
               height={300}
               className="rounded-tr-sm rounded-tl-sm"
             />
-            <p className="mb-2 pt-2 border-t-2 border-[#6b7280]">
-              {club.label}
-            </p>
+            <p className="mb-2 pt-2 border-t-2 border-dgray">{club.label}</p>
           </div>
         ))}
       </div>

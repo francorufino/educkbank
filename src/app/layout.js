@@ -5,6 +5,7 @@ import { Montserrat_Alternates, Kumbh_Sans } from "next/font/google";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import { AccountProvider } from "./context/AccountContext";
 
 const gfkum = Kumbh_Sans({
   subsets: ["latin"],
@@ -30,18 +31,20 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={`flex flex-col h-screen justify-between`}>
           <AuthProvider>
-            <CartProvider>
-              <div className={`h-500 ${gfkum.className} `}>
-                <Header />
-              </div>
-              <div
-                className={`container mx-auto px-9 h-500 max-w-screen-xl ${gfmon.className}`}
-              >
-                {children}
-              </div>
-              <Footer className={`h-500 ${gfkum.className}`} />
-              <Toaster position="top-center" reverseOrder={false} />
-            </CartProvider>
+            <AccountProvider>
+              <CartProvider>
+                <div className={`h-500 ${gfkum.className} `}>
+                  <Header />
+                </div>
+                <div
+                  className={`container mx-auto px-9 h-500 max-w-screen-xl ${gfmon.className}`}
+                >
+                  {children}
+                </div>
+                <Footer className={`h-500 ${gfkum.className}`} />
+                <Toaster position="top-center" reverseOrder={false} />
+              </CartProvider>
+            </AccountProvider>
           </AuthProvider>
         </body>
       </html>

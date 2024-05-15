@@ -15,7 +15,7 @@ const ProductDetail = ({ item }) => {
           />
         </div>
         <div className="basis-1/2 flex flex-col justify-center text-black ">
-          <div className="justify-center text-center border-2 border-[#6b7280] p-8">
+          <div className="justify-center text-center border-2 border-dgray p-8">
             {" "}
             <h2 className="text-2xl font-semibold border-b border-gray-200 pb-4 mb-4">
               {item.title}
@@ -30,7 +30,7 @@ const ProductDetail = ({ item }) => {
           </div>
         </div>
       </section>
-      <section className="mt-2 flex flex-col mb-6 border-2 border-[#6b7280]">
+      <section className="mt-2 flex flex-col mb-6 border-2 border-dgray">
         <div className="mx-20">
           <h3 className="text-xl front-semibold border-b border-gray-200  my-4">
             Description

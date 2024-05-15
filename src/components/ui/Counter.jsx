@@ -13,11 +13,11 @@ const Counter = ({ counter, setCounter, max }) => {
 
   return (
     <div className="flex justify-center intems-center items-center gap-3">
-      <BtnSmall onClick={decrease} className="active:bg-[#6b7280]">
+      <BtnSmall onClick={decrease} className="active:bg-dgray">
         -
       </BtnSmall>
       <p className="text-sm font-semibold">{counter}</p>
-      <BtnSmall onClick={increase} className="active:bg-[#6b7280]">
+      <BtnSmall onClick={increase} className="active:bg-dgray">
         +
       </BtnSmall>
     </div>

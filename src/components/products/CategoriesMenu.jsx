@@ -8,7 +8,7 @@ const links = [
   { label: "Keychains", href: "/educkstore/productcategoria/keychain" },
   { label: "Pets outfit", href: "/educkstore/productcategoria/petsoutfit" },
   { label: "Apparel", href: "/educkstore/productcategoria/apparel" },
-  { label: "Stationary", href: "/educkstore/productcategoria/stationary" }
+  { label: "Stationary", href: "/educkstore/productcategoria/stationary" },
 ];
 
 const CategoriesMenu = () => {
@@ -16,13 +16,13 @@ const CategoriesMenu = () => {
 
   return (
     <p className="flex gap-5">
-      {links.map((link) => (
+      {links.map(link => (
         <Link
           key={link.label}
           href={link.href}
           className={`${
-            pathname === link.href ? "font-bold border-b text-[#f82a35]" : ""
-          } py-2 hover:text-[#f82a35] text-lg mt-2 mb-6`}
+            pathname === link.href ? "font-bold border-b text-morange" : ""
+          } py-2 hover:text-morange text-lg mt-2 mb-6`}
         >
           {link.label}
         </Link>

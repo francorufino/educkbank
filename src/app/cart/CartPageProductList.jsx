@@ -45,16 +45,14 @@ const CartPageProductList = () => {
                   </div>
                   <div>
                     <p className="font-semibold">{cartItem.title}</p>
-                    <p className="text-[10px] text-[#6b7280]">
-                      {cartItem.slug}
-                    </p>
+                    <p className="text-[10px] text-dgray">{cartItem.slug}</p>
                     <p>{cartItem.description}</p>
                     <div className="w-full flex flex-col items-end">
                       <div className="flex flex-col justify-center">
                         <QtySelector item={cartItem} />
                         <BtnSmall
                           onClick={() => deleteItemInCart(cartItem)}
-                          className="bg-[#e6e6fa] underline text-[#6b7280] my-4"
+                          className="bg-lilas underline text-dgray my-4"
                         >
                           Delete
                         </BtnSmall>

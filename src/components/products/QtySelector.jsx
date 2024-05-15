@@ -22,7 +22,7 @@ const QtySelector = ({ item }) => {
   return (
     <div className={`flex flex-col justify-end gap-5 mt-6 `}>
       {item.inStock === 0 ? (
-        <span className="text-red-500 font-bold">Out of stock</span>
+        <span className="text-morange font-bold">Out of stock</span>
       ) : (
         <div
           className={`flex flex-col gap-4 ${

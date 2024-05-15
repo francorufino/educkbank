@@ -18,12 +18,13 @@ const CartPageProductListCheckout = () => {
   const { push } = useRouter();
   const { auth } = useContext(AuthContext);
   const { cart, cartTotalValue, clearCart } = useContext(CartContext);
+  // const [tokens, setTokens] = useState(0);
 
   async function placeOrder() {
     try {
       cart.forEach(async cartItem => {
         const itemRef = doc(db, "productsFirebase", cartItem.slug);
-
+        // setTokens(tokens + cartItem.price.toFixed(2) * 0.1);
         await updateDoc(itemRef, {
           inStock: cartItem.inStock - cartItem.quantity,
         });

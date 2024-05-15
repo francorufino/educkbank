@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import ProfileImage from "./ProfileImage";
@@ -17,17 +16,20 @@ import Transfer from "./Transfer";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
 import Weather from "./Weather";
+import { useAccountContext } from "../context/AccountContext";
 
 const DashboardPage = () => {
   const [action, setAction] = useState("");
-  const [deposit, setDeposit] = useState("0.00");
-  const [withdraw, setWithdraw] = useState(0);
-  const [photo, setPhoto] = useState("");
   const [orders, setOrders] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const { auth, loading } = useContext(AuthContext);
   const { push } = useRouter();
+  const { accountChecking, accountSavings } = useAccountContext();
+
+  // function coinFlip() {
+  //   Math.random() < 0.5 ? setTokens(tokens - 1) : setTokens(tokens + 1);
+  // }
 
   function conditionalRendering(id) {
     if (id === "statetment") {
@@ -131,18 +133,19 @@ const DashboardPage = () => {
             </div>{" "}
           </section>
           <section>
-            <p className="font-bold my-4 text-[#6b7280]">
+            <p className="font-bold text-xl mt-10 my-4 text-dgray">
               What do you want to do today?
             </p>
-            <div className="flex border-2 border-[#6b7280] justify-center gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
+            <div className="flex border-2 mx-8 border-dgray justify-center gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
               <div>
                 <p className="flex justify-center">
                   <Image
                     src="/deposit.png"
+                    alt="deposit icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
-                    id="transfer"
+                    id="deposit"
                     onClick={handleClick("deposit")}
                   />
                 </p>
@@ -152,10 +155,11 @@ const DashboardPage = () => {
                 <p className="flex justify-center">
                   <Image
                     src="/withdraw.png"
+                    alt="withdraw icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
-                    id="transfer"
+                    id="withdraw"
                     onClick={handleClick("withdraw")}
                   />
                 </p>
@@ -165,6 +169,7 @@ const DashboardPage = () => {
                 <p className="flex justify-center">
                   <Image
                     src="/transfer2.png"
+                    alt="transfer icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
@@ -177,7 +182,8 @@ const DashboardPage = () => {
               <div>
                 <p className="flex justify-center">
                   <Image
-                    src="/bill3.png"
+                    src="/paybills.png"
+                    alt="pay bill icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
@@ -191,6 +197,7 @@ const DashboardPage = () => {
                 <p className="flex justify-center">
                   <Image
                     src="/card.png"
+                    alt="pay card icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
@@ -204,6 +211,7 @@ const DashboardPage = () => {
                 <p className="flex justify-center">
                   <Image
                     src="/statement2.png"
+                    alt="statement icon"
                     width={50}
                     height={50}
                     className="text-center ml-5 mr-5"
@@ -215,7 +223,7 @@ const DashboardPage = () => {
                 <p className="text-center mt-2">Statetment</p>
               </div>
             </div>
-            <div className="mr-24">
+            <div className="mx-8">
               {action === "statetment" ? (
                 <Statement />
               ) : action === "paybill" ? (
@@ -231,50 +239,83 @@ const DashboardPage = () => {
               ) : null}
             </div>
           </section>
-          <article className="mt-10">
-            <h2 className="text-2xl font-bold">Orders</h2>
-            <div className="flex flex-col bg-white rounded-xl p-4 mt-2">
-              <div className="flex items-center justify-between gap-4">
-                <div className="text-sm font-bold">Order #</div>
-                <div className="text-sm font-bold">PRODUCTS</div>
-                <div className="text-sm font-bold">Order Placed</div>
-              </div>
-              <div className="flex flex-col gap-8 mt-4">
-                {orders.length === 0 ? (
-                  <div className="flex flex-col items-center gap-2">
-                    <h2 className="text-2xl font-medium">
-                      You don't have any order
-                    </h2>
-                    <Link href={"/educkstore"}>
-                      <Button>Start shopping now</Button>
-                    </Link>
-                  </div>
-                ) : (
-                  orders.map(order => {
-                    const date =
-                      order.created_at.seconds * 1000 +
-                      order.created_at.nanoseconds / 1000000;
+          <h2 className="font-bold text-xl mt-10 my-4 text-dgray">
+            Your orders at Educkstore
+          </h2>
+          <article className=" mx-8">
+            <div className="border-2 border-dgray rounded-xl p-4 mt-2">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead>
+                  <tr>
+                    <th className="text-sm font-bold text-left">
+                      Order placed
+                    </th>
+                    <th className="text-sm font-bold text-left">Order #</th>
+                    <th className="text-sm font-bold text-left">Order total</th>
+                    <th className="text-sm font-bold"></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {orders.length === 0 ? (
+                    <tr>
+                      <td colSpan="4" className="py-4 text-center">
+                        <h2 className="text-2xl font-medium">
+                          You don't have any orders yet
+                        </h2>
+                        <Link href={"/educkstore"}>
+                          <Button>Start shopping now</Button>
+                        </Link>
+                      </td>
+                    </tr>
+                  ) : (
+                    orders
+                      .slice() // Create a copy of the orders array to avoid mutating the original array
+                      .sort((a, b) => {
+                        // Sort orders based on date in descending order (latest first)
+                        const dateA =
+                          a.created_at.seconds * 1000 +
+                          a.created_at.nanoseconds / 1000000;
+                        const dateB =
+                          b.created_at.seconds * 1000 +
+                          b.created_at.nanoseconds / 1000000;
+                        return dateB - dateA;
+                      })
+                      .map(order => {
+                        const date =
+                          order.created_at.seconds * 1000 +
+                          order.created_at.nanoseconds / 1000000;
 
-                    return (
-                      <button
-                        key={order.id}
-                        onClick={() => showOrderDetail(order)}
-                        className="flex items-center justify-between gap-8 transition-all p-2 rounded-lg hover:bg-black/5"
-                      >
-                        <div className="text-sm text-center">{order.id}</div>
-                        <div className="text-sm text-left">
-                          {order.products
-                            .map(product => product.title)
-                            .join(",")}
-                        </div>
-                        <div className="text-sm text-right">
-                          {new Date(date).toLocaleString()}
-                        </div>
-                      </button>
-                    );
-                  })
-                )}
-              </div>
+                        return (
+                          <tr key={order.id}>
+                            <td className="text-sm text-left">
+                              {new Date(date).toLocaleDateString()}
+                            </td>
+                            <td className="text-sm text-left">{order.id}</td>
+                            <td className="text-sm text-left">
+                              ${" "}
+                              {order.products
+                                .map(
+                                  product => product.quantity * product.price
+                                )
+                                .reduce(
+                                  (total, currentValue) => total + currentValue,
+                                  0
+                                )}
+                            </td>
+                            <td className="text-sm text-left">
+                              <button
+                                onClick={() => showOrderDetail(order)}
+                                className="underline cursor-pointer text-morange"
+                              >
+                                view order
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })
+                  )}
+                </tbody>
+              </table>
             </div>
           </article>
         </section>
@@ -282,7 +323,6 @@ const DashboardPage = () => {
           <p className="mb-2 text-2xl text-center text-9 font-bold">
             Your Metrics{" "}
           </p>
-          <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
 
           <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
             <p className="font-bold text-2xl mb-3">Educkstore</p>
@@ -291,11 +331,12 @@ const DashboardPage = () => {
               $ {calculateTotalSpentFromMultipleOrders(orders).toFixed(2)}
             </p>
           </div>
-          <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+
           <section className="text-center font-bold text-2xl my-4">
+            <hr className="h-px  my-4 bg-white border-0 "></hr>
             <p className="mb-2 font-bold">Your Tokens</p>
             <div className="flex justify-center items-center">
-              <Image src="/educklogo2.png" width={30} height={30} />
+              <Image src="/educklogo2.png" width={30} height={30} alt="logo" />
               <p className="ml-2">
                 {" "}
                 {(calculateTotalSpentFromMultipleOrders(orders) * 0.1).toFixed(
@@ -303,7 +344,7 @@ const DashboardPage = () => {
                 )}
               </p>
             </div>
-            <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+            <hr className="h-px  my-4 bg-white border-0 "></hr>
           </section>
           <section>
             <p className="mb-2 text-2xl text-center text-9 font-bold">
@@ -311,21 +352,35 @@ const DashboardPage = () => {
             </p>
             <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
               <p className="font-bold text-xl mb-3">Checking Account</p>
-              <p className="text-2xl ">$ {deposit}</p>
+              <p className="text-2xl ">
+                {" "}
+                {accountChecking.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 2,
+                })}
+              </p>
             </div>
             <div className="bg-[#ec552a] text-white mb-8 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
               <p className="font-bold text-xl mb-3">Savings Account</p>
-              <p className="text-2xl ">$ 0.00</p>
+              <p className="text-2xl ">
+                {" "}
+                {accountSavings.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 2,
+                })}
+              </p>
             </div>
-            <hr className="h-px -ml-2 mr-2 my-4 bg-white border-0 "></hr>
+            <hr className="h-px  my-4 bg-white border-0 "></hr>
             <div>
               <p className="mb-4 text-center font-bold text-2xl">Your Cards</p>
 
-              {/* // usar grid aqui por causa do overlapping dos numeros ??*/}
               <div className="flex justify-center">
                 <div className="mb-[20px] flex flex-col justify-center">
                   <Image
                     src="/quackprodebitblank.png"
+                    alt="quack pro debit card photo"
                     width={300}
                     height={200}
                     className="rounded-xl "
@@ -339,6 +394,7 @@ const DashboardPage = () => {
                 <div>
                   <Image
                     src="/quackprocreditblank.png"
+                    alt="quack pro credit card photo"
                     width={300}
                     height={200}
                     className="rounded-xl"
@@ -349,36 +405,6 @@ const DashboardPage = () => {
                 </div>
               </div>
             </div>
-            {/* <hr className="h-px  bg-white border-0 "></hr> */}
-            {/* <p className="mb-4 text-center font-bold text-2xl mt-4">
-              Your Linked Cards
-            </p>
-            <div className="mb-[20px] flex justify-center">
-              <div>
-                <Image
-                  src="/quackprocreditblank.png"
-                  width={300}
-                  height={200}
-                  className="rounded-xl"
-                />
-                <div className="text-left -mt-[110px] flex flex-col">
-                  <p className=" text-2xl mt-16 ml-[180px]">$587.01</p>
-                </div>
-              </div> */}
-            {/* </div> */}
-            {/* <div className="mb-[40px] flex justify-center">
-              <div>
-                <Image
-                  src="/quackprocreditblank.png"
-                  width={300}
-                  height={200}
-                  className="rounded-xl"
-                />
-                <div className="text-left -mt-[110px] flex flex-col">
-                  <p className=" text-2xl mt-16 ml-[180px]">$587.01</p>
-                </div>
-              </div>
-            </div> */}
           </section>
         </aside>
       </div>
@@ -404,16 +430,22 @@ function OrderDetailModal({ order, onClose }) {
   return (
     <section className="flex  justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
       <div className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
-        <div className="flex flex-col ">
-          <h2 className="text-2xl font-bold">Order ID: {order.id}</h2>
-          <span>Created on: {new Date(date).toLocaleString()}</span>
+        <div className="flex items-center">
+          <span className="text-xl font-bold flex flex-wrap mr-2">
+            Order #:{" "}
+          </span>{" "}
+          <span> {order.id}</span>
         </div>
-        <div className="mt-8 bg-gray-200 p-4 rounded-lg">
+        <div className="flex items-center">
+          <span className="font-bold text-xl mr-2">Placed on: </span>{" "}
+          <span>{new Date(date).toLocaleString()}</span>
+        </div>
+        <div className="mt-8 bg-llav p-4 rounded-lg">
           {order.products.map(orderProduct => (
             <div key={orderProduct.id}>
               <div className="flex justify-between mb-4 border-b-2 border-white ">
                 <div className="flex gap-4 ml-12">
-                  <div>
+                  <div className="mb-4 ">
                     <Image
                       src={orderProduct.image}
                       alt={orderProduct.name}
@@ -426,7 +458,7 @@ function OrderDetailModal({ order, onClose }) {
                     <p className="font-semibold">{orderProduct.title}</p>
                   </div>
                 </div>
-                <div className="flex justify-center mx-10">
+                <div className="flex justify-center ">
                   <p>{orderProduct.quantity}</p>
                   <p className="mr-2">x</p>
                   <p> {orderProduct.price}</p>
@@ -434,10 +466,15 @@ function OrderDetailModal({ order, onClose }) {
               </div>
             </div>
           ))}
+          <span className="flex justify-end mt-2 items-center  font-medium ">
+            Total spent:{" "}
+            <span className="font-bold text-lg ml-2">
+              ${calculateTotalSpent(order).toFixed(2)}
+            </span>
+          </span>
+          <span></span>
         </div>
-        <span className="flex justify-end mt-2 font-medium">
-          Total spent: ${calculateTotalSpent(order).toFixed(2)}
-        </span>
+
         <button className="absolute text-2xl top-4 right-4" onClick={onClose}>
           X
         </button>

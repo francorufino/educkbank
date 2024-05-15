@@ -39,7 +39,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="flex justify-center rounded-xl p-8 bg-[#6b7280] mt-4">
+      <div className="flex justify-center rounded-xl p-8 bg-dgray mt-4">
         <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-wrap mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
