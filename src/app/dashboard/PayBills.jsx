@@ -62,7 +62,7 @@ const PayBills = () => {
       <section className="mt-8 border-2 border-dgray shadow shadow-black-500/50 rounded-lg">
         <section className="flex flex-col pt-8 mx-8 justify-center basis-72">
           <section className="flex justify-between">
-            <p className="mb-2 text-xl font-bold text-morange">Pay Bills*</p>
+            <p className="mb-2 text-xl font-bold text-morange">Pay Bills</p>
             <Image
               src="/paybills.png"
               alt="pay bills icon"
@@ -118,10 +118,6 @@ const PayBills = () => {
             Pay Bill
           </Button>
         </section>
-        <p className="text-center mb-1 mr-2 text-xs font-bold text-morange">
-          *this transaction is only for demonstration of the system, a real
-          payment should be done in a physical bank
-        </p>
       </section>
     </>
   );

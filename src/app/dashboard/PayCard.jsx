@@ -35,7 +35,9 @@ const PayCard = () => {
       <section className="mt-8 border-2 border-dgray shadow shadow-black-500/50 rounded-lg">
         <section className="flex flex-col pt-8 mx-8 justify-center basis-72">
           <section className="flex justify-between">
-            <p className="mb-2 text-xl font-bold text-morange">Pay Card</p>
+            <p className="mb-2 text-xl font-bold text-morange">
+              Pay Credit Card
+            </p>
             <Image
               src="/card.png"
               alt="pay card icon"
