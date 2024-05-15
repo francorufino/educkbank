@@ -168,7 +168,7 @@ const DashboardPage = () => {
               <div>
                 <p className="flex justify-center">
                   <Image
-                    src="/transfer2.png"
+                    src="/transfer.png"
                     alt="transfer icon"
                     width={50}
                     height={50}
