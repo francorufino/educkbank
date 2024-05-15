@@ -246,14 +246,18 @@ const DashboardPage = () => {
             <div className="border-2 border-dgray rounded-xl p-4 mt-2">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
-                  <tr>
-                    <th className="text-sm font-bold text-left">
-                      Order placed
-                    </th>
-                    <th className="text-sm font-bold text-left">Order #</th>
-                    <th className="text-sm font-bold text-left">Order total</th>
-                    <th className="text-sm font-bold"></th>
-                  </tr>
+                  {orders.length > 0 && (
+                    <tr>
+                      <th className="text-sm font-bold text-left">
+                        Order placed
+                      </th>
+                      <th className="text-sm font-bold text-left">Order #</th>
+                      <th className="text-sm font-bold text-left">
+                        Order total
+                      </th>
+                      <th className="text-sm font-bold"></th>
+                    </tr>
+                  )}
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {orders.length === 0 ? (
@@ -263,7 +267,7 @@ const DashboardPage = () => {
                           You don&apos;t have any orders yet
                         </h2>
                         <Link href={"/educkstore"}>
-                          <Button>Start shopping now</Button>
+                          <Button className="mt-8">Start shopping now</Button>
                         </Link>
                       </td>
                     </tr>

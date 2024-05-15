@@ -13,7 +13,7 @@ const Statement = () => {
       case "withdraw":
         return "/withdraw.png";
       case "transfer":
-        return "/transfer2.png";
+        return "/transfer.png";
       case "paybill":
         return "/paybills.png";
       case "paycard":
