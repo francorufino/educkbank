@@ -260,7 +260,7 @@ const DashboardPage = () => {
                     <tr>
                       <td colSpan="4" className="py-4 text-center">
                         <h2 className="text-2xl font-medium">
-                          You don't have any orders yet
+                          You don&apos;t have any orders yet
                         </h2>
                         <Link href={"/educkstore"}>
                           <Button>Start shopping now</Button>
