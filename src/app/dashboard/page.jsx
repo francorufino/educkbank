@@ -336,7 +336,13 @@ const DashboardPage = () => {
             <hr className="h-px  my-4 bg-white border-0 "></hr>
             <p className="mb-2 font-bold">Your Tokens</p>
             <div className="flex justify-center items-center">
-              <Image src="/educklogo2.png" width={30} height={30} alt="logo" />
+              <Image
+                src="/educklogo2.png"
+                width={30}
+                height={30}
+                alt="logo"
+                priority
+              />
               <p className="ml-2">
                 {" "}
                 {(calculateTotalSpentFromMultipleOrders(orders) * 0.1).toFixed(

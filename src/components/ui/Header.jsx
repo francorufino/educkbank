@@ -32,6 +32,7 @@ const Header = () => {
             height={150}
             alt="eDuck Logo"
             className="ml-[18px]"
+            priority
           />
         </Link>
 

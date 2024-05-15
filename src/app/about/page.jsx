@@ -11,7 +11,7 @@ const About = () => {
       <Image
         src={"/piggybank.jpeg"}
         width={600}
-        height={500}
+        height={600}
         className=" rounded-lg float-right ml-2"
         alt="yellow eco-friendly toy ducks racing in a river"
       />
