@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@/components/button/Button";
 import { useAccountContext } from "../context/AccountContext";
 import Image from "next/image";
-import CurrencyFormat from "react-currency-format";
 
 const Withdraw = () => {
   const { withdrawChecking, withdrawSavings } = useAccountContext();
@@ -11,9 +10,32 @@ const Withdraw = () => {
     accountType: "checking",
   });
 
-  const handleAmountChange = values => {
-    const { value } = values;
-    setForm({ ...form, amount: value });
+  const handleAmountChange = e => {
+    let newAmount = e.target.value;
+
+    // Replace commas with periods for decimal separators
+    newAmount = newAmount.replace(/,/g, ".");
+
+    // Ensure the number of decimal places is limited to 2
+    const decimalIndex = newAmount.indexOf(".");
+    if (decimalIndex !== -1 && newAmount.length - decimalIndex > 3) {
+      newAmount = newAmount.slice(0, decimalIndex + 3);
+    }
+
+    if (!isNaN(newAmount) && parseFloat(newAmount) >= 0.01) {
+      setForm({ ...form, amount: newAmount });
+    } else if (newAmount === "0") {
+      setForm({ ...form, amount: "0." });
+    } else {
+      setForm({ ...form, amount: newAmount });
+    }
+  };
+
+  const handleKeyDown = e => {
+    const currentValue = parseFloat(form.amount);
+    if (e.key === "ArrowDown" && currentValue <= 0) {
+      e.preventDefault();
+    }
   };
 
   const handleWithdraw = () => {
@@ -38,7 +60,7 @@ const Withdraw = () => {
   };
 
   return (
-    <section className="mt-8 border-2 border-dgray shadow shadow-black-500/50 rounded-lg ">
+    <section className="mt-8 border-2  border-dgray shadow shadow-black-500/50 rounded-lg ">
       <section className="flex flex-col pt-8 mx-8 justify-center basis-72 ">
         <section className="flex justify-between">
           <p className="mb-2 text-xl font-bold text-morange">Withdraw*</p>
@@ -53,13 +75,15 @@ const Withdraw = () => {
         </section>
         <label>
           Amount you want to withdraw:
-          <CurrencyFormat
-            thousandSeparator={true}
-            prefix={"$"}
+          <input
+            type="number"
+            min="0.01"
+            step="any"
+            className="pl-2 m-2 rounded-md focus:outline-morange"
             placeholder="0.00" // Placeholder text
             value={form.amount}
-            onValueChange={handleAmountChange}
-            className="pl-2 m-2 rounded-md focus:outline-morange"
+            onChange={handleAmountChange}
+            onKeyDown={handleKeyDown}
             autoComplete="off" // Disable autocomplete
           />
         </label>

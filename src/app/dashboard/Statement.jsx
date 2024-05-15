@@ -31,7 +31,7 @@ const Statement = () => {
           </section>
           <div>
             {!transactions || transactions.length === 0 ? (
-              <p>No transactions yet.</p>
+              <p className="text-center mb-12">No transactions yet</p>
             ) : (
               transactions.map((transaction, index) => (
                 <div key={index} className="flex mb-4 justify-between gap-6">

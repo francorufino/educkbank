@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@/components/button/Button";
 import { useAccountContext } from "../context/AccountContext";
 import Image from "next/image";
-import CurrencyFormat from "react-currency-format";
 
 const Transfer = () => {
   const {
@@ -17,9 +16,25 @@ const Transfer = () => {
     toAccount: "savings",
   });
 
-  const handleAmountChange = values => {
-    const { value } = values;
-    setForm({ ...form, amount: value });
+  const handleAmountChange = e => {
+    let newAmount = e.target.value;
+
+    // Replace commas with periods for decimal separators
+    newAmount = newAmount.replace(/,/g, ".");
+
+    // Ensure the number of decimal places is limited to 2
+    const decimalIndex = newAmount.indexOf(".");
+    if (decimalIndex !== -1 && newAmount.length - decimalIndex > 3) {
+      newAmount = newAmount.slice(0, decimalIndex + 3);
+    }
+
+    if (!isNaN(newAmount) && parseFloat(newAmount) >= 0.01) {
+      setForm({ ...form, amount: newAmount });
+    } else if (newAmount === "0") {
+      setForm({ ...form, amount: "0." });
+    } else {
+      setForm({ ...form, amount: newAmount });
+    }
   };
 
   const handleTransfer = () => {
@@ -71,13 +86,14 @@ const Transfer = () => {
           </section>
           <label>
             Amount you want to transfer:
-            <CurrencyFormat
-              thousandSeparator={true}
-              prefix={"$"}
+            <input
+              type="number"
+              min="1"
+              step="any"
+              className="pl-2 m-2 rounded-md focus:outline-morange"
               placeholder="0.00" // Placeholder text
               value={form.amount}
-              onValueChange={handleAmountChange}
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+              onChange={handleAmountChange}
               autoComplete="off" // Disable autocomplete
             />
           </label>
