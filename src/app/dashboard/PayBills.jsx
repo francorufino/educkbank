@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@/components/button/Button";
 import { useAccountContext } from "../context/AccountContext";
 import Image from "next/image";
+import CurrencyFormat from "react-currency-format";
 
 const PayBills = () => {
   const { accountChecking, payBill } = useAccountContext();
@@ -23,25 +24,9 @@ const PayBills = () => {
     CarInsurance: ["Geico", "State Farm", "Progressive", "Allstate"],
   };
 
-  const handleAmountChange = e => {
-    let newAmount = e.target.value;
-
-    // Replace commas with periods for decimal separators
-    newAmount = newAmount.replace(/,/g, ".");
-
-    // Ensure the number of decimal places is limited to 2
-    const decimalIndex = newAmount.indexOf(".");
-    if (decimalIndex !== -1 && newAmount.length - decimalIndex > 3) {
-      newAmount = newAmount.slice(0, decimalIndex + 3);
-    }
-
-    if (!isNaN(newAmount) && parseFloat(newAmount) >= 0.01) {
-      setForm({ ...form, amount: newAmount });
-    } else if (newAmount === "0") {
-      setForm({ ...form, amount: "0." });
-    } else {
-      setForm({ ...form, amount: newAmount });
-    }
+  const handleAmountChange = values => {
+    const { value } = values;
+    setForm({ ...form, amount: value });
   };
 
   const handlePayBill = () => {
@@ -117,14 +102,13 @@ const PayBills = () => {
           </label>
           <label>
             Amount:
-            <input
-              type="number"
-              min="1"
-              step="any"
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+            <CurrencyFormat
+              thousandSeparator={true}
+              prefix={"$"}
               placeholder="0.00" // Placeholder text
               value={form.amount}
-              onChange={handleAmountChange}
+              onValueChange={handleAmountChange}
+              className="pl-2 m-2 rounded-md focus:outline-morange"
               autoComplete="off" // Disable autocomplete
             />
           </label>

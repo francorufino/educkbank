@@ -1,29 +1,16 @@
 import React from "react";
 import { useAccountContext } from "../context/AccountContext";
 import Image from "next/image";
+import depositIcon from "/public/deposit.png";
+import withdrawIcon from "/public/withdraw.png";
+import transferIcon from "/public/transfer.png";
+import payBillsIcon from "/public/paybills.png";
+import payCardIcon from "/public/card.png";
+import statementIcon from "/public/statement2.png";
+import educkLogoIcon from "/public/educklogo2.png";
 
 const Statement = () => {
   const { transactions } = useAccountContext();
-
-  // Function to get the appropriate image based on transaction type
-  const getTransactionImage = type => {
-    switch (type) {
-      case "deposit":
-        return "/deposit.png";
-      case "withdraw":
-        return "/withdraw.png";
-      case "transfer":
-        return "/transfer.png";
-      case "paybill":
-        return "/paybills.png";
-      case "paycard":
-        return "/card.png";
-      case "statement":
-        return "/statement2.png";
-      default:
-        return "/educklogo2.png";
-    }
-  };
 
   return (
     <>
@@ -34,7 +21,7 @@ const Statement = () => {
               Recent Transactions
             </p>
             <Image
-              src="/statement2.png"
+              src={statementIcon}
               alt="statement icon"
               width={50}
               height={50}
@@ -51,7 +38,19 @@ const Statement = () => {
                   <div className="flex gap-6">
                     <p className="flex items-center">
                       <Image
-                        src={getTransactionImage(transaction.type)}
+                        src={
+                          transaction.type === "deposit"
+                            ? depositIcon
+                            : transaction.type === "withdraw"
+                            ? withdrawIcon
+                            : transaction.type === "transfer"
+                            ? transferIcon
+                            : transaction.type === "paybill"
+                            ? payBillsIcon
+                            : transaction.type === "paycard"
+                            ? payCardIcon
+                            : educkLogoIcon
+                        }
                         alt="transaction icon"
                         width={25}
                         height={25}
@@ -65,8 +64,12 @@ const Statement = () => {
                   <div className="flex gap-6">
                     <div>
                       <p>
-                        {transaction.type === "debit" ? "-" : "+"}$
-                        {transaction.amount.toFixed(2)}
+                        {transaction.type === "debit" ? "-" : "+"}
+                        {transaction.amount.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                          minimumFractionDigits: 2,
+                        })}
                       </p>
                     </div>
                     <div>
