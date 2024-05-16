@@ -4,6 +4,8 @@ import Counter from "../ui/Counter";
 import Button from "../button/Button";
 import { useCartContext } from "../../app/context/CartContext";
 import { usePathname } from "next/navigation";
+import ButtonOutLine from "../button/ButtonOutLine";
+import CounterOutLine from "../ui/CounterOutLine";
 
 const QtySelector = ({ item }) => {
   const pathname = usePathname();
@@ -20,9 +22,14 @@ const QtySelector = ({ item }) => {
   };
 
   return (
-    <section className={`flex flex-col justify-end gap-5 mt-6 `}>
+    <section className={`flex flex-col justify-end gap-4 mt-6 `}>
       {item.inStock === 0 ? (
-        <span className="text-morange font-bold">Out of stock</span>
+        <>
+          <CounterOutLine />
+          <ButtonOutLine>
+            <span className="text-morange font-bold">Out of stock</span>
+          </ButtonOutLine>
+        </>
       ) : (
         <section
           className={`flex flex-col gap-4 ${
