@@ -27,7 +27,7 @@ const QtySelector = ({ item }) => {
         <>
           <CounterOutLine />
           <ButtonOutLine>
-            <span className="text-morange font-bold">Out of stock</span>
+            <span className="text-morange font-bold">Sold out</span>
           </ButtonOutLine>
         </>
       ) : (
