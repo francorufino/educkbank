@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <div className={styles.myContainer}>
+        <section className={styles.myContainer}>
           <section>
             <h2 className="container m-auto text-8xl mt-16">We are </h2>
             <h1 className="container m-auto text-8xl my-4 ">duck-fferent.</h1>
@@ -69,7 +69,7 @@ export default function Home() {
           </section>
         </section>
 
-        <div className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
+        <section className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
           <Link href="/auth/register">
             <Button>Get Started</Button>
           </Link>
