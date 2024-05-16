@@ -39,10 +39,10 @@ const Register = () => {
 
   return (
     <section>
-      <div className="flex justify-center rounded-xl p-8 bg-dgray mt-4">
+      <section className="flex justify-center rounded-xl p-8 bg-dgray mt-4">
         <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-wrap mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <section className="flex flex-wrap mb-6">
+            <section className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputText
                 register={register}
                 errors={errors}
@@ -52,7 +52,7 @@ const Register = () => {
                 errorMessage={"First name is required"}
               />
             </section>
-            <div className="w-full md:w-1/2 px-3">
+            <section className="w-full md:w-1/2 px-3">
               <InputText
                 register={register}
                 errors={errors}
@@ -64,8 +64,8 @@ const Register = () => {
             </section>
           </section>
           {/* Date of Birth */}
-          <div className="flex flex-wrap mb-6">
-            <div className="w-full px-3">
+          <section className="flex flex-wrap mb-6">
+            <section className="w-full px-3">
               <InputText
                 register={register}
                 errors={errors}
@@ -78,8 +78,8 @@ const Register = () => {
             </section>
           </section>
           {/* Email and Confirm Email */}
-          <div className="flex flex-wrap  mb-6">
-            <div className="w-full px-3">
+          <section className="flex flex-wrap  mb-6">
+            <section className="w-full px-3">
               <InputText
                 register={register}
                 errors={errors}
@@ -105,8 +105,8 @@ const Register = () => {
             </section>
           </section>
           {/* Password and Confirm Password */}
-          <div className="flex flex-wrap  mb-6">
-            <div className="w-full px-3">
+          <section className="flex flex-wrap  mb-6">
+            <section className="w-full px-3">
               <InputText
                 register={register}
                 errors={errors}
@@ -131,8 +131,8 @@ const Register = () => {
               />
             </section>
           </section>
-          <div className="flex flex-wrap  mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <section className="flex flex-wrap  mb-6">
+            <section className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputText
                 register={register}
                 errors={errors}
@@ -142,7 +142,7 @@ const Register = () => {
                 errorMessage={"Address is required"}
               />
             </section>
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <section className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputText
                 register={register}
                 errors={errors}
@@ -155,8 +155,8 @@ const Register = () => {
             </section>
           </section>
           {/* Country and City */}
-          <div className="flex flex-wrap  mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <section className="flex flex-wrap  mb-6">
+            <section className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputSelect
                 register={register}
                 errors={errors}
@@ -167,7 +167,7 @@ const Register = () => {
                 options={countries}
               />
             </section>
-            <div className="w-full md:w-1/2 px-3">
+            <section className="w-full md:w-1/2 px-3">
               <label
                 className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
                 htmlFor="city"
@@ -195,7 +195,7 @@ const Register = () => {
             </section>
           </section>
           {/* Submit button */}
-          <div className="flex flex-wrap mt-8 mb-6 justify-center">
+          <section className="flex flex-wrap mt-8 mb-6 justify-center">
             <Button
               type="submit"
               disabled={loading || Object.keys(errors).length > 0}

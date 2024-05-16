@@ -65,10 +65,10 @@ const PhotoGalleryPastEvents = () => {
   }, []);
 
   return (
-    <div className="p-5 md:p-10 ">
-      <div className="columns-1 gap-5 lg:gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl-columns:5 mb-5 ">
+    <section className="p-5 md:p-10 ">
+      <section className="columns-1 gap-5 lg:gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl-columns:5 mb-5 ">
         {shuffledClubhouse.map((club, index) => (
-          <div
+          <section
             key={index}
             className="mb-4 border-2 border-dgray rounded-md flex flex-nowrap flex-col justify-center text-center"
           >

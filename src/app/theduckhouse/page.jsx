@@ -7,7 +7,7 @@ const page = () => {
   return (
     <section>
       <h3 className="text-morange font-black text-2xl mt-12">The Duck House</h3>
-      <div className=" mt-4 mb-4 rounded-md">
+      <section className=" mt-4 mb-4 rounded-md">
         <p>
           <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
@@ -80,7 +80,7 @@ const page = () => {
         Here are some of our clubhouses all over the country
       </p>
       <br />
-      <div className="flex flex-wrap justify-center">
+      <section className="flex flex-wrap justify-center">
         <Image
           src={"/clubhouse2.jpg"}
           width={330}
@@ -169,7 +169,7 @@ const page = () => {
           alt="friends talking"
         />
       </section>
-      <div className="flex justify-center mt-8 mb-4">
+      <section className="flex justify-center mt-8 mb-4">
         <Button>Join a Clubhouse</Button>
       </section>
     </section>

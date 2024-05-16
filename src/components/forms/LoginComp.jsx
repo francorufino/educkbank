@@ -52,11 +52,11 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-[#fec53b] rounded-2xl mt-4 p-8">
-      <div className="flex justify-center mt-8">
+    <section className="bg-[#fec53b] rounded-2xl mt-4 p-8">
+      <section className="flex justify-center mt-8">
         <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
-          <div className="mb-6">
+          <section className="mb-6">
             <InputText
               label={"Email"}
               placeholder={"john@example.com"}
@@ -67,7 +67,7 @@ const Login = () => {
             />
           </section>
           {/* Password */}
-          <div className="mb-6">
+          <section className="mb-6">
             <InputText
               label={"Password"}
               placeholder={"Type your password"}
@@ -79,7 +79,7 @@ const Login = () => {
             />
           </section>
 
-          <div className="flex justify-center">
+          <section className="flex justify-center">
             <Button disabled={loading || Object.keys(errors).length > 0}>
               Login
             </Button>

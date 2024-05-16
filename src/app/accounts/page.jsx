@@ -113,7 +113,7 @@ const Accounts = () => {
         household expenses, our Joint Account offers convenience and flexibility
         for your unique financial needs.
       </p>
-      <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+      <section className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
         <Button className="mt-10 mb-10 ml-9">
           <GoBack />
         </Button>

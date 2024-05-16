@@ -10,7 +10,7 @@ const page = () => {
       <h3 className="text-morange font-black text-2xl mt-12">
         Quack Clubhouse
       </h3>
-      <div className=" mt-4 mb-4 rounded-md">
+      <section className=" mt-4 mb-4 rounded-md">
         <p>
           <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
@@ -58,13 +58,13 @@ const page = () => {
         or food packages for people and animals in areas affected by natural
         disasters.
       </p>
-      <div className="text-xl font-blod">
+      <section className="text-xl font-blod">
         {" "}
         <br />
         <p className="font-bold text-lg">Some photos of the Quack Clubhouse</p>
       </section>
       <br />
-      <div className="flex flex-wrap justify-center">
+      <section className="flex flex-wrap justify-center">
         <Image
           src={"/bbq10.jpg"}
           width={330}
@@ -146,10 +146,10 @@ const page = () => {
         />
       </section>
 
-      <div className="flex justify-center mt-8 mb-4">
+      <section className="flex justify-center mt-8 mb-4">
         <Button>Join Quack Clubhouse</Button>
       </section>
-      <div className="flex justify-center underline"> </section>
+      <section className="flex justify-center underline"> </section>
     </section>
   );
 };

@@ -23,15 +23,15 @@ const RegisterPage = () => {
       </h1>
       <h1 className="text-2xl mt-2">Let's get you started!</h1>
 
-      <div className="flex flex-wrap justify-center mt-12 mb-8">
-        <div className="justify-center">
+      <section className="flex flex-wrap justify-center mt-12 mb-8">
+        <section className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Log in</p>
           <LoginComp />
         </section>
-        <div className="justify-center flex mt-[200px]">
+        <section className="justify-center flex mt-[200px]">
           <p className="font-bold mx-12">OR</p>
         </section>
-        <div className="justify-center">
+        <section className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Sign up</p>
           <Register />
         </section>

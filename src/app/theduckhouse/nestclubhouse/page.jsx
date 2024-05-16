@@ -7,7 +7,7 @@ const page = () => {
   return (
     <section>
       <h3 className="text-morange font-black text-2xl mt-12">Nest Clubhouse</h3>
-      <div className=" mt-4 mb-4 rounded-md">
+      <section className=" mt-4 mb-4 rounded-md">
         <p>
           <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
@@ -74,13 +74,13 @@ const page = () => {
         children, imparting the importance of altruism and community engagement
         but also earn <span>tokens</span> to redeem in our online store.
       </p>
-      <div className="text-xl font-blod">
+      <section className="text-xl font-blod">
         {" "}
         <br />
         <p className="font-bold text-lg">Some photos of the Nest Clubhouse</p>
       </section>
       <br />
-      <div className="flex flex-wrap justify-center">
+      <section className="flex flex-wrap justify-center">
         <Image
           src={"/social9.jpg"}
           width={330}
@@ -177,10 +177,10 @@ const page = () => {
       </section>
 
       {/* <PhotoGallery /> */}
-      <div className="flex justify-center mt-8 mb-4">
+      <section className="flex justify-center mt-8 mb-4">
         <Button>Join Nest Clubhouse</Button>
       </section>
-      <div className="flex justify-center underline">
+      <section className="flex justify-center underline">
         {" "}
         <p>Photo Gallery</p>
       </section>

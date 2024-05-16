@@ -8,8 +8,8 @@ const AnualDuckDash = () => {
   return (
     <section>
       <h1 className="text-4xl mt-8">Annual Duck Dash</h1>
-      <div className="flex">
-        <div className=" text-lg mt-8">
+      <section className="flex">
+        <section className=" text-lg mt-8">
           <Image
             src={"/educkracedash.jpg"}
             width={600}
@@ -42,7 +42,7 @@ const AnualDuckDash = () => {
         </section>
       </section>
       <h2 className="text-4xl mt-8">What to Expect</h2>
-      <div className="text-lg">
+      <section className="text-lg">
         <Image
           src={"/livemusic.jpg"}
           width={600}
@@ -119,7 +119,7 @@ const AnualDuckDash = () => {
         </li>
       </ul>
       <h1 className="text-4xl mt-8">Annual Duck Dash Agenda</h1>
-      <div className="w-full flex justify-center">
+      <section className="w-full flex justify-center">
         <table className="mt-[50px] mb-[50px] shadow-2xl font-[Poppins] border-2 border-morange w-10/12 overflow-hidden">
           <thead className="text-white">
             <tr>
@@ -262,7 +262,7 @@ const AnualDuckDash = () => {
       <h3 className="text-4xl mt-8">Photo Gallery</h3>
       <h3 className="text-3xl mt-8">Past Events</h3>
       <PhotoGalleryPastEvents />
-      <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
+      <section className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
         <Button>Buy tickets</Button>
       </section>{" "}
       <p className="flex underline justify-center mb-4 gap-2 items-baseline">
@@ -272,7 +272,7 @@ const AnualDuckDash = () => {
       <p className="flex underline justify-center  mt-2 mb-8 gap-2 items-baseline">
         Share event
       </p>
-      <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
+      <section className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
         <Button>Go back</Button>
       </section>
     </section>
