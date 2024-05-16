@@ -57,7 +57,7 @@ const Header = () => {
             {auth.isLoggedIn && (
               <button
                 onClick={logout}
-                className="text-base  text-orange-200 hover:underline hover:text-indigo-50"
+                className="text-base  text-orange-200 hover:underline hover:text-mlilas"
               >
                 Log out
               </button>
