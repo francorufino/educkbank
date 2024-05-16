@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <section className="bg-[#fec53b] rounded-2xl mt-4 p-8">
       <section className="flex justify-center mt-8">
-        <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
+        <form className="w-full max-w-md " onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
           <section className="mb-6">
             <InputText

@@ -26,7 +26,7 @@ const ProductCard = ({ item }) => {
         </section>
       </Link>
       <section className="flex flex-col p-4 h-full">
-        <section className="border-t border-gray-200">
+        <section className="border-t ">
           <h4 className="mb-4 font-semibold">{item.title}</h4>
           <p className="text-2xl font-semibold mb-6">${item.price}</p>
         </section>

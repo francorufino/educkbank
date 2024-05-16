@@ -70,7 +70,7 @@ export default function Home() {
         </section>
 
         <section className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
-          <Link href="/auth/register">
+          <Link href="/auth">
             <Button>Get Started</Button>
           </Link>
         </section>

@@ -26,7 +26,10 @@ export const InputText = ({
         id={inputKey}
         className={classNames(
           Boolean(errors[inputKey]) ? "border-morange" : "",
-          "appearance-none block w-full bg-dgray text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          "appearance-none block w-full text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-transparent",
+          "bg-white",
+          "focus:bg-mlilas",
+          "autofill:bg-mlilas"
         )}
         type={type}
         placeholder={placeholder}

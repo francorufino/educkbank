@@ -169,14 +169,14 @@ const Register = () => {
             </section>
             <section className="w-full md:w-1/2 px-3">
               <label
-                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+                className="block tracking-wide text-dgray text-sm font-bold mb-2"
                 htmlFor="city"
               >
                 City
               </label>
               <select
                 id="city"
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="appearance-none block w-full bg-white text-dgray border border-dgray rounded py-3 px-4 leading-tight focus:outline-none focus:bg-mlilas focus:border-dgray"
                 {...register("city", {
                   required: "City is required",
                 })}

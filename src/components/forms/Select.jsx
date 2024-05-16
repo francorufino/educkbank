@@ -13,7 +13,7 @@ export const InputSelect = ({
   return (
     <>
       <label
-        className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+        className="block tracking-wide text-mlilas text-sm font-bold mb-2"
         htmlFor={inputKey}
       >
         {label}
@@ -23,7 +23,7 @@ export const InputSelect = ({
         placeholder={placeholder}
         className={classNames(
           Boolean(errors[inputKey]) ? "border-morange" : "",
-          "appearance-none block w-full bg-dgray text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          "appearance-none block w-full bg-white text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-mlilas"
         )}
         {...register(inputKey, {
           required: isRequired ? errorMessage : false,

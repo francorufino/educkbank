@@ -14,7 +14,7 @@ const CheckoutPage = () => {
   useEffect(() => {
     if (!auth.user) {
       push("/auth");
-      toast.error("You need a session to checkout your order");
+      toast.error("You need to login to checkout your order");
     }
   }, [auth]);
 

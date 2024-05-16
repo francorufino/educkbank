@@ -245,7 +245,7 @@ const DashboardPage = () => {
           </h2>
           <article className=" mx-8">
             <section className="border-2 border-dgray rounded-xl p-4 mt-2">
-              <table className="min-w-full divide-y divide-gray-200">
+              <table className="min-w-full divide-y divide-mlilas">
                 <thead>
                   {orders.length > 0 && (
                     <tr>
@@ -260,7 +260,7 @@ const DashboardPage = () => {
                     </tr>
                   )}
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-mlilas">
                   {orders.length === 0 ? (
                     <tr>
                       <td colSpan="4" className="py-4 text-center">
