@@ -3,9 +3,9 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex justify-center">
-      <h2 className="text-2xl font-extrabold text-[#ec552a]">Loading...</h2>
-    </div>
+    <section className="flex justify-center my-8">
+      <h2 className="text-2xl font-extrabold text-morange">Loading...</h2>
+    </section>
   );
 };
 

@@ -35,9 +35,9 @@ const EduckStore = () => {
   return (
     <main className="container m-auto flex justify-center items-center gap-12 flex-wrap mb-4">
       {products.length === 0 ? (
-        <div className="w-full h-screen flex justify-center items-flex-start">
+        <section className="w-full h-screen flex justify-center items-flex-start">
           <span className="text-2xl">We did not find any products</span>
-        </div>
+        </section>
       ) : (
         products.map(item => (
           <Suspense key={item.slug} fallback={<Loading />}>

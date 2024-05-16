@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = () => {
-  return <div>educk membership</div>;
+  return <section>educk membership</section>;
 };
 
 export default page;

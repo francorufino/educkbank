@@ -3,7 +3,7 @@ import React from "react";
 
 const DucklingCard = () => {
   return (
-    <div>
+    <section>
       <h3>1. Duckling Card:</h3>
       <p>
         For our little ducklings taking their first paddles into the pond of
@@ -20,7 +20,7 @@ const DucklingCard = () => {
       </p>
 
       <button>Aplly now</button>
-    </div>
+    </section>
   );
 };
 

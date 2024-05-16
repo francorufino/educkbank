@@ -4,7 +4,7 @@ import { useAccountContext } from "../context/AccountContext";
 import Image from "next/image";
 
 const PayCard = () => {
-  const { accountChecking, accountSavings, payBill } = useAccountContext();
+  const { accountChecking, accountSavings, payCard } = useAccountContext();
   const [form, setForm] = useState({
     amount: "",
   });
@@ -28,7 +28,7 @@ const PayCard = () => {
       return;
     }
     if (amount <= accountChecking || amount <= accountSavings) {
-      payBill(amount, "Credit Card", "Your Credit Card Provider");
+      payCard(amount, "Credit Card", "Your Credit Card Provider");
       setForm({ ...form, amount: "" });
       alert("Credit card payment successful.");
     } else {

@@ -45,29 +45,29 @@ const CartPageProductListCheckout = () => {
   }
 
   return (
-    <div>
+    <section>
       {cart.length === 0 ? (
         <div className=" mt-12 flex flex-col justify-center text-center">
           <p className="text-2xl mb-12">Oh no! There is nothing here yet</p>
           <div className="flex justify-center  mt-2 mb-8">
             <Button>Start shopping now</Button>
-          </div>
-        </div>
+          </section>
+        </section>
       ) : (
-        <div>
+        <section>
           <div className="flex justify-between text-xl font-semibold border-y-2 border-white mb-4">
             <div className="">
               <p className="my-4 pl-12">Product</p>
-            </div>
+            </section>
             <div className="flex justify-center ">
               <p className="my-4 pr-12">Total</p>
-            </div>
-          </div>
+            </section>
+          </section>
           {cart.map(cartItem => (
             <div key={cartItem.id}>
               <div className="flex justify-between mb-4 border-b-2 border-white ">
                 <div className="flex gap-4 ml-12">
-                  <div>
+                  <section>
                     <Image
                       src={cartItem.image}
                       alt={cartItem.name}
@@ -75,33 +75,33 @@ const CartPageProductListCheckout = () => {
                       height={50}
                       className="object-cover"
                     />
-                  </div>
-                  <div>
+                  </section>
+                  <section>
                     <p className="font-semibold">{cartItem.title}</p>
-                  </div>
-                </div>
+                  </section>
+                </section>
                 <div className="flex justify-center mx-10">
                   <p>{cartItem.quantity}</p>
                   <p className="mr-2">x</p>
                   <p> {cartItem.price}</p>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           ))}
           <div className="flex justify-end mr-12">
             <p className="mr-2 font-semibold">Total:</p>
             <p className="font-semibold">
               $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}
             </p>
-          </div>
+          </section>
           <div className="flex justify-center mt-8 mb-4">
             {/* <Link href="/cart/cartReport"> */}
             <Button onClick={placeOrder}>Place your order</Button>
             {/* </Link> */}
-          </div>
-        </div>
+          </section>
+        </section>
       )}
-    </div>
+    </section>
   );
 };
 

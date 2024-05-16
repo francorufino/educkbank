@@ -1,5 +1,6 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
+import Loading from "@/components/ui/Loading";
 import ProfileImage from "./ProfileImage";
 import { AuthContext } from "../context/AuthContext";
 import { useRouter } from "next/navigation";
@@ -72,7 +73,7 @@ const DashboardPage = () => {
   }, [auth]);
 
   if (!auth.user) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   async function getOrders() {
@@ -121,23 +122,23 @@ const DashboardPage = () => {
 
   return (
     <>
-      <div className="flex mt-[50px] container">
+      <section className="flex mt-[50px] container">
         <section className="flex-2/3 justify-center">
           <Weather />
           <section className="flex items-center">
             <ProfileImage />
-            <div className="font-bold text-3xl">
+            <section className="font-bold text-3xl">
               <p className="tracking-widest ">
                 Hello, <span>{auth?.metadata?.first_name}</span>
               </p>
-            </div>{" "}
+            </section>{" "}
           </section>
           <section>
             <p className="font-bold text-xl mt-10 my-4 text-dgray">
               What do you want to do today?
             </p>
-            <div className="flex border-2 mx-8 border-dgray justify-center gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
-              <div>
+            <section className="flex border-2 mx-8 border-dgray justify-center gap-6 basis-72 shadow shadow-black-500/50 rounded-lg p-8">
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/deposit.png"
@@ -150,8 +151,8 @@ const DashboardPage = () => {
                   />
                 </p>
                 <p className="text-center mt-2">Deposit</p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/withdraw.png"
@@ -164,8 +165,8 @@ const DashboardPage = () => {
                   />
                 </p>
                 <p className="text-center mt-2">Withdraw</p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/transfer.png"
@@ -178,8 +179,8 @@ const DashboardPage = () => {
                   />
                 </p>
                 <p className="text-center mt-2">Transfer</p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/paybills.png"
@@ -192,8 +193,8 @@ const DashboardPage = () => {
                   />
                 </p>
                 <p className="text-center mt-2">Pay Bills</p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/card.png"
@@ -206,8 +207,8 @@ const DashboardPage = () => {
                   />
                 </p>
                 <p className="text-center mt-2">Pay Card</p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <p className="flex justify-center">
                   <Image
                     src="/statement2.png"
@@ -221,9 +222,9 @@ const DashboardPage = () => {
                 </p>
 
                 <p className="text-center mt-2">Statetment</p>
-              </div>
-            </div>
-            <div className="mx-8">
+              </section>
+            </section>
+            <section className="mx-8">
               {action === "statetment" ? (
                 <Statement />
               ) : action === "paybill" ? (
@@ -237,13 +238,13 @@ const DashboardPage = () => {
               ) : action === "withdraw" ? (
                 <Withdraw />
               ) : null}
-            </div>
+            </section>
           </section>
           <h2 className="font-bold text-xl mt-10 my-4 text-dgray">
             Your orders at Educkstore
           </h2>
           <article className=" mx-8">
-            <div className="border-2 border-dgray rounded-xl p-4 mt-2">
+            <section className="border-2 border-dgray rounded-xl p-4 mt-2">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                   {orders.length > 0 && (
@@ -320,7 +321,7 @@ const DashboardPage = () => {
                   )}
                 </tbody>
               </table>
-            </div>
+            </section>
           </article>
         </section>
         <aside className="flex-1/3 ml-6">
@@ -328,18 +329,18 @@ const DashboardPage = () => {
             Your Metrics{" "}
           </p>
 
-          <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+          <section className="bg-myellow mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
             <p className="font-bold text-2xl mb-3">Educkstore</p>
             <p className="font-bold text-xl mb-3">Total Spent</p>
             <p className="text-2xl ">
               $ {calculateTotalSpentFromMultipleOrders(orders).toFixed(2)}
             </p>
-          </div>
+          </section>
 
           <section className="text-center font-bold text-2xl my-4">
             <hr className="h-px  my-4 bg-white border-0 "></hr>
             <p className="mb-2 font-bold">Your Tokens</p>
-            <div className="flex justify-center items-center">
+            <section className="flex justify-center items-center">
               <Image
                 src="/educklogo2.png"
                 width={30}
@@ -353,14 +354,14 @@ const DashboardPage = () => {
                   0
                 )}
               </p>
-            </div>
+            </section>
             <hr className="h-px  my-4 bg-white border-0 "></hr>
           </section>
           <section>
             <p className="mb-2 text-2xl text-center text-9 font-bold">
               Your Accounts{" "}
             </p>
-            <div className="bg-[#fec53b] mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+            <section className="bg-myellow mb-4 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
               <p className="font-bold text-xl mb-3">Checking Account</p>
               <p className="text-2xl ">
                 {" "}
@@ -370,8 +371,8 @@ const DashboardPage = () => {
                   minimumFractionDigits: 2,
                 })}
               </p>
-            </div>
-            <div className="bg-[#ec552a] text-white mb-8 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
+            </section>
+            <section className="bg-morange text-white mb-8 px-4 py-8 flex flex-col justify-center rounded-lg shadow-md text-center text-lg">
               <p className="font-bold text-xl mb-3">Savings Account</p>
               <p className="text-2xl ">
                 {" "}
@@ -381,13 +382,13 @@ const DashboardPage = () => {
                   minimumFractionDigits: 2,
                 })}
               </p>
-            </div>
+            </section>
             <hr className="h-px  my-4 bg-white border-0 "></hr>
-            <div>
+            <section>
               <p className="mb-4 text-center font-bold text-2xl">Your Cards</p>
 
-              <div className="flex justify-center">
-                <div className="mb-[20px] flex flex-col justify-center">
+              <section className="flex justify-center">
+                <section className="mb-[20px] flex flex-col justify-center">
                   <Image
                     src="/quackprodebitblank.png"
                     alt="quack pro debit card photo"
@@ -395,13 +396,13 @@ const DashboardPage = () => {
                     height={200}
                     className="rounded-xl "
                   />
-                  <div className="text-left -mt-[110px] ">
+                  <section className="text-left -mt-[110px] ">
                     <p className=" text-2xl mt-16 ml-[160px]">$0.00</p>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-[40px] flex justify-center">
-                <div>
+                  </section>
+                </section>
+              </section>
+              <section className="mb-[40px] flex justify-center">
+                <section>
                   <Image
                     src="/quackprocreditblank.png"
                     alt="quack pro credit card photo"
@@ -409,15 +410,15 @@ const DashboardPage = () => {
                     height={200}
                     className="rounded-xl"
                   />
-                  <div className="text-left -mt-[110px] flex flex-col">
+                  <section className="text-left -mt-[110px] flex flex-col">
                     <p className=" text-2xl mt-16 ml-[180px]">$0.00</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </section>
+                </section>
+              </section>
+            </section>
           </section>
         </aside>
-      </div>
+      </section>
       {openModal && (
         <OrderDetailModal order={selectedOrder} onClose={closeOrderDetail} />
       )}
@@ -439,23 +440,23 @@ function OrderDetailModal({ order, onClose }) {
 
   return (
     <section className="flex  justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
-      <div className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
-        <div className="flex items-center">
+      <section className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
+        <section className="flex items-center">
           <span className="text-xl font-bold flex flex-wrap mr-2">
             Order #:{" "}
           </span>{" "}
           <span> {order.id}</span>
-        </div>
-        <div className="flex items-center">
+        </section>
+        <section className="flex items-center">
           <span className="font-bold text-xl mr-2">Placed on: </span>{" "}
           <span>{new Date(date).toLocaleString()}</span>
-        </div>
-        <div className="mt-8 bg-llav p-4 rounded-lg">
+        </section>
+        <section className="mt-8 bg-mlilas p-4 rounded-lg">
           {order.products.map(orderProduct => (
-            <div key={orderProduct.id}>
-              <div className="flex justify-between mb-4 border-b-2 border-white ">
-                <div className="flex gap-4 ml-12">
-                  <div className="mb-4 ">
+            <section key={orderProduct.id}>
+              <section className="flex justify-between mb-4 border-b-2 border-white ">
+                <section className="flex gap-4 ml-12">
+                  <section className="mb-4 ">
                     <Image
                       src={orderProduct.image}
                       alt={orderProduct.name}
@@ -463,18 +464,18 @@ function OrderDetailModal({ order, onClose }) {
                       height={50}
                       className="object-cover"
                     />
-                  </div>
-                  <div>
+                  </section>
+                  <section>
                     <p className="font-semibold">{orderProduct.title}</p>
-                  </div>
-                </div>
-                <div className="flex justify-center ">
+                  </section>
+                </section>
+                <section className="flex justify-center ">
                   <p>{orderProduct.quantity}</p>
                   <p className="mr-2">x</p>
                   <p> {orderProduct.price}</p>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           ))}
           <span className="flex justify-end mt-2 items-center  font-medium ">
             Total spent:{" "}
@@ -483,12 +484,12 @@ function OrderDetailModal({ order, onClose }) {
             </span>
           </span>
           <span></span>
-        </div>
+        </section>
 
         <button className="absolute text-2xl top-4 right-4" onClick={onClose}>
           X
         </button>
-      </div>
+      </section>
     </section>
   );
 }

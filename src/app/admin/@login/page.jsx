@@ -10,7 +10,7 @@ export default function Login() {
   return (
     <>
       <h1>LOGIN page...</h1>
-      <div>
+      <section>
         <h2>Crear usuario:</h2>
         <button className="bg-red-500" onClick={createUser}>
           Crear usuario
@@ -19,25 +19,25 @@ export default function Login() {
         <button className="bg-green-500" onClick={login}>
           Iniciar sesion
         </button>
-      </div>
+      </section>
       <h1 className="text-2xl mt-8">
         Hello there, we are very happy to see you here!
       </h1>
       <h1 className="text-2xl mt-2">Let's get you started!</h1>
 
-      <div className="flex flex-wrap justify-center mt-12 mb-8">
-        <div className="justify-center">
+      <section className="flex flex-wrap justify-center mt-12 mb-8">
+        <section className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Log in</p>
           <LoginComp />
-        </div>
-        <div className="justify-center flex mt-[200px]">
+        </section>
+        <section className="justify-center flex mt-[200px]">
           <p className="font-bold mx-12">OR</p>
-        </div>
-        <div className="justify-center">
+        </section>
+        <section className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Sign up</p>
           <Register />
-        </div>
-      </div>
+        </section>
+      </section>
     </>
   );
 }
@@ -53,7 +53,7 @@ export default function Login() {
 //   return (
 //     <>
 //       <h1>LOGIN page...</h1>
-//       <div>
+//       <section>
 //         <h2>Crear usuario:</h2>
 //         <button className="bg-red-500" onClick={createUser}>
 //           Crear usuario
@@ -62,7 +62,7 @@ export default function Login() {
 //         <button className="bg-green-500" onClick={login}>
 //           Iniciar sesion
 //         </button>
-//       </div>
+//       </section>
 //     </>
 //   );
 // }

@@ -29,13 +29,16 @@ const Statement = () => {
               id="statement"
             />
           </section>
-          <div>
+          <section>
             {!transactions || transactions.length === 0 ? (
               <p className="text-center mb-12">No transactions yet</p>
             ) : (
               transactions.map((transaction, index) => (
-                <div key={index} className="flex mb-4 justify-between gap-6">
-                  <div className="flex gap-6">
+                <section
+                  key={index}
+                  className="flex mb-4 justify-between gap-6"
+                >
+                  <section className="flex gap-6">
                     <p className="flex items-center">
                       <Image
                         src={
@@ -56,13 +59,13 @@ const Statement = () => {
                         height={25}
                       />
                     </p>
-                    <div>
+                    <section>
                       <p>{transaction.description}</p>
                       <p className="text-xs text-dgray">{transaction.date}</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-6">
-                    <div>
+                    </section>
+                  </section>
+                  <section className="flex gap-6">
+                    <section>
                       <p>
                         {transaction.type === "debit" ? "-" : "+"}
                         {transaction.amount.toLocaleString("en-US", {
@@ -71,15 +74,15 @@ const Statement = () => {
                           minimumFractionDigits: 2,
                         })}
                       </p>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                       <p>Complete</p>
-                    </div>
-                  </div>
-                </div>
+                    </section>
+                  </section>
+                </section>
               ))
             )}
-          </div>
+          </section>
         </section>
       </section>
     </>

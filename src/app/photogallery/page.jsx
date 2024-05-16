@@ -3,15 +3,15 @@ import PhotoGallery from "../../components/ui/PhotoGallery";
 
 const page = () => {
   return (
-    <div>
+    <section>
       <h1 className="text-2xl mt-8 mb-4">Photo Gallery</h1>
 
-      <h2 className="text-lg">
+      <h2 className="text-lg ">
         Join us and feel the duck-fference of being part of something beyound
         awesome!
       </h2>
       <PhotoGallery />
-    </div>
+    </section>
   );
 };
 

@@ -27,15 +27,15 @@ const RegisterPage = () => {
         <div className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Log in</p>
           <LoginComp />
-        </div>
+        </section>
         <div className="justify-center flex mt-[200px]">
           <p className="font-bold mx-12">OR</p>
-        </div>
+        </section>
         <div className="justify-center">
           <p className="text-lg font-bold flex mt-8 justify-center">Sign up</p>
           <Register />
-        </div>
-      </div>
+        </section>
+      </section>
     </>
   );
 };

@@ -88,7 +88,7 @@ const Withdraw = () => {
           />
         </label>
         <p>Where do you want to withdraw from?</p>
-        <div className="flex items-center mb-2">
+        <section className="flex items-center mb-2">
           <input
             className="accent-morange"
             type="radio"
@@ -117,7 +117,7 @@ const Withdraw = () => {
           <label htmlFor="savings" className="ml-2">
             Savings
           </label>
-        </div>
+        </section>
       </section>{" "}
       <section className="flex justify-center mt-4">
         <Button onClick={handleWithdraw} className="mb-8">

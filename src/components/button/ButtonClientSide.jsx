@@ -17,10 +17,10 @@ const ButtonClientSide = () => {
   // routerforward();
 
   return (
-    <div>
+    <section>
       <Button onClick={increase}>+</Button>;<p>{counter}</p>
       <Button onClick={() => routerGoBack.back()}>Go Back</Button>
-    </div>
+    </section>
   );
 };
 

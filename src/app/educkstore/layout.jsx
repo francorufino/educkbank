@@ -9,11 +9,11 @@ const EduckStoreLayout = ({ children }) => {
   const isADetailPage = pathname?.includes("/productosSlug");
 
   return (
-    <div>
+    <section>
       <h2 className="text-3xl mt-8 pb-4 ">Educk Store</h2>
       {!isADetailPage && <CategoriesMenu />}
       {children}
-    </div>
+    </section>
   );
 };
 

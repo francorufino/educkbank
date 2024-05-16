@@ -116,25 +116,25 @@ const PhotoGallery = () => {
   }, []);
 
   return (
-    <div className="p-5 md:p-10 ">
-      <div className="columns-1 gap-5lg:gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl-columns:5 mb-5 ">
-        {shuffledClubhouse.map((club, index) => (
-          <div
-            key={index}
-            className="mb-4 border-2  border-dgray rounded-md flex flex-nowrap flex-col justify-center text-center"
-          >
-            <Image
-              src={club.href}
-              alt={club.label}
-              width={300}
-              height={300}
-              className="rounded-tr-sm rounded-tl-sm "
-            />
-            <p className="mb-2 pt-2 border-t-2 border-dgray">{club.label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <section className="flex flex-wrap justify-center ">
+      {shuffledClubhouse.map((club, index) => (
+        <section
+          key={index}
+          className="relative w-80 h-80 rounded-lg mr-4 mb-4 border-dgray border-2 "
+        >
+          <Image
+            priority
+            src={club.href}
+            alt={club.label}
+            layout="fill"
+            className="rounded-md object-cover"
+          />
+          <p className="absolute bottom-0 left-0 right-0 bg-dgray bg-opacity-80 text-white text-center p-2 rounded-b-sm">
+            {club.label}
+          </p>
+        </section>
+      ))}
+    </section>
   );
 };
 

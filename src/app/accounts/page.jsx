@@ -5,7 +5,7 @@ import GoBack from "@/components/ui/GoBack";
 
 const Accounts = () => {
   return (
-    <div>
+    <section>
       <h2 className="text-4xl mt-8">Duckling Checking Account:</h2>
       <p className="text-lg mt-4">
         Introducing the Duckling Checking Account, specially crafted for our
@@ -117,8 +117,8 @@ const Accounts = () => {
         <Button className="mt-10 mb-10 ml-9">
           <GoBack />
         </Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

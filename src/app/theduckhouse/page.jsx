@@ -5,20 +5,18 @@ import Image from "next/image";
 
 const page = () => {
   return (
-    <div>
-      <h3 className="text-[#ec552a] font-black text-2xl mt-12">
-        The Duck House
-      </h3>
+    <section>
+      <h3 className="text-morange font-black text-2xl mt-12">The Duck House</h3>
       <div className=" mt-4 mb-4 rounded-md">
         <p>
-          <span className="text-[#ec552a] font-bold">When:</span> Every Saturday
+          <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold">Time:</span> Open from 9:00
+          <span className="text-morange font-bold">Time:</span> Open from 9:00
           am to 10:00 pm
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold ">Where:</span> Check the
+          <span className="text-morange font-bold ">Where:</span> Check the
           location available with your account manager
         </p>
 
@@ -31,9 +29,9 @@ const page = () => {
           2. If you are out of the city, you and your family can attend the
           location in the city you are staying at the moment
         </p>
-      </div>
+      </section>
       <br />
-      <div>
+      <section>
         <h1 className="text-lg font-bold">Welcome to The Duck House!</h1>
         <br />
         <p>
@@ -43,9 +41,9 @@ const page = () => {
           groups and interests.
         </p>
         <br />
-      </div>
+      </section>
 
-      <div>
+      <section>
         <h2 className="font-bold">The Quack Clubhouse</h2>
         <p>
           The Quack Clubhouse is specially designed for adults without children.
@@ -74,7 +72,7 @@ const page = () => {
           Come join us at The Duck House and be part of a vibrant community
           dedicated to learning, growth, and fun!
         </p>
-      </div>
+      </section>
 
       <p className="text-xl font-blod">
         {" "}
@@ -170,11 +168,11 @@ const page = () => {
           className=" rounded-lg mr-4 mb-4"
           alt="friends talking"
         />
-      </div>
+      </section>
       <div className="flex justify-center mt-8 mb-4">
         <Button>Join a Clubhouse</Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

@@ -27,16 +27,16 @@ const WeatherComponent = () => {
   };
 
   return (
-    <div>
+    <section>
       <button onClick={fetchWeatherData}>Get Weather for New York, USA</button>
       {weatherData && weatherData.daily && (
-        <div>
+        <section>
           <h2>Weather for New York, USA</h2>
           <p>Temperature: {weatherData.daily[0].temp.day}°C</p>
           <p>Description: {weatherData.daily[0].weather[0].description}</p>
-        </div>
+        </section>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -5,8 +5,8 @@ import GoBack from "@/components/ui/GoBack";
 
 const InvestmentFinancing = () => {
   return (
-    <div>
-      <div>
+    <section>
+      <section>
         <h2 className="text-4xl mt-8">Investment Account</h2>
         <p className="text-lg mt-4">
           Our Investment Account offers a gateway to the world of investing,
@@ -56,13 +56,13 @@ const InvestmentFinancing = () => {
           can receive personalized guidance and tailored solutions to meet your
           unique needs.
         </p>
-      </div>
+      </section>
       <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
         <Button className="mt-10 mb-10 ml-9">
           <GoBack />
         </Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

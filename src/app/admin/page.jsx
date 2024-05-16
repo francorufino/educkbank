@@ -7,7 +7,7 @@ export default function Admin() {
   return (
     <>
       <h1>page view ADMIN - Welcome, {auth.name} </h1>
-      <button className="bg-yellow-500" onClick={logout}>
+      <button className="bg-myellow" onClick={logout}>
         logout
       </button>
       <h1>here will be the dashboard</h1>
@@ -25,7 +25,7 @@ export default function Admin() {
 //   return (
 //     <>
 //       <h1>page view ADMIN - Welcome, {auth.name} </h1>
-//       <button className="bg-yellow-500" onClick={logout}>
+//       <button className="bg-myellow" onClick={logout}>
 //         logout
 //       </button>
 //     </>

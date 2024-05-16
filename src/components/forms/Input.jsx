@@ -17,7 +17,7 @@ export const InputText = ({
   return (
     <>
       <label
-        className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
+        className="block tracking-wide text-dgray text-sm font-bold mb-2"
         htmlFor={inputKey}
       >
         {label}
@@ -25,8 +25,8 @@ export const InputText = ({
       <input
         id={inputKey}
         className={classNames(
-          Boolean(errors[inputKey]) ? "border-red-500" : "",
-          "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          Boolean(errors[inputKey]) ? "border-morange" : "",
+          "appearance-none block w-full bg-dgray text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         )}
         type={type}
         placeholder={placeholder}
@@ -42,7 +42,7 @@ export const InputText = ({
         })}
       />
       {errors[inputKey] && (
-        <span className="text-red-500 mt-1">{errors[inputKey]?.message}</span>
+        <span className="text-morange mt-1">{errors[inputKey]?.message}</span>
       )}
     </>
   );

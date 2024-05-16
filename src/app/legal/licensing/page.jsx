@@ -3,7 +3,7 @@ import React from "react";
 
 const Licensing = () => {
   return (
-    <div>
+    <section>
       <h1>Licensing Information for eDuck Bank</h1>
       <p>
         At eDuck Bank, we are committed to operating in compliance with all
@@ -41,7 +41,7 @@ const Licensing = () => {
         Thank you for choosing eDuck Bank. We are dedicated to providing safe,
         reliable, and compliant banking services to our customers.
       </p>
-    </div>
+    </section>
   );
 };
 

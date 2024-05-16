@@ -41,11 +41,13 @@ const Deposit = () => {
   const handleDeposit = () => {
     const amount = parseFloat(form.amount);
     if (isNaN(amount) || amount < 0.01) {
+      console.log(amount);
       alert("Please enter a valid amount greater than or equal to 0.01.");
       return;
     }
 
     if (form.accountType === "checking") {
+      console.log(amount);
       depositChecking(amount);
     } else {
       depositSavings(amount);
@@ -84,7 +86,7 @@ const Deposit = () => {
             />
           </label>
           <p>Where do you want to deposit?</p>
-          <div className="flex items-center mb-2">
+          <section className="flex items-center mb-2">
             <input
               className="accent-morange"
               type="radio"
@@ -113,7 +115,7 @@ const Deposit = () => {
             <label htmlFor="savings" className="ml-2">
               Savings
             </label>
-          </div>
+          </section>
         </section>{" "}
         <section className="flex justify-center mt-4">
           <Button onClick={handleDeposit} className="mb-8">

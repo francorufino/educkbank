@@ -35,7 +35,7 @@ const CheckoutPage = () => {
           <article className="flex flex-col flex-1">
             <CartPageProductListCheckout />
           </article>
-        </div>
+        </section>
       </section>
     </main>
   );

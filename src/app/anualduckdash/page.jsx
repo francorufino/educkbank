@@ -6,7 +6,7 @@ import PhotoGalleryPastEvents from "@/components/ui/PhotoGalleryPastEvents";
 
 const AnualDuckDash = () => {
   return (
-    <div>
+    <section>
       <h1 className="text-4xl mt-8">Annual Duck Dash</h1>
       <div className="flex">
         <div className=" text-lg mt-8">
@@ -39,8 +39,8 @@ const AnualDuckDash = () => {
             Get ready to make a splash and experience banking like never before
             at the Annual Duck Dash!
           </p>
-        </div>
-      </div>
+        </section>
+      </section>
       <h2 className="text-4xl mt-8">What to Expect</h2>
       <div className="text-lg">
         <Image
@@ -83,7 +83,7 @@ const AnualDuckDash = () => {
           receiving tokens to reedem in our online store or any affiliate
           participants spread all over the country.
         </p>
-      </div>
+      </section>
       <h2 className="text-4xl mt-8">How to Participate</h2>
       <p>
         Want to be part of the excitement? Joining the Annual Duck Dash is easy!
@@ -120,16 +120,16 @@ const AnualDuckDash = () => {
       </ul>
       <h1 className="text-4xl mt-8">Annual Duck Dash Agenda</h1>
       <div className="w-full flex justify-center">
-        <table className="mt-[50px] mb-[50px] shadow-2xl font-[Poppins] border-2 border-orange-500 w-10/12 overflow-hidden">
+        <table className="mt-[50px] mb-[50px] shadow-2xl font-[Poppins] border-2 border-morange w-10/12 overflow-hidden">
           <thead className="text-white">
             <tr>
-              <th className="py-3 text-4xl bg-orange-500">Time</th>
-              <th className="py-3 text-4xl bg-orange-500">Activity</th>
-              <th className="py-3 text-4xl bg-orange-500">Description</th>
+              <th className="py-3 text-4xl bg-morange">Time</th>
+              <th className="py-3 text-4xl bg-morange">Activity</th>
+              <th className="py-3 text-4xl bg-morange">Description</th>
             </tr>
           </thead>
           <tbody className="text-black text-center">
-            <tr className="bg-lavander">
+            <tr className="bg-mlilas">
               <td className="py-3 px-6 text-nowrap">
                 <p>9:00 am - 10:30 am</p>{" "}
               </td>
@@ -156,7 +156,7 @@ const AnualDuckDash = () => {
                 </p>
               </td>
             </tr>
-            <tr className="bg-slate-200">
+            <tr className="bg-mlilas">
               <td className="py-3 px-6 text-nowrap">
                 <p>11:00am - 12:30pm</p>{" "}
               </td>
@@ -178,7 +178,7 @@ const AnualDuckDash = () => {
                 </p>
               </td>
             </tr>
-            <tr className="bg-lavendar ">
+            <tr className="bg-mlilas ">
               <td className="py-3 px-6 flex-nowrap">
                 <p>12:30pm - 1:30pm</p>
               </td>
@@ -191,7 +191,7 @@ const AnualDuckDash = () => {
                 </p>
               </td>
             </tr>
-            <tr className="bg-slate-200">
+            <tr className="bg-mlilas">
               <td className="py-3 px-6 flex-nowrap">
                 <p>2:00pm - 3:30pm</p>
               </td>
@@ -209,7 +209,7 @@ const AnualDuckDash = () => {
                 </p>
               </td>
             </tr>
-            <tr className="bg-lavander">
+            <tr className="bg-mlilas">
               <td className="py-3 px-6 flex-nowrap">
                 <p>4:00pm - 5:00pm</p>
               </td>
@@ -227,7 +227,7 @@ const AnualDuckDash = () => {
                 </p>
               </td>
             </tr>
-            <tr className="bg-slate-200">
+            <tr className="bg-mlilas">
               <td className="py-3 px-6 flex-nowrap">
                 <p>5:30 pm - 7:00 pm</p>
               </td>
@@ -257,14 +257,14 @@ const AnualDuckDash = () => {
             </tr>
           </tbody>
         </table>
-      </div>
-      <div></div>
+      </section>
+      <section></section>
       <h3 className="text-4xl mt-8">Photo Gallery</h3>
       <h3 className="text-3xl mt-8">Past Events</h3>
       <PhotoGalleryPastEvents />
       <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
         <Button>Buy tickets</Button>
-      </div>{" "}
+      </section>{" "}
       <p className="flex underline justify-center mb-4 gap-2 items-baseline">
         {" "}
         Add to your calendar
@@ -274,8 +274,8 @@ const AnualDuckDash = () => {
       </p>
       <div className="flex justify-center mb-8 mt-2  gap-8 items-baseline">
         <Button>Go back</Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

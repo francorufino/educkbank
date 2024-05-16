@@ -20,8 +20,8 @@ const Header = () => {
   ];
 
   return (
-    <header className={`w-full bg-gray-500 `}>
-      <div className="container max-w-screen-xl m-auto py-600 flex justify-between items-center">
+    <header className={`w-full bg-dgray `}>
+      <section className="container max-w-screen-xl m-auto py-600 flex justify-between items-center">
         {/* <p className="text-4xl text-bold text-orange-200 mt-12 mb-12">
           eDuck Bank
         </p> */}
@@ -36,7 +36,7 @@ const Header = () => {
           />
         </Link>
 
-        <div className="flex space-x-4 justify-center items-center">
+        <section className="flex space-x-4 justify-center items-center">
           <nav className="px-8 flex justify-between align-baseline gap-2">
             {links.map(link => {
               return (
@@ -64,8 +64,8 @@ const Header = () => {
             )}
           </nav>
           <CartIcon />
-        </div>
-      </div>
+        </section>
+      </section>
     </header>
   );
 };

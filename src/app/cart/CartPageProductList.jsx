@@ -11,7 +11,7 @@ const CartPageProductList = () => {
   const { cart, cartTotalValue, deleteItemInCart } = useContext(CartContext);
 
   return (
-    <div>
+    <section>
       {cart.length === 0 ? (
         <div className=" mt-12 flex flex-col justify-center text-center">
           <p className="text-2xl mb-12">Oh no! There is nothing here yet</p>
@@ -19,18 +19,18 @@ const CartPageProductList = () => {
             <Link href="/educkstore">
               <Button>Start shopping now</Button>
             </Link>
-          </div>
-        </div>
+          </section>
+        </section>
       ) : (
-        <div>
+        <section>
           <div className="flex justify-between text-xl font-semibold border-y-2 border-white mb-4">
             <div className="">
               <p className="my-4 pl-12">Product</p>
-            </div>
+            </section>
             <div className="flex justify-center ">
               <p className="my-4 pr-12">Total</p>
-            </div>
-          </div>
+            </section>
+          </section>
           {cart.map(cartItem => (
             <div key={cartItem.id}>
               <div className="flex justify-between mb-4 border-b-2 border-white ">
@@ -42,8 +42,8 @@ const CartPageProductList = () => {
                       layout="fill"
                       className="object-cover"
                     />
-                  </div>
-                  <div>
+                  </section>
+                  <section>
                     <p className="font-semibold">{cartItem.title}</p>
                     <p className="text-[10px] text-dgray">{cartItem.slug}</p>
                     <p>{cartItem.description}</p>
@@ -52,36 +52,36 @@ const CartPageProductList = () => {
                         <QtySelector item={cartItem} />
                         <BtnSmall
                           onClick={() => deleteItemInCart(cartItem)}
-                          className="bg-lilas underline text-dgray my-4"
+                          className="bg-mlilas underline text-dgray my-4"
                         >
                           Delete
                         </BtnSmall>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </section>
+                    </section>
+                  </section>
+                </section>
                 <div className="flex justify-center mx-10">
                   <p>{cartItem.quantity}</p>
                   <p className="mr-2">x</p>
                   <p> $ {cartItem.price}</p>
-                </div>
-              </div>
-            </div>
+                </section>
+              </section>
+            </section>
           ))}
           <div className="flex justify-end mr-12">
             <p className="mr-2">Total:</p>
             <p className="">
               $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}
             </p>
-          </div>
+          </section>
           <div className="flex justify-center mt-8 mb-4 ">
             <Link href="/cart/checkoutpage">
               <Button>Checkout</Button>
             </Link>
-          </div>
-        </div>
+          </section>
+        </section>
       )}
-    </div>
+    </section>
   );
 };
 

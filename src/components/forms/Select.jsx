@@ -22,8 +22,8 @@ export const InputSelect = ({
         id={inputKey}
         placeholder={placeholder}
         className={classNames(
-          Boolean(errors[inputKey]) ? "border-red-500" : "",
-          "appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          Boolean(errors[inputKey]) ? "border-morange" : "",
+          "appearance-none block w-full bg-dgray text-dgray border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         )}
         {...register(inputKey, {
           required: isRequired ? errorMessage : false,

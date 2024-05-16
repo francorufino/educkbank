@@ -9,24 +9,24 @@ const ProductCard = ({ item }) => {
         href={`/educkstore/productosSlug/${item.slug}`}
         className="flex flex-col"
       >
-        <div className="relative w-full h-[300px]">
+        <section className="relative w-full h-[300px]">
           <Image
             alt={"ImageProduct"}
             src={item.image}
             layout="fill"
             className="rounded-t-lg object-cover"
           />
-        </div>
+        </section>
       </Link>
-      <div className="flex flex-col p-4 h-full">
-        <div className="border-t border-gray-200">
+      <section className="flex flex-col p-4 h-full">
+        <section className="border-t border-gray-200">
           <h4 className="mb-4 font-semibold">{item.title}</h4>
           <p className="text-2xl font-semibold mb-6">${item.price}</p>
-        </div>
-        <div className="flex flex-1 justify-end border-t border-[#fec53b] ">
+        </section>
+        <section className="flex flex-1 justify-end border-t border-[#fec53b] ">
           <QtySelector item={item} />
-        </div>
-      </div>
+        </section>
+      </section>
     </article>
   );
 };

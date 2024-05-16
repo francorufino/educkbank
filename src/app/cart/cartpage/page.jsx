@@ -6,7 +6,7 @@ const CartPage = () => {
     <>
       <div className="flex justify-center font-semibold text-2xl mb-12 mt-8">
         <h1>Your cart</h1>
-      </div>
+      </section>
 
       {/* fazer um map aqui com os  dados do carrinho e passar  para o componente de lista de produtos. */}
 

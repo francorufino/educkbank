@@ -98,7 +98,7 @@ const Transfer = () => {
             />
           </label>
           <p>From:</p>
-          <div className="flex items-center mb-2">
+          <section className="flex items-center mb-2">
             <input
               className="accent-morange"
               type="radio"
@@ -123,9 +123,9 @@ const Transfer = () => {
             <label htmlFor="fromSavings" className="ml-2">
               Savings
             </label>
-          </div>
+          </section>
           <p>To:</p>
-          <div className="flex items-center mb-2">
+          <section className="flex items-center mb-2">
             <input
               className="accent-morange"
               type="radio"
@@ -150,7 +150,7 @@ const Transfer = () => {
             <label htmlFor="toSavings" className="ml-2">
               Savings
             </label>
-          </div>
+          </section>
         </section>
         <section className="flex justify-center mt-4">
           <Button onClick={handleTransfer} className="mb-8">

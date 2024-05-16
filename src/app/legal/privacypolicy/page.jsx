@@ -2,7 +2,7 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <section>
       <h2>Privacy Policy</h2>
       <p>
         At eDuck Bank, we are committed to protecting your privacy and
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
         If you have any questions or concerns about our Privacy Policy, please
         contact us at privacy@educkbank.com.
       </p>
-    </div>
+    </section>
   );
 };
 

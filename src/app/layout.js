@@ -29,18 +29,18 @@ export default function RootLayout({ children }) {
   return (
     <>
       <html lang="en">
-        <body className={`flex flex-col h-screen justify-between`}>
+        <body className={`flex text-dgray flex-col h-screen justify-between`}>
           <AuthProvider>
             <AccountProvider>
               <CartProvider>
-                <div className={`h-500 ${gfkum.className} `}>
+                <section className={`h-500 ${gfkum.className} `}>
                   <Header />
-                </div>
-                <div
+                </section>
+                <section
                   className={`container mx-auto px-9 h-500 max-w-screen-xl ${gfmon.className}`}
                 >
                   {children}
-                </div>
+                </section>
                 <Footer className={`h-500 ${gfkum.className}`} />
                 <Toaster position="top-center" reverseOrder={false} />
               </CartProvider>

@@ -47,7 +47,7 @@ export default function Home() {
     <>
       <main>
         <div className={styles.myContainer}>
-          <div>
+          <section>
             <h2 className="container m-auto text-8xl mt-16">We are </h2>
             <h1 className="container m-auto text-8xl my-4 ">duck-fferent.</h1>
             <h3 className="container m-auto text-2xl mb-6 ">
@@ -56,8 +56,8 @@ export default function Home() {
             <h3 className="container m-auto text-2xl -mt-6 -mr-[45px] text-right ">
               And in the world.
             </h3>
-          </div>
-          <div>
+          </section>
+          <section>
             <Image
               className="myImage ml-2"
               src={"/educk2.png"}
@@ -66,14 +66,14 @@ export default function Home() {
               height={400}
               priority
             />
-          </div>
-        </div>
+          </section>
+        </section>
 
         <div className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
           <Link href="/auth/register">
             <Button>Get Started</Button>
           </Link>
-        </div>
+        </section>
       </main>
     </>
   );

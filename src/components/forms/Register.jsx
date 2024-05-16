@@ -38,7 +38,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <section>
       <div className="flex justify-center rounded-xl p-8 bg-dgray mt-4">
         <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-wrap mb-6">
@@ -51,7 +51,7 @@ const Register = () => {
                 label={"First name"}
                 errorMessage={"First name is required"}
               />
-            </div>
+            </section>
             <div className="w-full md:w-1/2 px-3">
               <InputText
                 register={register}
@@ -61,8 +61,8 @@ const Register = () => {
                 label={"Last name"}
                 errorMessage={"Last name is required"}
               />
-            </div>
-          </div>
+            </section>
+          </section>
           {/* Date of Birth */}
           <div className="flex flex-wrap mb-6">
             <div className="w-full px-3">
@@ -75,8 +75,8 @@ const Register = () => {
                 label={"Date of Birth"}
                 errorMessage={"Date of Birth is required"}
               />
-            </div>
-          </div>
+            </section>
+          </section>
           {/* Email and Confirm Email */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full px-3">
@@ -102,8 +102,8 @@ const Register = () => {
                 watch={watch}
                 needValidate
               />
-            </div>
-          </div>
+            </section>
+          </section>
           {/* Password and Confirm Password */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full px-3">
@@ -129,8 +129,8 @@ const Register = () => {
                 watch={watch}
                 needValidate
               />
-            </div>
-          </div>
+            </section>
+          </section>
           <div className="flex flex-wrap  mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputText
@@ -141,7 +141,7 @@ const Register = () => {
                 label={"Address"}
                 errorMessage={"Address is required"}
               />
-            </div>
+            </section>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <InputText
                 register={register}
@@ -152,8 +152,8 @@ const Register = () => {
                 label={"Zip code"}
                 errorMessage={"Zip code is required"}
               />
-            </div>
-          </div>
+            </section>
+          </section>
           {/* Country and City */}
           <div className="flex flex-wrap  mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -166,7 +166,7 @@ const Register = () => {
                 errorMessage={"Country is required"}
                 options={countries}
               />
-            </div>
+            </section>
             <div className="w-full md:w-1/2 px-3">
               <label
                 className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
@@ -192,8 +192,8 @@ const Register = () => {
               {errors.city && (
                 <span className="text-red-500 mt-1">{errors.city.message}</span>
               )}
-            </div>
-          </div>
+            </section>
+          </section>
           {/* Submit button */}
           <div className="flex flex-wrap mt-8 mb-6 justify-center">
             <Button
@@ -202,10 +202,10 @@ const Register = () => {
             >
               Sign up
             </Button>
-          </div>
+          </section>
         </form>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

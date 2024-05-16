@@ -9,10 +9,10 @@ const Cards = () => {
       <table className="mt-[50px] mb-[50px] mx-auto shadow-2xl font-[Poppins] border-2 border-white w-6/12 overflow-hidden">
         <thead className="text-white">
           <tr>
-            <th className="py-3 bg-yellow-400">Looks</th>
-            <th className="py-3 bg-yellow-400">Card Nanme</th>
-            <th className="py-3 bg-yellow-400">Perks</th>
-            <th className="py-3 bg-yellow-400"></th>
+            <th className="py-3 bg-myellow">Looks</th>
+            <th className="py-3 bg-myellow">Card Nanme</th>
+            <th className="py-3 bg-myellow">Perks</th>
+            <th className="py-3 bg-myellow"></th>
           </tr>
         </thead>
         <tbody className=" text-center">

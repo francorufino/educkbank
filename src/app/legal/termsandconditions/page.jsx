@@ -3,7 +3,7 @@ import React from "react";
 
 const TermsAndConditions = () => {
   return (
-    <div>
+    <section>
       <h2>Terms and Conditions</h2>
       <p>
         By using eDuck Bank's services, including our accounts, cards,
@@ -52,7 +52,7 @@ const TermsAndConditions = () => {
         If you have any questions or concerns about our Terms and Conditions,
         please contact us at terms@educkbank.com.
       </p>
-    </div>
+    </section>
   );
 };
 

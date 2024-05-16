@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const About = () => {
   return (
-    <div>
+    <section>
       <h1 className="text-6xl mt-8 mb-8">Welcome to Educk Bank</h1>
       <Image
         src={"/piggybank.jpeg"}
@@ -55,12 +55,12 @@ const About = () => {
         Thank you for choosing eDuck Bank as your trusted financial partner. We
         look forward to serving you and your family!
       </p>
-      <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+      <section className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
         <Button className="mt-10 ml-9">
           <GoBack />
         </Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

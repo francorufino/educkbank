@@ -91,11 +91,11 @@ const linksLegal = [
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="bg-gray-500 mt-12">
-        <div className="mx-auto w-full max-w-screen-xl">
-          <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-            <div>
+    <section>
+      <footer className="bg-dgray mt-12">
+        <section className="mx-auto w-full max-w-screen-xl">
+          <section className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+            <section>
               <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
                 Company
               </h2>
@@ -114,8 +114,8 @@ const Footer = () => {
                   </ul>
                 );
               })}
-            </div>
-            <div>
+            </section>
+            <section>
               <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
                 Services and Membership
               </h2>
@@ -134,8 +134,8 @@ const Footer = () => {
                   </ul>
                 );
               })}
-            </div>
-            <div>
+            </section>
+            <section>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Initiatives and programs
               </h2>
@@ -154,8 +154,8 @@ const Footer = () => {
                   </ul>
                 );
               })}
-            </div>
-            <div>
+            </section>
+            <section>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Legal
               </h2>
@@ -174,14 +174,14 @@ const Footer = () => {
                   </ul>
                 );
               })}
-            </div>
-          </div>
-          <div className="px-4 py-6 bg-gray-500  md:flex md:items-center md:justify-between">
+            </section>
+          </section>
+          <section className="px-4 py-6 bg-gray-500  md:flex md:items-center md:justify-between">
             <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
               © 2024 <a href="https://flowbite.com/">eDuck Bank™</a>. All Rights
               Reserved.
             </span>
-            <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+            <section className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
               <a
                 href="#"
                 className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -273,11 +273,11 @@ const Footer = () => {
                 </svg>
                 <span className="sr-only">Dribbble account</span>
               </a>
-            </div>
-          </div>
-        </div>
+            </section>
+          </section>
+        </section>
       </footer>
-    </div>
+    </section>
   );
 };
 

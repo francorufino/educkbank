@@ -1,6 +1,6 @@
 import React from "react";
 
-const getPostById = async (id) => {
+const getPostById = async id => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
@@ -16,10 +16,10 @@ const PostDetail = async ({ params }) => {
   console.log("msg vindo do pages do posts");
 
   return (
-    <div>
+    <section>
       <h2>{post.title}</h2>
       <p>{post.body}</p>
-    </div>
+    </section>
   );
 };
 

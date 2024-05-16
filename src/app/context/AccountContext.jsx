@@ -16,7 +16,7 @@ export const AccountProvider = ({ children }) => {
       {
         amount,
         type,
-        description, // Make sure description is provided
+        description,
         date,
         account,
       },
@@ -25,18 +25,23 @@ export const AccountProvider = ({ children }) => {
 
   const depositChecking = amount => {
     setAccountChecking(prev => prev + amount);
-    logTransaction(amount, "credit", "Deposit to Checking", "Checking");
+    logTransaction(amount, "deposit", "Deposit to Checking", "Checking");
   };
 
   const depositSavings = amount => {
     setAccountSavings(prev => prev + amount);
-    logTransaction(amount, "credit", "Deposit to Savings", "Savings");
+    logTransaction(amount, "deposit", "Deposit to Savings", "Savings");
   };
 
   const withdrawChecking = amount => {
     if (amount <= accountChecking) {
       setAccountChecking(prev => prev - amount);
-      logTransaction(amount, "debit", "Withdrawal from Checking", "Checking");
+      logTransaction(
+        amount,
+        "withdraw",
+        "Withdrawal from Checking",
+        "Checking"
+      );
       return true;
     } else {
       return false;
@@ -46,7 +51,7 @@ export const AccountProvider = ({ children }) => {
   const withdrawSavings = amount => {
     if (amount <= accountSavings) {
       setAccountSavings(prev => prev - amount);
-      logTransaction(amount, "debit", "Withdrawal from Savings", "Savings");
+      logTransaction(amount, "withdraw", "Withdrawal from Savings", "Savings");
       return true;
     } else {
       return false;
@@ -67,7 +72,12 @@ export const AccountProvider = ({ children }) => {
 
   const payBill = (amount, billType, provider) => {
     setAccountChecking(prev => prev - amount);
-    logTransaction(amount, "debit", `${provider} ${billType}`, "Checking");
+    logTransaction(amount, "paybill", `${provider} ${billType}`, "Checking");
+  };
+
+  const payCard = (amount, billType, provider) => {
+    setAccountChecking(prev => prev - amount);
+    logTransaction(amount, "paycard", `${provider} ${billType}`, "Checking");
   };
 
   return (
@@ -83,6 +93,7 @@ export const AccountProvider = ({ children }) => {
         transferToSavings,
         payBill,
         transactions,
+        payCard,
       }}
     >
       {children}

@@ -6,23 +6,23 @@ import Button from "@/components/button/Button";
 
 const page = () => {
   return (
-    <div>
-      <h3 className="text-[#ec552a] font-black text-2xl mt-12">
+    <section>
+      <h3 className="text-morange font-black text-2xl mt-12">
         Quack Clubhouse
       </h3>
       <div className=" mt-4 mb-4 rounded-md">
         <p>
-          <span className="text-[#ec552a] font-bold">When:</span> Every Saturday
+          <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold">Time:</span> 7:00 pm to
-          10:00 pm
+          <span className="text-morange font-bold">Time:</span> 7:00 pm to 10:00
+          pm
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold ">Where:</span>{" "}
+          <span className="text-morange font-bold ">Where:</span>{" "}
           <span className="underline">The Quack House</span>
         </p>
-      </div>
+      </section>
       {/* <Image
         src={"/firepit.jpg"}
         width={300}
@@ -62,7 +62,7 @@ const page = () => {
         {" "}
         <br />
         <p className="font-bold text-lg">Some photos of the Quack Clubhouse</p>
-      </div>
+      </section>
       <br />
       <div className="flex flex-wrap justify-center">
         <Image
@@ -144,13 +144,13 @@ const page = () => {
           className=" rounded-lg mr-4 mb-4"
           alt="friends talking"
         />
-      </div>
+      </section>
 
       <div className="flex justify-center mt-8 mb-4">
         <Button>Join Quack Clubhouse</Button>
-      </div>
-      <div className="flex justify-center underline"> </div>
-    </div>
+      </section>
+      <div className="flex justify-center underline"> </section>
+    </section>
   );
 };
 

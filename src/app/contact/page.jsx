@@ -31,7 +31,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
+    <section>
       <Head>
         <title>Contact Us</title>
         <meta
@@ -64,9 +64,9 @@ const ContactPage = () => {
                 name="name"
                 id="name"
                 placeholder="Full Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-mlilas bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
-            </div>
+            </section>
             <div className="mb-5">
               <label
                 for="email"
@@ -79,9 +79,9 @@ const ContactPage = () => {
                 name="email"
                 id="email"
                 placeholder="example@domain.com"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-mlilas bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
-            </div>
+            </section>
             <div className="mb-5">
               <label
                 for="subject"
@@ -94,9 +94,9 @@ const ContactPage = () => {
                 name="subject"
                 id="subject"
                 placeholder="Enter your subject"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full rounded-md border border-mlilas bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
-            </div>
+            </section>
             <div className="mb-5">
               <label
                 for="message"
@@ -109,20 +109,20 @@ const ContactPage = () => {
                 name="message"
                 id="message"
                 placeholder="Type your message"
-                className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full resize-none rounded-md border border-mlilas bg-white py-3 px-6 text-base font-medium text-dgray outline-none focus:border-[#6A64F1] focus:shadow-md"
               ></textarea>
-            </div>
-            <div>
-              <button className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none">
+            </section>
+            <section>
+              <button className="hover:shadow-form rounded-md bg-mlilas py-3 px-8 text-base font-semibold text-white outline-none">
                 Submit
               </button>
-            </div>
+            </section>
           </form>
-        </div>
-      </div>
+        </section>
+      </section>
 
       {/* <form onSubmit={handleSubmit}>
-        <div>
+        <section>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -132,8 +132,8 @@ const ContactPage = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+        </section>
+        <section>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -143,8 +143,8 @@ const ContactPage = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div>
+        </section>
+        <section>
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
@@ -153,10 +153,10 @@ const ContactPage = () => {
             onChange={handleChange}
             required
           ></textarea>
-        </div>
+        </section>
         <button type="submit">Submit</button>
       </form> */}
-    </div>
+    </section>
   );
 };
 

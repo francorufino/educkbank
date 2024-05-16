@@ -24,7 +24,7 @@ const Posts = async () => {
   const posts = await getPosts();
 
   return (
-    <div>
+    <section>
       <h1>Posts</h1>
       <ul>
         {posts.map(post => (
@@ -33,7 +33,7 @@ const Posts = async () => {
           </Link>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

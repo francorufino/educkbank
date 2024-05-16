@@ -20,11 +20,11 @@ const QtySelector = ({ item }) => {
   };
 
   return (
-    <div className={`flex flex-col justify-end gap-5 mt-6 `}>
+    <section className={`flex flex-col justify-end gap-5 mt-6 `}>
       {item.inStock === 0 ? (
         <span className="text-morange font-bold">Out of stock</span>
       ) : (
-        <div
+        <section
           className={`flex flex-col gap-4 ${
             item.inStock === 0 ? "opacity-30" : "opacity-100"
           }`}
@@ -37,9 +37,9 @@ const QtySelector = ({ item }) => {
           <Button className="w-full" onClick={handleAdd}>
             {pathname === "/cart/cartpage" ? "Update cart" : "Add to cart"}
           </Button>
-        </div>
+        </section>
       )}
-    </div>
+    </section>
   );
 };
 

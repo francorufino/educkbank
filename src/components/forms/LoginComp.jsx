@@ -8,7 +8,7 @@
 //   return (
 //     <>
 //       <h1>LOGIN page...</h1>
-//       <div>
+//       <section>
 //         <h2>Crear usuario:</h2>
 //         <button className="bg-red-500" onClick={createUser}>
 //           Crear usuario
@@ -17,7 +17,7 @@
 //         <button className="bg-green-500" onClick={login}>
 //           Iniciar sesion
 //         </button>
-//       </div>
+//       </section>
 //     </>
 //   );
 // }
@@ -65,7 +65,7 @@ const Login = () => {
               errorMessage={"Email is required"}
               inputKey="email"
             />
-          </div>
+          </section>
           {/* Password */}
           <div className="mb-6">
             <InputText
@@ -77,16 +77,16 @@ const Login = () => {
               inputKey="password"
               type="password"
             />
-          </div>
+          </section>
 
           <div className="flex justify-center">
             <Button disabled={loading || Object.keys(errors).length > 0}>
               Login
             </Button>
-          </div>
+          </section>
         </form>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

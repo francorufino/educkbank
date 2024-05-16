@@ -4,25 +4,49 @@ import Button from "@/components/button/Button";
 import Image from "next/image";
 
 const page = () => {
+  const images = [
+    "ducklingclasses2.jpg",
+    "ducklingclasses3.jpg",
+    "ducklingclasses4.jpg",
+    "ducklingclasses5.jpg",
+    "ducklingclasses6.jpg",
+    "ducklingclasses7.jpg",
+    "ducklingclasses9.jpg",
+    "ducklingclasses11.jpg",
+    "ducklingclasses12.jpg",
+    "ducklingclasses14.jpg",
+    "ducklingclasses15.jpg",
+    "ducklingcoding.jpg",
+    "ducklingcode3.jpg",
+    "ducklingcoding1.jpg",
+    "duclingclasses.jpg",
+    "ducklingbreak.jpg",
+    "duckbreak2.jpg",
+    "codingclasses1.jpg",
+    "codingclasses2.jpg",
+    "ducklingexcel.jpg",
+    "duclingrobotics.jpg",
+  ];
+
   return (
-    <div>
-      <h3 className="text-[#ec552a] font-black text-2xl mt-12">
+    <section>
+      <h3 className="text-morange font-black text-2xl mt-12">
         Duckling Clubhouse
       </h3>
-      <div className=" mt-4 mb-4 rounded-md">
+      <section className=" mt-4 mb-4 rounded-md">
         <p>
-          <span className="text-[#ec552a] font-bold">When:</span> Every Saturday
+          <span className="text-morange font-bold">When:</span> Every Saturday
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold">Time:</span> 9:00 am to
-          12:00 pm <span className="text-[#ec552a] font-black"> OR </span>{" "}
-          2:00pm to 5:00 pm
+          <span className="text-morange font-bold">Time:</span> 9:00 am to 12:00
+          pm <span className="text-morange font-black"> OR </span> 2:00pm to
+          5:00 pm
         </p>
         <p>
-          <span className="text-[#ec552a] font-bold ">Where:</span>{" "}
+          <span className="text-morange font-bold ">Where:</span>{" "}
           <span className="underline">The Quack House</span>
         </p>
-      </div>
+      </section>
       <br />
       <Image
         src={"/duckingcoding5.jpg"}
@@ -53,10 +77,10 @@ const page = () => {
       <h2 className="font-bold text-lg">Classes</h2>
       <ul>
         <li>
-          <strong>Money Masterclass:</strong> Participants dive into the world
-          of finance with our Money Masterclass, where kids learn the basics of
-          budgeting, saving, and smart spending through engaging activities and
-          games.
+          <strong>Money Masterclass:</strong> Participants sectione into the
+          world of finance with our Money Masterclass, where kids learn the
+          basics of budgeting, saving, and smart spending through engaging
+          activities and games.
         </li>{" "}
         <br />
         <li>
@@ -139,172 +163,36 @@ const page = () => {
         skills to manage their money responsibly and contribute positively to
         society, we can create a brighter future for everyone.
       </p>
-      <div className="text-xl font-blod">
+      <section className="text-xl font-blod">
         {" "}
         <br />
         <p className="font-bold text-lg">We are so pround of our students</p>
-      </div>
+      </section>
       <br />
-      <div className="flex flex-wrap justify-center">
-        <Image
-          src={"/ducklingclasses2.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses3.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-
-        <Image
-          src={"/ducklingclasses4.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses5.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses6.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses7.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses9.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-
-        <Image
-          src={"/ducklingclasses11.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses12.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-
-        <Image
-          src={"/ducklingclasses14.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingclasses15.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingcoding.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingcode3.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingcoding1.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/duclingclasses.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingbreak.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingbreak2.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/codingclasses1.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/codingclasses2.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/ducklingexcel.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-        <Image
-          src={"/duclingrobotics.jpg"}
-          width={330}
-          height={500}
-          className=" rounded-lg mr-4 mb-4"
-          alt="friends talking"
-        />
-      </div>
-      <div className="flex justify-center mt-8 mb-4">
+      <section className="flex flex-wrap justify-center">
+        {images.map((src, index) => (
+          <section
+            key={index}
+            className="relative w-96 h-96 rounded-lg mr-4 mb-4"
+          >
+            <Image
+              src={`/${src}`}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+              alt="children in class"
+            />
+          </section>
+        ))}
+      </section>
+      <section className="flex justify-center mt-8 mb-4">
         <Button>Join Duckling Clubhouse</Button>
-      </div>
-      <div className="flex justify-center underline">
+      </section>
+      <section className="flex justify-center underline">
         {" "}
         <p>Photo Gallery</p>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

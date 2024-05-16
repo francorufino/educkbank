@@ -13,7 +13,7 @@ const ProductDetail = ({ item }) => {
             layout="fill"
             className="rounded-lg object-cover"
           />
-        </div>
+        </section>
         <div className="basis-1/2 flex flex-col justify-center text-black ">
           <div className="justify-center text-center border-2 border-dgray p-8">
             {" "}
@@ -23,12 +23,12 @@ const ProductDetail = ({ item }) => {
             <p className="text-4xl font-semibold">$ {item.price}</p>
             <div className="flex flex-col">
               <QtySelector item={item} />
-            </div>
+            </section>
             <div className="flex justify-center mt-3">
-              <GoBack className="text-lg text-[#ec552a] underline mb-6 " />
-            </div>
-          </div>
-        </div>
+              <GoBack className="text-lg text-morange underline mb-6 " />
+            </section>
+          </section>
+        </section>
       </section>
       <section className="mt-2 flex flex-col mb-6 border-2 border-dgray">
         <div className="mx-20">
@@ -36,9 +36,9 @@ const ProductDetail = ({ item }) => {
             Description
           </h3>
           <p className="text-gray-600 pb-6">{item.description}</p>
-        </div>
+        </section>
       </section>
-    </div>
+    </section>
   );
 };
 

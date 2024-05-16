@@ -4,7 +4,7 @@ import Button from "@/components/button/Button";
 
 const eDuckFamilyMembership = () => {
   return (
-    <div>
+    <section>
       <h1 className="text-4xl mt-8">Educk Family Membership</h1>
       <p className="text-lg mt-4">
         Introducing the "eDuck Family Membership"! This exclusive membership
@@ -49,8 +49,8 @@ const eDuckFamilyMembership = () => {
 
       <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
         <Button className="mt-10 mb-10 ml-9">Join now</Button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

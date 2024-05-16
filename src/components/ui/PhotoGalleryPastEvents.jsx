@@ -80,10 +80,10 @@ const PhotoGalleryPastEvents = () => {
               className="rounded-tr-sm rounded-tl-sm"
             />
             <p className="mb-2 pt-2 border-t-2 border-dgray">{club.label}</p>
-          </div>
+          </section>
         ))}
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

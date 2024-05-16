@@ -10,9 +10,9 @@ export default function SubirImagen() {
     alert(fileUrl);
   };
   return (
-    <div>
+    <section>
       <input type="file" onChange={handleInput} />
-    </div>
+    </section>
   );
 
   //to upload multiple images:
@@ -26,10 +26,10 @@ export default function SubirImagen() {
 
   //    };
   //   return (
-  //     <div>
+  //     <section>
   //       <input type="file" multiple onChange={handleInput} />
   //           <input type="file" multiple="multiple" onChange={handleInput} />
-  //     </div>
+  //     </section>
   //   );
   // }
   // MAAAAASSS... LOGICO Q DEU ERRO, O PROFESSOR NAO MOSTROU FUNCIONANDO... SO DISSE Q ERA ASSIM
