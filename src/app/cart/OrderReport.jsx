@@ -17,23 +17,23 @@ const CartPageProductListCheckout = () => {
         </section>
       ) : ( */}
       <section>
-        <div className="flex justify-between text-lg font-semibold border-y-2  mb-4">
-          <div className="">
+        <section className="flex justify-between text-lg font-semibold border-y-2  mb-4">
+          <section className="">
             <p className="mt-4 pl-12">Products Purchased</p>
           </section>
-          <div className="flex justify-center ">
+          <section className="flex justify-center ">
             {/* <p className="my-4 pr-12">Total</p> */}
           </section>
         </section>
         {cart.map(cartItem => (
-          <div key={cartItem.id}>
-            <div className="flex justify-between border-b-2  ">
-              <div className="flex gap-4 ml-12">
+          <section key={cartItem.id}>
+            <section className="flex justify-between border-b-2  ">
+              <section className="flex gap-4 ml-12">
                 <section>
                   <p>{cartItem.title}</p>
                 </section>
               </section>
-              <div className="flex justify-center mx-10">
+              <section className="flex justify-center mx-10">
                 <p>{cartItem.quantity}</p>
                 <p className="mr-2">x</p>
                 <p> {cartItem.price}</p>
@@ -41,7 +41,7 @@ const CartPageProductListCheckout = () => {
             </section>
           </section>
         ))}
-        <div className="flex justify-end mr-10">
+        <section className="flex justify-end mr-10">
           <p className="mr-2">Total:</p>
           <p className="">
             $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}

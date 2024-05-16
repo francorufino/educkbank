@@ -31,7 +31,7 @@ const CheckoutPage = () => {
 
       <section className="flex flex-col">
         <h1 className="text-xl font-bold">Review Your Order</h1>
-        <div className="flex gap-10 bg-white p-6 rounded-xl mt-4">
+        <section className="flex gap-10 bg-white p-6 rounded-xl mt-4">
           <article className="flex flex-col flex-1">
             <CartPageProductListCheckout />
           </article>
