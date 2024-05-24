@@ -45,8 +45,8 @@ const Header = () => {
                     <Link
                       href={link.href}
                       className={`${
-                        pathname === link.href ? "text-orange-600" : ""
-                      }text-base  text-orange-200 hover:underline hover:text-indigo-50`}
+                        pathname === link.href ? "text-morange" : ""
+                      }text-base  text-white font-semibold hover:text-myellow `}
                     >
                       {link.label}
                     </Link>
@@ -57,7 +57,7 @@ const Header = () => {
             {auth.isLoggedIn && (
               <button
                 onClick={logout}
-                className="text-base  text-orange-200 hover:underline hover:text-mlilas"
+                className="text-base  text-white font-semibold hover:text-myellow "
               >
                 Log out
               </button>

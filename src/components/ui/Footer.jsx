@@ -96,7 +96,7 @@ const Footer = () => {
         <section className="mx-auto w-full max-w-screen-xl">
           <section className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
             <section>
-              <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
+              <h2 className="mb-6 text-sm font-semibold text-myellow uppercase ">
                 Company
               </h2>
               {linksCompany.map(link => {
@@ -106,7 +106,7 @@ const Footer = () => {
                       <Link
                         key={link.label}
                         href={link.href}
-                        className={`text-base text-bold text-orange-200 hover:underline hover:text-indigo-50`}
+                        className={`text-base text-bold text-white  hover:text-myellow`}
                       >
                         {link.label}
                       </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
               })}
             </section>
             <section>
-              <h2 className="mb-6 text-sm font-semibold text-indigo-50 uppercase ">
+              <h2 className="mb-6 text-sm font-semibold text-myellow uppercase ">
                 Services and Membership
               </h2>
               {linksServicesMembership.map(link => {
@@ -126,7 +126,7 @@ const Footer = () => {
                       <Link
                         key={link.label}
                         href={link.href}
-                        className={`text-base text-bold text-orange-200 hover:underline hover:text-indigo-50`}
+                        className={`text-base text-bold text-white  hover:text-myellow`}
                       >
                         {link.label}
                       </Link>
@@ -136,7 +136,7 @@ const Footer = () => {
               })}
             </section>
             <section>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-myellow uppercase">
                 Initiatives and programs
               </h2>
               {linksInitiativesPrograms.map(link => {
@@ -146,7 +146,7 @@ const Footer = () => {
                       <Link
                         key={link.label}
                         href={link.href}
-                        className={`text-base text-bold text-orange-200 hover:underline hover:text-indigo-50`}
+                        className={`text-base text-bold text-white  hover:text-myellow`}
                       >
                         {link.label}
                       </Link>
@@ -156,7 +156,7 @@ const Footer = () => {
               })}
             </section>
             <section>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-myellow uppercase">
                 Legal
               </h2>
               {linksLegal.map(link => {
@@ -166,7 +166,7 @@ const Footer = () => {
                       <Link
                         key={link.label}
                         href={link.href}
-                        className={`text-base text-bold text-orange-200 hover:underline hover:text-indigo-50`}
+                        className={`text-base text-bold text-white  hover:text-myellow`}
                       >
                         {link.label}
                       </Link>
