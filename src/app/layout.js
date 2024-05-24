@@ -29,7 +29,9 @@ export default function RootLayout({ children }) {
   return (
     <>
       <html lang="en">
-        <body className={`flex text-dgray flex-col h-screen justify-between`}>
+        <body
+          className={`flex text-dgray flex-col bg-mlilas h-screen justify-between`}
+        >
           <AuthProvider>
             <AccountProvider>
               <CartProvider>

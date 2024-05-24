@@ -52,7 +52,7 @@ const CartPageProductList = () => {
                         <QtySelector item={cartItem} />
                         <BtnSmall
                           onClick={() => deleteItemInCart(cartItem)}
-                          className="bg-mlilas underline text-dgray my-4"
+                          className="!bg-mlilas underline text-morange my-4"
                         >
                           Delete
                         </BtnSmall>

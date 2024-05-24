@@ -18,10 +18,10 @@ const RegisterPage = () => {
 
   return (
     <>
-      <h1 className="text-2xl mt-8">
+      <h1 className="text-3xl  mt-8">
         Hello there, we are very happy to see you here!
       </h1>
-      <h1 className="text-2xl mt-2">Let's get you started!</h1>
+      <h1 className="text-3xl mt-2 ">Let's get you started!</h1>
 
       <section className="flex flex-wrap justify-center mt-12 mb-8">
         <section className="justify-center">

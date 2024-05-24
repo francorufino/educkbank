@@ -3,11 +3,13 @@ import React from "react";
 import Button from "@/components/button/Button";
 import GoBack from "@/components/ui/GoBack";
 import Image from "next/image";
+import TitleH1 from "@/components/ui/TitleH1";
+import TitleH2 from "@/components/ui/TitleH2";
 
 const About = () => {
   return (
     <section>
-      <h1 className="text-6xl mt-8 mb-8">Welcome to Educk Bank</h1>
+      <TitleH1 className="text-3xl mt-8 mb-8">Welcome to Educk Bank</TitleH1>
       <Image
         src={"/piggybank.jpeg"}
         width={600}
@@ -21,7 +23,7 @@ const About = () => {
         empowerment and providing innovative solutions to help you achieve your
         financial goals.
       </p>
-      <h2 className="text-3xl mt-8">Our Mission</h2>
+      <TitleH2>Our Mission</TitleH2>
       <p className="text-lg mt-4">
         Our mission is to provide a safe and secure environment for families to
         learn, save, and grow together. We strive to offer innovative banking
@@ -29,21 +31,21 @@ const About = () => {
         and adults, fostering a culture of financial responsibility and
         empowerment.
       </p>
-      <h2 className="text-3xl mt-8">What We Offer</h2>
+      <TitleH2 className="text-2xl mt-8">What We Offer</TitleH2>
       <p className="text-lg mt-4">
         At eDuck Bank, we offer a wide range of products and services designed
         to meet the diverse needs of our customers. From our Duckling and adults
         and parents Accounts to our special memberships to our exciting
         clubhouses, we have something for everyone.
       </p>
-      <h2 className="text-3xl mt-8">Annual Duck Dash</h2>
+      <TitleH2 className="text-2xl mt-8">Annual Duck Dash</TitleH2>
       <p className="text-lg mt-4">
         Join us for the Annual Duck Dash, a fun-filled event where families can
         enjoy eco-friendly duck racing, interactive games, and educational
         activities that promote financial literacy and family bonding. It's a
         quack-tastic adventure you won't want to miss!
       </p>
-      <h2 className="text-3xl mt-8">Educk Bank Community</h2>
+      <TitleH2 className="text-2xl mt-8">Educk Bank Community</TitleH2>
 
       <p className="text-lg mt-4">
         At eDuck Bank, we believe in giving back to the community. That's why we

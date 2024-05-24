@@ -1,58 +1,66 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
 const TermsAndConditions = () => {
   return (
-    <section>
-      <h2>Terms and Conditions</h2>
+    <div>
+      <h1>Terms and Conditions for eDuck Bank</h1>
       <p>
-        By using eDuck Bank's services, including our accounts, cards,
-        investment, and financing options, you agree to abide by the following
-        Terms and Conditions:
+        These Terms and Conditions govern your use of the eDuck Bank website and
+        services. By accessing our website or using our services, you agree to
+        abide by these terms. If you do not agree with any part of these terms,
+        please refrain from using our website and services.
       </p>
-
-      <h3>Account and Card Usage</h3>
+      <h2>1. Acceptance of Terms</h2>
       <p>
-        You are responsible for maintaining the security of your account
-        credentials and card details. Any unauthorized use of your account or
-        card must be reported immediately to prevent fraudulent activity.
+        By accessing our website or using our services, you agree to be bound by
+        these Terms and Conditions, our Privacy Policy, and any additional terms
+        and conditions that may apply to specific services.
       </p>
-
-      <h3>Investment and Financing</h3>
+      <h2>2. Use of Services</h2>
       <p>
-        Our investment and financing products are subject to specific terms and
-        conditions outlined in the respective agreements. Please review the
-        terms carefully before proceeding with any investment or loan
-        application.
+        You agree to use our services only for lawful purposes and in compliance
+        with all applicable laws and regulations. You may not use our services
+        for any illegal or unauthorized purpose.
       </p>
-
-      <h3>Privacy and Security</h3>
+      <h2>3. Intellectual Property</h2>
       <p>
-        Your privacy is important to us, and we take measures to protect your
-        personal information in accordance with our Privacy Policy. We employ
-        advanced security measures to safeguard your data and prevent
-        unauthorized access.
+        All content and materials available on our website, including but not
+        limited to text, graphics, logos, button icons, images, and software,
+        are the property of eDuck Bank or its licensors and are protected by
+        copyright laws.
       </p>
-
-      <h3>Compliance</h3>
+      <h2>4. Limitation of Liability</h2>
       <p>
-        You agree to comply with all applicable laws and regulations governing
-        your use of our banking services. Any violation of these terms may
-        result in the termination of your account and legal action.
+        eDuck Bank shall not be liable for any direct, indirect, incidental,
+        special, or consequential damages arising out of or in any way connected
+        with your use of our website or services, even if advised of the
+        possibility of such damages.
       </p>
-
-      <h3>Updates to Terms</h3>
+      <h2>5. Governing Law</h2>
       <p>
-        We reserve the right to modify or update these Terms and Conditions at
-        any time without prior notice. Your continued use of our services
-        constitutes acceptance of the revised terms.
+        These Terms and Conditions shall be governed by and construed in
+        accordance with the laws of [Your Jurisdiction]. Any dispute arising out
+        of or relating to these terms shall be subject to the exclusive
+        jurisdiction of the courts in [Your Jurisdiction].
       </p>
-
+      <h2>6. Changes to Terms</h2>
       <p>
-        If you have any questions or concerns about our Terms and Conditions,
-        please contact us at terms@educkbank.com.
+        eDuck Bank reserves the right to update or modify these Terms and
+        Conditions at any time without prior notice. Your continued use of our
+        website or services after any such changes constitutes acceptance of the
+        updated terms.
       </p>
-    </section>
+      <h2>7. Contact Us</h2>
+      <p>
+        If you have any questions or concerns about these Terms and Conditions,
+        please contact us at{" "}
+        <a href="mailto:contact@educkbank.com">contact@educkbank.com</a>.
+      </p>
+      <p>
+        Thank you for choosing eDuck Bank. We strive to provide transparent and
+        fair terms for our customers.
+      </p>
+    </div>
   );
 };
 

@@ -55,7 +55,7 @@ const CartPageProductListCheckout = () => {
         </section>
       ) : (
         <section>
-          <section className="flex justify-between text-xl font-semibold border-y-2 border-white mb-4">
+          <section className="flex justify-between text-xl font-semibold border-b-2 border-white mb-4">
             <section className="">
               <p className="my-4 pl-12">Product</p>
             </section>
@@ -66,14 +66,14 @@ const CartPageProductListCheckout = () => {
           {cart.map(cartItem => (
             <section key={cartItem.id}>
               <section className="flex justify-between mb-4 border-b-2 border-white ">
-                <section className="flex gap-4 ml-12">
+                <section className="flex gap-4  ml-12">
                   <section>
                     <Image
                       src={cartItem.image}
                       alt={cartItem.name}
                       width={50}
                       height={50}
-                      className="object-cover"
+                      className="object-cover mb-3"
                     />
                   </section>
                   <section>
@@ -88,10 +88,17 @@ const CartPageProductListCheckout = () => {
               </section>
             </section>
           ))}
-          <section className="flex justify-end mr-12">
+          <section className="flex justify-end pr-10">
             <p className="mr-2 font-semibold">Total:</p>
             <p className="font-semibold">
-              $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}
+              {(Math.round(cartTotalValue * 100) / 100).toLocaleString(
+                "en-US",
+                {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 2,
+                }
+              )}
             </p>
           </section>
           <section className="flex justify-center mt-8 mb-4">

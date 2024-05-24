@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Head from "next/head";
+import TitleH1 from "@/components/ui/TitleH1";
+import TitleH2 from "@/components/ui/TitleH2";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +35,7 @@ const ContactPage = () => {
   return (
     <section>
       <Head>
-        <title>Contact Us</title>
+        <section>Contact Us</section>
         <meta
           name="description"
           content="Contact us for any inquiries or feedback."
@@ -41,9 +43,23 @@ const ContactPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Contact Us</h1>
+      <section className="flex flex-wrap items-center justify-center p-12">
+        <section className="mx-4 text-center">
+          <TitleH1>Need to talk to us? </TitleH1>
+          <TitleH2>Send us a message! </TitleH2>{" "}
+          <section className="text-left">
+            <hr className="h-px  mt-8 mb-4 bg-white border-0 "></hr>
+            <p className="mb-4">other options:</p>
+            <p>Email: contact@educkbank.com.</p>
+            <p>Call: +1 (222) E-DUCK-BANK </p>
+            <p className="ml-14">(+1 222 3-3825-2265)</p>
+            <p>
+              Live chat <span className="text-morange">clicking here</span>
+            </p>
+            <p>Mail us at: </p>
+          </section>
+        </section>
 
-      <section className="flex items-center justify-center p-12">
         {/* <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com --> */}
         <section className="mx-auto w-full max-w-[550px]">

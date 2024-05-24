@@ -30,8 +30,8 @@ const CheckoutPage = () => {
       </Head>
 
       <section className="flex flex-col">
-        <h1 className="text-xl font-bold">Review Your Order</h1>
-        <section className="flex gap-10 bg-white p-6 rounded-xl mt-4">
+        <h1 className="text-xl mt-8 font-bold">Review Your Order</h1>
+        <section className="flex gap-10 bg-mlilas border-2 border-white p-6 rounded-xl mt-4">
           <article className="flex flex-col flex-1">
             <CartPageProductListCheckout />
           </article>

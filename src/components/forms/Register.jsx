@@ -39,7 +39,7 @@ const Register = () => {
 
   return (
     <section>
-      <section className="flex justify-center rounded-xl p-8 bg-dgray mt-4">
+      <section className="flex justify-center rounded-xl p-8 bg-mlilas border-4 border-dgray mt-4">
         <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
           <section className="flex flex-wrap mb-6">
             <section className="w-full md:w-1/2 px-3 mb-6 md:mb-0">

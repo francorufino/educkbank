@@ -16,7 +16,7 @@ const ProfileImage = () => {
         </section> */}
 
         <section className="relative w-24 h-24">
-          <section className="flex items-center justify-center text-3xl font-bold bg-myellow rounded-full w-full h-full">
+          <section className="flex items-center justify-center text-3xl text-black font-bold bg-myellow rounded-full w-full h-full">
             {auth.metadata.first_name[0]}
           </section>
           <section className="absolute top-0 right-0 h-6 w-6 my-1 border-4 border-white rounded-full bg-green-400 z-2"></section>

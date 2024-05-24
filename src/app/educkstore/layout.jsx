@@ -3,6 +3,7 @@
 import CategoriesMenu from "@/components/products/CategoriesMenu";
 import React from "react";
 import { usePathname } from "next/navigation";
+import TitleH1 from "@/components/ui/TitleH1";
 
 const EduckStoreLayout = ({ children }) => {
   const pathname = usePathname();
@@ -10,7 +11,7 @@ const EduckStoreLayout = ({ children }) => {
 
   return (
     <section>
-      <h2 className="text-3xl mt-8 pb-4 ">Educk Store</h2>
+      <TitleH1 className="text-3xl mt-8 pb-4 ">Educkstore</TitleH1>
       {!isADetailPage && <CategoriesMenu />}
       {children}
     </section>

@@ -61,7 +61,7 @@ const DashboardPage = () => {
 
   useEffect(() => {
     if (!auth.user && !loading) {
-      toast.error("You need an account to see the dashboard");
+      toast.error("You need to login to see the dashboard");
       push("/auth");
     }
   }, [auth, loading]);
@@ -128,8 +128,8 @@ const DashboardPage = () => {
           <section className="flex items-center">
             <ProfileImage />
             <section className="font-bold text-3xl">
-              <p className="tracking-widest ">
-                Hello, <span>{auth?.metadata?.first_name}</span>
+              <p className="tracking-widest text-black">
+                Hello <span>{auth?.metadata?.first_name},</span>
               </p>
             </section>{" "}
           </section>
@@ -297,7 +297,7 @@ const DashboardPage = () => {
                             </td>
                             <td className="text-sm text-left">{order.id}</td>
                             <td className="text-sm text-left">
-                              ${" "}
+                              {" "}
                               {order.products
                                 .map(
                                   product => product.quantity * product.price
@@ -305,7 +305,12 @@ const DashboardPage = () => {
                                 .reduce(
                                   (total, currentValue) => total + currentValue,
                                   0
-                                )}
+                                )
+                                .toLocaleString("en-US", {
+                                  style: "currency",
+                                  currency: "USD",
+                                  minimumFractionDigits: 2,
+                                })}
                             </td>
                             <td className="text-sm text-left">
                               <button
@@ -440,7 +445,7 @@ function OrderDetailModal({ order, onClose }) {
 
   return (
     <section className="flex  justify-center fixed top-0 left-0 w-screen h-screen bg-black/80">
-      <section className="relative bg-white rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
+      <section className="relative bg-mlilas rounded-lg p-6 w-1/2 h-1/2 overflow-y-auto">
         <section className="flex items-center">
           <span className="text-xl font-bold flex flex-wrap mr-2">
             Order #:{" "}
@@ -456,7 +461,7 @@ function OrderDetailModal({ order, onClose }) {
             <section key={orderProduct.id}>
               <section className="flex justify-between mb-4 border-b-2 border-white ">
                 <section className="flex gap-4 ml-12">
-                  <section className="mb-4 ">
+                  <section className="mb-4 ml-3">
                     <Image
                       src={orderProduct.image}
                       alt={orderProduct.name}
@@ -465,7 +470,7 @@ function OrderDetailModal({ order, onClose }) {
                       className="object-cover"
                     />
                   </section>
-                  <section>
+                  <section className="flex flex-wrap">
                     <p className="font-semibold">{orderProduct.title}</p>
                   </section>
                 </section>
@@ -480,7 +485,11 @@ function OrderDetailModal({ order, onClose }) {
           <span className="flex justify-end mt-2 items-center  font-medium ">
             Total spent:{" "}
             <span className="font-bold text-lg ml-2">
-              ${calculateTotalSpent(order).toFixed(2)}
+              {calculateTotalSpent(order).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+                minimumFractionDigits: 2,
+              })}
             </span>
           </span>
           <span></span>

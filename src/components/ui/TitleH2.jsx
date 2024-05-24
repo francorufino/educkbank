@@ -1,8 +1,10 @@
 import React from "react";
 
-const TitleH2 = () => {
+const TitleH2 = ({ children }) => {
   return (
-    <section className="text-xl font-bold text-morange">{children}</section>
+    <section className="text-2xl font-bold mt-8 mb-4 text-dgray">
+      {children}
+    </section>
   );
 };
 

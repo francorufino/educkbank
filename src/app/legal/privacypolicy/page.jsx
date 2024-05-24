@@ -1,63 +1,118 @@
 import React from "react";
 
-const PrivacyPolicy = () => {
+const PrivatePolicy = () => {
   return (
-    <section>
-      <h2>Privacy Policy</h2>
+    <div>
+      <h1>Privacy Policy for eDuck Bank</h1>
       <p>
-        At eDuck Bank, we are committed to protecting your privacy and
-        safeguarding your personal information. This Privacy Policy outlines how
-        we collect, use, and disclose your information when you use our banking
-        services, including our accounts, cards, investment, and financing
-        options.
+        <strong>Last Updated:</strong> [Date]
       </p>
-
-      <h3>Information We Collect</h3>
       <p>
-        We may collect personal information, such as your name, address, contact
-        details, and financial information, when you apply for our accounts,
-        cards, investment, or financing products. We also collect information
-        about your transactions, account activity, and usage patterns to provide
-        you with personalized services and improve your banking experience.
+        At eDuck Bank, we are committed to protecting the privacy and security
+        of your personal information. This Privacy Policy explains how we
+        collect, use, disclose, and safeguard your information when you visit
+        our website or use our services. By accessing our website or using our
+        services, you consent to the terms outlined in this Privacy Policy.
       </p>
-
-      <h3>How We Use Your Information</h3>
+      <h2>1. Information We Collect</h2>
       <p>
-        We use your information to process your applications, manage your
-        accounts, provide customer support, and offer relevant products and
-        services. Your data may also be used for risk management, fraud
-        prevention, and compliance with legal and regulatory requirements.
+        We may collect personal information from you when you interact with our
+        website or use our services. This information may include, but is not
+        limited to:
+        <ul>
+          <li>
+            Personal identification information (e.g., name, address, email
+            address, phone number)
+          </li>
+          <li>
+            Financial information (e.g., bank account details, credit/debit card
+            numbers)
+          </li>
+          <li>
+            Transaction information (e.g., account activity, payment history)
+          </li>
+          <li>Login credentials (e.g., username, password)</li>
+        </ul>
+        We may also collect non-personal information such as IP addresses,
+        browser type, operating system, and other technical information to
+        improve our services and enhance your experience.
       </p>
-
-      <h3>Information Sharing</h3>
+      <h2>2. How We Use Your Information</h2>
       <p>
-        We may share your information with third-party service providers,
-        affiliates, and regulatory authorities as necessary to deliver our
-        services and comply with legal obligations. We do not sell or rent your
-        personal information to third parties for marketing purposes.
+        We use the information we collect for various purposes, including:
+        <ul>
+          <li>Providing and maintaining our services</li>
+          <li>Processing transactions and managing accounts</li>
+          <li>Communicating with you about your account or our services</li>
+          <li>Personalizing your experience and improving our website</li>
+          <li>Detecting and preventing fraud or unauthorized access</li>
+          <li>Complying with legal and regulatory requirements</li>
+        </ul>
       </p>
-
-      <h3>Security Measures</h3>
+      <h2>3. Disclosure of Your Information</h2>
       <p>
-        We employ industry-standard security measures to protect your
-        information from unauthorized access, disclosure, alteration, or
-        destruction. Our systems are regularly monitored and updated to ensure
-        the confidentiality and integrity of your data.
+        We may disclose your personal information to third parties for the
+        following purposes:
+        <ul>
+          <li>
+            Service providers: We may share your information with trusted
+            third-party service providers who assist us in operating our
+            website, conducting business, or servicing you.
+          </li>
+          <li>
+            Legal purposes: We may disclose your information in response to a
+            subpoena, court order, or other legal request, or to protect our
+            rights or the rights of others.
+          </li>
+          <li>
+            Business transfers: In the event of a merger, acquisition, or sale
+            of assets, your information may be transferred as part of the
+            transaction.
+          </li>
+        </ul>
       </p>
-
-      <h3>Updates to Privacy Policy</h3>
+      <h2>4. Data Security</h2>
       <p>
-        We may update this Privacy Policy from time to time to reflect changes
-        in our practices or legal requirements. We encourage you to review this
-        policy periodically for any updates.
+        We implement reasonable security measures to protect your personal
+        information from unauthorized access, alteration, disclosure, or
+        destruction. However, please note that no method of transmission over
+        the internet or electronic storage is 100% secure, and we cannot
+        guarantee absolute security.
       </p>
-
+      <h2>5. Your Choices</h2>
       <p>
-        If you have any questions or concerns about our Privacy Policy, please
-        contact us at privacy@educkbank.com.
+        You have the right to access, update, or delete your personal
+        information. You may also choose to opt out of certain communications or
+        services. To exercise these rights, please contact us using the
+        information provided below.
       </p>
-    </section>
+      <h2>6. Children's Privacy</h2>
+      <p>
+        Our website and services are not intended for children under the age of
+        13. We do not knowingly collect personal information from children. If
+        you believe that we have inadvertently collected information from a
+        child, please contact us immediately.
+      </p>
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>
+        We reserve the right to update or modify this Privacy Policy at any
+        time. We will notify you of any changes by posting the new Privacy
+        Policy on this page. Your continued use of our website or services after
+        any such modifications constitutes acceptance of the updated Privacy
+        Policy.
+      </p>
+      <h2>8. Contact Us</h2>
+      <p>
+        If you have any questions or concerns about this Privacy Policy or our
+        privacy practices, please contact us at{" "}
+        <a href="mailto:contact@educkbank.com">contact@educkbank.com</a>.
+      </p>
+      <p>
+        Thank you for choosing eDuck Bank. We value your trust and are committed
+        to protecting your privacy.
+      </p>
+    </div>
   );
 };
 
-export default PrivacyPolicy;
+export default PrivatePolicy;

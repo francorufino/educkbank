@@ -92,7 +92,7 @@ const linksLegal = [
 const Footer = () => {
   return (
     <section>
-      <footer className="bg-dgray mt-12">
+      <footer className="bg-dgray mt-8">
         <section className="mx-auto w-full max-w-screen-xl">
           <section className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
             <section>

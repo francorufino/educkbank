@@ -52,7 +52,7 @@ const Login = () => {
   }
 
   return (
-    <section className="bg-[#fec53b] rounded-2xl mt-4 p-8">
+    <section className="bg-myellow rounded-2xl mt-4 p-8">
       <section className="flex justify-center mt-8">
         <form className="w-full max-w-md " onSubmit={handleSubmit(onSubmit)}>
           {/* Email */}
@@ -64,6 +64,7 @@ const Login = () => {
               errors={errors}
               errorMessage={"Email is required"}
               inputKey="email"
+              className="focus:outline-none focus:ring-1 focus:ring-orange-500 transition-colors duration-300 bg-white border border- focus:bg-yellow-200 focus:border-transparent focus:border-orange-500"
             />
           </section>
           {/* Password */}
@@ -80,7 +81,10 @@ const Login = () => {
           </section>
 
           <section className="flex justify-center">
-            <Button disabled={loading || Object.keys(errors).length > 0}>
+            <Button
+              className="!bg-dgray text-white hover:!bg-morange"
+              disabled={loading || Object.keys(errors).length > 0}
+            >
               Login
             </Button>
           </section>

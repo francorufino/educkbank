@@ -28,7 +28,7 @@ const ProductCard = ({ item }) => {
       <section className="flex flex-col p-4 h-full">
         <section className="border-t ">
           <h4 className="mb-4 font-semibold">{item.title}</h4>
-          <p className="text-2xl font-semibold mb-6">${item.price}</p>
+          <p className="text-2xl font-semibold mb-6 ">${item.price}</p>
         </section>
         <section className="flex flex-1 justify-center border-t border-dgray ">
           <section>

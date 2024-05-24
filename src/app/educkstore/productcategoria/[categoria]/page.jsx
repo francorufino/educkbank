@@ -34,7 +34,7 @@ const productCategoria = async ({ params }) => {
     <main className="container m-auto flex justify-center items-center gap-12 flex-wrap">
       {productsFilterCategory.length === 0 ? (
         <section className="w-full h-screen flex justify-center items-flex-start">
-          <span className="italic text-2xl">We did Not Find Any Products</span>
+          <span className="text-2xl">We did not find any products</span>
         </section>
       ) : (
         productsFilterCategory.map(item => (
