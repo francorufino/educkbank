@@ -46,31 +46,36 @@ export default function Home() {
   return (
     <>
       <main>
-        <section className={styles.myContainer}>
+        <section className="flex flex-col justify-center text-center container lg:flex-row ">
           <section>
-            <h2 className="container m-auto text-8xl mt-16">We are </h2>
-            <h1 className="container m-auto text-8xl my-4 ">duck-fferent.</h1>
-            <h3 className="container m-auto text-2xl mb-6 ">
+            <h2 className=" text-5xl mt-16 sm:text-left sm:text-8xl">
+              We are{" "}
+            </h2>
+            <h1 className="font-bold text-4xl my-4 sm:text-left sm:text-7xl">
+              duck-fferent.
+            </h1>
+            <h3 className=" text-2xl mt-8 sm:text-left sm:text-3xl">
               We're here to make a difference in your banking experience.
             </h3>
-            <h3 className="container m-auto text-2xl -mt-6 -mr-[45px] text-right ">
+            <h3 className="text-3xl font-semibold mt-8 sm:text-left sm:text-4xl md:ml-12 lg:ml-[280px] xl:ml-[450px]">
+              {/* text-2xl -mt-6 -mr-[45px] text-right */}
               And in the world.
             </h3>
           </section>
-          <section>
+          <section className="flex justify-center items-center sm:items-end sm:justify-end ">
             <Image
-              className="myImage ml-2"
-              src={"/educk2.png"}
-              alt="yellow rubber duck"
-              width={400}
-              height={400}
+              className="-mt-24 sm:-mt-32 md:w-[300px] md:-mt-60 lg:w-[500px] lg:mt-0"
+              src={"/duckCENTEREDSemBolinhaOlho.png"}
+              alt="yellow logo duck"
+              width={200}
+              height={200}
               priority
             />
           </section>
         </section>
 
-        <section className="mx-0 min-w-full flex flex-col items-center -mt-[90px] mb-[50px]">
-          <Link href="/auth">
+        <section className=" flex flex-col justify-center items-center -mt-9 md:-mt-24 lg:-mt-40">
+          <Link href="/about">
             <Button>Get Started</Button>
           </Link>
         </section>

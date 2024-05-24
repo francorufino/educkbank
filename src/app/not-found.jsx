@@ -25,8 +25,7 @@ export default function NotFound() {
               src={"/404pageEDUCK1.gif"}
               width={200}
               height={100}
-              // className=" rounded-lg float-right ml-2"
-              alt="logo"
+              alt="lostEduckGif"
             />
           </section>
         </section>
