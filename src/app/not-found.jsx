@@ -26,6 +26,7 @@ export default function NotFound() {
               width={200}
               height={100}
               alt="lostEduckGif"
+              unoptimized
             />
           </section>
         </section>

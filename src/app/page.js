@@ -65,7 +65,7 @@ export default function Home() {
           <section className="flex justify-center items-center sm:items-end sm:justify-end ">
             <Image
               className="-mt-24 sm:-mt-32 md:w-[300px] md:-mt-60 lg:w-[500px] lg:mt-0"
-              src={"/duckCENTEREDSemBolinhaOlho.png"}
+              src={"/duckCenteredSemBolinhaOlho.png"}
               alt="yellow logo duck"
               width={200}
               height={200}
