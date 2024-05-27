@@ -176,7 +176,7 @@ const Footer = () => {
               })}
             </section>
           </section>
-          <section className="px-4 py-6 bg-gray-500  md:flex md:items-center md:justify-between">
+          <section className="px-4 py-6 bg-gray-500  flex flex-col md:flex-row md:justify-between text-center items-center ">
             <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
               © 2024 <a href="https://flowbite.com/">eDuck Bank™</a>. All Rights
               Reserved.

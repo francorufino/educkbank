@@ -80,9 +80,9 @@ const Header = () => {
       </section>
 
       <section
-        className={`md:hidden bg-dgray text-white p-4 transition-all duration-300 ease-in-out ${
+        className={`md:hidden bg-dgray text-white  transition-all duration-300 ease-in-out ${
           isMenuOpen
-            ? "max-h-screen opacity-100"
+            ? "max-h-screen opacity-100 pb-4"
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
