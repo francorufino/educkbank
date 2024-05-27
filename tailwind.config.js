@@ -19,6 +19,7 @@ module.exports = {
         llav: "#eef2ff",
         lav: "#8a98df",
         dgray: "#6b7280",
+        lgray: "#555875",
         myellow: "#fec53b",
         morange: "#fc4836",
         mlilas: "#e6e6fa",

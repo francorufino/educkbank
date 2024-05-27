@@ -11,7 +11,7 @@ const CartIcon = () => {
   );
 
   return (
-    <Link className="flex items-center gap-1" href={"/cart/cartpage"}>
+    <Link className="flex items-center gap-1 pr-8" href={"/cart/cartpage"}>
       <section>
         <Image src={"/cart.png"} width={50} height={50} alt="Cart image" />
         <span className="bg-morange text-white font-bold text-[12px] rounded-full px-2  py-[0.10rem] float-right -mt-[63px] ">
