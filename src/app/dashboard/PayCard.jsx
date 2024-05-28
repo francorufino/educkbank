@@ -33,6 +33,7 @@ const PayCard = () => {
       alert("Credit card payment successful.");
     } else {
       alert("Insufficient funds in the checking and savings accounts.");
+      setForm({ ...form, amount: "" });
     }
   };
 
@@ -57,7 +58,7 @@ const PayCard = () => {
               type="number"
               min="0.01"
               step="any"
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+              className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
               placeholder="0.00"
               value={form.amount}
               onChange={handleAmountChange}

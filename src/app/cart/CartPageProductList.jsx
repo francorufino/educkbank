@@ -60,15 +60,22 @@ const CartPageProductList = () => {
                     </section>
                   </section>
                 </section>
-                <section className="flex justify-center mx-10">
+                <section className="flex  justify-center ">
                   <p>{cartItem.quantity}</p>
-                  <p className="mr-2">x</p>
-                  <p> $ {cartItem.price}</p>
+                  <p className="pr-2">x</p>
+                  <p className="pr-12">
+                    {" "}
+                    {cartItem.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                      minimumFractionDigits: 2,
+                    })}
+                  </p>
                 </section>
               </section>
             </section>
           ))}
-          <section className="flex justify-end mr-12">
+          <section className="flex justify-end pr-12">
             <p className="mr-2">Total:</p>
             <p className="">
               $ {(Math.round(cartTotalValue * 100) / 100).toFixed(2)}

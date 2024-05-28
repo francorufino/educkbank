@@ -10,14 +10,14 @@ export const AccountProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   const logTransaction = (amount, type, description, account) => {
-    const date = new Date().toLocaleDateString(); // get the current date
+    const timestamp = new Date().toISOString(); // get the current timestamp in ISO format
     setTransactions(prev => [
       ...prev,
       {
         amount,
         type,
         description,
-        date,
+        timestamp,
         account,
       },
     ]);

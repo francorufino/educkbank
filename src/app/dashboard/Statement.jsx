@@ -11,7 +11,9 @@ import educkLogoIcon from "/public/educklogo2.png";
 
 const Statement = () => {
   const { transactions } = useAccountContext();
-
+  const sortedTransactions = [...transactions].sort((a, b) => {
+    return new Date(b.timestamp) - new Date(a.timestamp);
+  });
   return (
     <>
       <section className="mt-8 border-2 border-dgray shadow shadow-black-500/50 rounded-lg">
@@ -30,10 +32,10 @@ const Statement = () => {
             />
           </section>
           <section>
-            {!transactions || transactions.length === 0 ? (
+            {!sortedTransactions || sortedTransactions.length === 0 ? (
               <p className="text-center mb-12">No transactions yet</p>
             ) : (
-              transactions.map((transaction, index) => (
+              sortedTransactions.map((transaction, index) => (
                 <section
                   key={index}
                   className="flex mb-4 justify-between gap-6"
@@ -67,7 +69,11 @@ const Statement = () => {
                   <section className="flex gap-6">
                     <section>
                       <p>
-                        {transaction.type === "debit" ? "-" : "+"}
+                        {transaction.type === "withdraw" ? "-" : ""}
+                        {transaction.type === "paybill" ? "-" : ""}
+                        {transaction.type === "deposit" ? "+" : ""}
+                        {transaction.type === "transfer" ? "-" : ""}
+                        {transaction.type === "paycard" ? "-" : ""}
                         {transaction.amount.toLocaleString("en-US", {
                           style: "currency",
                           currency: "USD",
@@ -76,7 +82,11 @@ const Statement = () => {
                       </p>
                     </section>
                     <section>
-                      <p>Complete</p>
+                      {transaction.type !== "paybill" ? (
+                        <p>Complete</p>
+                      ) : (
+                        <p>Pending</p>
+                      )}
                     </section>
                   </section>
                 </section>

@@ -14,7 +14,7 @@ const ProductDetail = ({ item }) => {
             className="rounded-lg object-cover"
           />
         </section>
-        <section className="basis-1/2 flex flex-col justify-center text-black ">
+        <section className="basis-1/2 flex flex-col justify-center ">
           <section className="justify-center text-center border-2 border-dgray p-8">
             {" "}
             <h2 className="text-2xl font-semibold border-b border-gray-200 pb-4 mb-4">

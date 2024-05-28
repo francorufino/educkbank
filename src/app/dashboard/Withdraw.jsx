@@ -56,6 +56,7 @@ const Withdraw = () => {
       setForm({ ...form, amount: "" }); // Reset to empty string
     } else {
       alert("Insufficient funds.");
+      setForm({ ...form, amount: "" });
     }
   };
 
@@ -79,12 +80,12 @@ const Withdraw = () => {
             type="number"
             min="0.01"
             step="any"
-            className="pl-2 m-2 rounded-md focus:outline-morange"
-            placeholder="0.00" // Placeholder text
+            className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
+            placeholder="0.00"
             value={form.amount}
             onChange={handleAmountChange}
             onKeyDown={handleKeyDown}
-            autoComplete="off" // Disable autocomplete
+            autoComplete="off"
           />
         </label>
         <p>Where do you want to withdraw from?</p>
@@ -124,7 +125,7 @@ const Withdraw = () => {
           Withdraw
         </Button>
       </section>
-      <p className="text-center mb-1 mr-2 text-xs font-bold text-morange">
+      <p className="text-center mb-1 mr-2 text-xs font-bold text-morange ">
         *this transaction is only for demonstration of the system, a real
         withdrawal should be done in a physical bank
       </p>

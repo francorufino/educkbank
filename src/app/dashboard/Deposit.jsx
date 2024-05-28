@@ -29,12 +29,12 @@ const Deposit = () => {
     } else {
       setForm({ ...form, amount: newAmount });
     }
-  };
 
-  const handleKeyDown = e => {
-    const currentValue = parseFloat(form.amount);
-    if (e.key === "ArrowDown" && currentValue <= 0) {
-      e.preventDefault();
+    if (parseFloat(newAmount) < 1000000.0) {
+      setForm({ ...form, amount: newAmount });
+    } else {
+      setForm({ ...form, amount: "" });
+      alert("O limite máximo de depósito é $999,999.99");
     }
   };
 
@@ -53,7 +53,7 @@ const Deposit = () => {
       depositSavings(amount);
     }
 
-    setForm({ ...form, amount: "" }); // Reset to empty string
+    setForm({ ...form, amount: "" });
   };
 
   return (
@@ -75,14 +75,14 @@ const Deposit = () => {
             Amount you want to deposit:
             <input
               type="number"
-              min="1"
+              min="0.01"
+              max="999999.99"
               step="any"
-              className="pl-2 m-2 rounded-md focus:outline-morange"
-              placeholder="0.00" // Placeholder text
+              className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
+              placeholder="0.00"
               value={form.amount}
               onChange={handleAmountChange}
-              onKeyDown={handleKeyDown}
-              autoComplete="off" // Disable autocomplete
+              autoComplete="off"
             />
           </label>
           <p>Where do you want to deposit?</p>

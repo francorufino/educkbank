@@ -55,6 +55,7 @@ const Transfer = () => {
         setForm({ ...form, amount: "" });
       } else {
         alert("Insufficient funds in the checking account.");
+        setForm({ ...form, amount: "" });
       }
     } else if (
       form.fromAccount === "savings" &&
@@ -90,7 +91,7 @@ const Transfer = () => {
               type="number"
               min="1"
               step="any"
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+              className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
               placeholder="0.00" // Placeholder text
               value={form.amount}
               onChange={handleAmountChange}

@@ -253,14 +253,14 @@ const DashboardPage = () => {
                         Order placed
                       </th>
                       <th className="text-sm font-bold text-left">Order #</th>
-                      <th className="text-sm font-bold text-left">
+                      <th className="text-sm font-bold text-right">
                         Order total
                       </th>
                       <th className="text-sm font-bold"></th>
                     </tr>
                   )}
                 </thead>
-                <tbody className="divide-y divide-mlilas">
+                <tbody className="divide-y divide-mlilas ">
                   {orders.length === 0 ? (
                     <tr>
                       <td colSpan="4" className="py-4 text-center">
@@ -296,7 +296,7 @@ const DashboardPage = () => {
                               {new Date(date).toLocaleDateString()}
                             </td>
                             <td className="text-sm text-left">{order.id}</td>
-                            <td className="text-sm text-left">
+                            <td className="text-sm text-right">
                               {" "}
                               {order.products
                                 .map(
@@ -312,7 +312,7 @@ const DashboardPage = () => {
                                   minimumFractionDigits: 2,
                                 })}
                             </td>
-                            <td className="text-sm text-left">
+                            <td className="text-sm text-right">
                               <button
                                 onClick={() => showOrderDetail(order)}
                                 className="underline cursor-pointer text-morange"

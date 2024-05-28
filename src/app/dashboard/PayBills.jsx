@@ -46,17 +46,20 @@ const PayBills = () => {
 
   const handlePayBill = () => {
     const amount = parseFloat(form.amount);
+    const { billType, provider } = form;
     if (isNaN(amount) || amount < 0.01) {
       alert("Please enter a valid amount greater than or equal to 0.01.");
+
       return;
     }
 
     if (amount <= accountChecking) {
-      payBill(amount);
+      payBill(amount, billType, provider);
       setForm({ ...form, amount: "" });
       alert("Bill paid successfully.");
     } else {
       alert("Insufficient funds in the checking account.");
+      setForm({ ...form, amount: "" });
     }
   };
 
@@ -90,7 +93,7 @@ const PayBills = () => {
           <label>
             Bill Type:
             <select
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+              className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
               value={form.billType}
               onChange={handleBillTypeChange}
             >
@@ -121,7 +124,7 @@ const PayBills = () => {
               type="number"
               min="1"
               step="any"
-              className="pl-2 m-2 rounded-md focus:outline-morange"
+              className="pl-2 m-2 rounded-md focus:outline-morange no-spinner"
               placeholder="0.00" // Placeholder text
               value={form.amount}
               onChange={handleAmountChange}
